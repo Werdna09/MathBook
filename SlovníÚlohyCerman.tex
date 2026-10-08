@@ -1,0 +1,5245 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[a4paper, top=2.5cm, bottom=2.5cm, left=3cm, right=2.5cm]{geometry}
+\usepackage{amsmath, amssymb, mathtools}
+
+\title{Slovní úlohy}
+\author{Ondřej Škubala}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+
+% ---------------------------------
+% ------ Ú L O H A  -  č. 1 -------
+% ---------------------------------
+\newpage
+\section*{Úloha č. 1}
+
+\textbf{Zadání:}  
+Žáci jedné třídy chtějí paní učitelce věnovat lístek do divadla. Jestliže každý z nich přispěje 12 korunami, k zakoupení lístku jim bude chybět 34 korun. Přispěje-li každý žák 15 korunami, zbude jim 50 Kč. Nakonec se žáci dohodli, že každý přinese 14 korun.
+
+Vypočtěte, kolik korun třídě zbude po zakoupení lístku.  
+V záznamovém archu uveďte celý postup řešení.
+
+\bigskip
+
+\textbf{Řešení:}
+
+Označme si:
+\begin{itemize}
+    \item \(x\) \dots počet žáků,
+    \item \(y\) \dots cena lístku.
+\end{itemize}
+
+Pokud každý žák přispěje 12 Kč, vyberou dohromady
+\[
+12x.
+\]
+To ale nestačí, a bude jim chybět 34 Kč. Platí tedy:
+\[
+12x + 34 = y.
+\]
+
+Pokud každý žák přispěje 15 Kč, vyberou dohromady
+\[
+15x.
+\]
+Tentokrát už budou mít více, konkrétně o 50 Kč. Platí tedy:
+\[
+15x - 50 = y.
+\]
+
+Obě rovnice vyjadřují stejnou cenu lístku, proto je položíme sobě rovny:
+\[
+12x + 34 = 15x - 50.
+\]
+
+Rovnici upravíme:
+\[
+34 + 50 = 15x - 12x,
+\]
+\[
+84 = 3x,
+\]
+\[
+x = 28.
+\]
+
+Ve třídě je tedy \(28\) žáků.
+
+Nyní určíme cenu lístku:
+\[
+y = 12 \cdot 28 + 34 = 336 + 34 = 370.
+\]
+
+Cena lístku je tedy \(370\) Kč.
+
+Nakonec se žáci dohodli, že každý přinese 14 Kč. Vyberou proto celkem
+\[
+14 \cdot 28 = 392.
+\]
+
+Po zakoupení lístku jim zbude
+\[
+392 - 370 = 22.
+\]
+
+\bigskip
+
+\textbf{Odpověď:}  
+Po zakoupení lístku třídě zbude 22 Kč.
+
+
+% ---------------------------------
+% ------ Ú L O H A  -  č. 2 -------
+% ---------------------------------
+\newpage
+\section*{Úloha č. 2}
+
+\textbf{Zadání:}  
+Pětimístné přirozené číslo je sestaveno z pěti různých číslic. Uprostřed je vždy číslice 6. Všechny číslice jsou seřazeny sestupně, tedy od největší po nejmenší.
+
+(Daným podmínkám vyhovují např. čísla 97650 a 87631.)
+
+Kolik různých čísel je možné uvedeným způsobem sestavit?
+
+\bigskip
+
+\textbf{Řešení:}
+
+Hledáme pětimístná čísla, která mají tvar
+\[
+\overline{ab6de},
+\]
+kde číslice jsou seřazeny sestupně. To znamená, že musí platit
+\[
+a>b>6>d>e.
+\]
+
+Z toho plyne:
+\begin{itemize}
+    \item vlevo od šestky musí být dvě různé číslice větší než 6,
+    \item vpravo od šestky musí být dvě různé číslice menší než 6.
+\end{itemize}
+
+\medskip
+
+Číslice větší než 6 jsou:
+\[
+7,8,9.
+\]
+Z těchto tří číslic vybíráme dvě:
+\[
+\binom{3}{2}=3.
+\]
+
+Číslice menší než 6 jsou:
+\[
+0,1,2,3,4,5.
+\]
+Z těchto šesti číslic vybíráme dvě:
+\[
+\binom{6}{2}=15.
+\]
+
+Jakmile číslice vybereme, jejich pořadí už je jednoznačně určeno, protože celé číslo musí být zapsáno sestupně.
+
+Celkový počet různých čísel je tedy
+\[
+3 \cdot 15 = 45.
+\]
+
+\bigskip
+
+\textbf{Odpověď:}  
+Uvedeným způsobem je možné sestavit 45 různých čísel.
+
+% ---------------------------------
+% ------ Ú L O H A  -  č. 3 -------
+% ---------------------------------
+\newpage
+\section*{Úloha č. 3}
+
+\textbf{Zadání:}  
+V letadle na cestě do Asie letělo o 40 cizinců více než Čechů. Polovina cizinců požadovala vegetariánskou stravu, z českých pasažérů měla stejné přání pouze desetina. Vegetariánská strava se tak připravovala pro třetinu všech pasažérů.
+
+Určete celkový počet pasažérů požadujících vegetariánskou stravu.
+
+\bigskip
+
+\textbf{Řešení:}
+
+Označme si:
+\begin{itemize}
+    \item \(x\) \dots počet Čechů,
+    \item \(x+40\) \dots počet cizinců.
+\end{itemize}
+
+Podle zadání požadovala vegetariánskou stravu:
+\begin{itemize}
+    \item polovina cizinců, tedy
+    \[
+    \frac{1}{2}(x+40),
+    \]
+    \item desetina Čechů, tedy
+    \[
+    \frac{1}{10}x.
+    \]
+\end{itemize}
+
+Celkový počet pasažérů byl
+\[
+x+(x+40)=2x+40.
+\]
+
+Vegetariánskou stravu požadovala třetina všech pasažérů, tedy
+\[
+\frac{1}{3}(2x+40).
+\]
+
+Sestavíme rovnici:
+\[
+\frac{1}{2}(x+40)+\frac{1}{10}x=\frac{1}{3}(2x+40).
+\]
+
+Nyní rovnici upravíme:
+\[
+\frac{x}{2}+20+\frac{x}{10}=\frac{2x+40}{3}.
+\]
+
+Levou stranu sečteme:
+\[
+\frac{5x}{10}+\frac{x}{10}+20=\frac{6x}{10}+20=\frac{3x}{5}+20.
+\]
+
+Dostáváme:
+\[
+\frac{3x}{5}+20=\frac{2x+40}{3}.
+\]
+
+Celou rovnici vynásobíme 15:
+\[
+15\left(\frac{3x}{5}+20\right)=15\left(\frac{2x+40}{3}\right).
+\]
+
+\[
+9x+300=10x+200.
+\]
+
+\[
+300=x+200,
+\]
+
+\[
+x=100.
+\]
+
+Počet Čechů je tedy
+\[
+100.
+\]
+
+Počet cizinců je
+\[
+100+40=140.
+\]
+
+Nyní určíme počet pasažérů požadujících vegetariánskou stravu:
+\[
+\frac{1}{2}\cdot 140+\frac{1}{10}\cdot 100=70+10=80.
+\]
+
+\bigskip
+
+\textbf{Odpověď:}  
+Vegetariánskou stravu požadovalo celkem 80 pasažérů.
+
+
+% ---------------------------------
+% ------ Ú L O H A  -  č. 4 -------
+% ---------------------------------
+\newpage
+\section*{Úloha č. 4.1}
+
+\textbf{Zadání:}  
+Hráč přichází na stanoviště s určitým počtem žetonů. Na stanovišti musí utratit alespoň jeden žeton.
+
+Kolik žetonů hráč utratí, tolikrát se při odchodu ze stanoviště zvětší počet jeho zbývajících žetonů. (Např. přichází-li hráč na stanoviště s 10 žetony a utratí 4 žetony, stanoviště opustí s 24 žetony.)
+
+Žetony nelze dělit.
+
+Aleš přichází na stanoviště se 45 žetony.
+
+Určete počet žetonů, které musí Aleš utratit, aby stanoviště opouštěl nejméně s 500 žetony. Najděte všechna řešení.
+
+\bigskip
+
+\textbf{Řešení:}
+
+Označme si
+\[
+x
+\]
+počet žetonů, které Aleš utratí.
+
+Po utracení \(x\) žetonů mu zbude
+\[
+45-x
+\]
+žetonů.
+
+Podle zadání se při odchodu tento počet zvětší \(x\)-krát. Aleš tedy odejde se
+\[
+x(45-x)
+\]
+žetony.
+
+Požadujeme, aby odcházel nejméně s 500 žetony. Sestavíme nerovnici:
+\[
+x(45-x)\geq 500.
+\]
+
+Roznásobíme:
+\[
+45x-x^2\geq 500.
+\]
+
+Převedeme vše na jednu stranu:
+\[
+-x^2+45x-500\geq 0.
+\]
+
+Vynásobíme nerovnici číslem \(-1\), přičemž se obrátí znaménko:
+\[
+x^2-45x+500\leq 0.
+\]
+
+Nyní vyřešíme kvadratickou rovnici
+\[
+x^2-45x+500=0.
+\]
+
+Diskriminant je
+\[
+D = (-45)^2-4\cdot 1\cdot 500 = 2025-2000=25.
+\]
+
+Kořeny rovnice jsou:
+\[
+x_{1,2}=\frac{45\pm \sqrt{25}}{2}=\frac{45\pm 5}{2}.
+\]
+
+Dostáváme:
+\[
+x_1=\frac{40}{2}=20,\qquad x_2=\frac{50}{2}=25.
+\]
+
+Protože výraz
+\[
+x^2-45x+500
+\]
+má být menší nebo roven nule, platí:
+\[
+20\leq x\leq 25.
+\]
+
+Žetony nelze dělit, proto \(x\) musí být celé číslo. Vyhovují tedy hodnoty:
+\[
+x\in\{20,21,22,23,24,25\}.
+\]
+
+\bigskip
+
+\textbf{Odpověď:}  
+Aleš musí utratit 20, 21, 22, 23, 24 nebo 25 žetonů.
+
+\section*{Úloha č. 4.2}
+
+\textbf{Zadání:}  
+Určete největší možný počet žetonů, který si Aleš z tohoto stanoviště může odnést.
+
+\bigskip
+
+\textbf{Řešení:}
+
+Stejně jako v předchozí části označme
+\[
+x
+\]
+počet utracených žetonů.
+
+Počet žetonů, se kterými Aleš odejde, je
+\[
+x(45-x).
+\]
+
+Po úpravě dostaneme:
+\[
+x(45-x)=45x-x^2.
+\]
+
+Jde o kvadratickou funkci otevřenou dolů, takže její maximum leží ve vrcholu paraboly.
+
+Souřadnice vrcholu určíme:
+\[
+x_v=\frac{-b}{2a}=\frac{-45}{2(-1)}=\frac{45}{2}=22{,}5.
+\]
+
+Protože \(x\) musí být celé číslo, vyzkoušíme dvě nejbližší hodnoty:
+\[
+x=22 \quad \text{a} \quad x=23.
+\]
+
+Pro \(x=22\):
+\[
+22(45-22)=22\cdot 23=506.
+\]
+
+Pro \(x=23\):
+\[
+23(45-23)=23\cdot 22=506.
+\]
+
+V obou případech dostáváme stejný maximální počet žetonů.
+
+\bigskip
+
+\textbf{Odpověď:}  
+Největší možný počet žetonů, který si Aleš může odnést, je 506.
+
+
+% ---------------------------------
+% ------ Ú L O H A  -  č. 5 -------
+% ---------------------------------
+\newpage
+\section*{Úloha č. 5}
+
+\textbf{Zadání:}  
+Dlažba kolem stožáru na vlajku (černý otvor) vytváří pravidelné tmavé a světlé prstence.  
+(Všechny dlažební kostky jsou shodné pravidelné šestiboké hranoly.)
+
+Kolik prstenců je vytvořeno z \(1\,260\) dlaždic?
+
+\bigskip
+
+\textbf{Řešení:}
+
+Z obrázku vidíme, že:
+\begin{itemize}
+    \item 1 prstenec je vytvořen z \(6\) dlaždic,
+    \item 2 prstence jsou vytvořeny z \(6+12\) dlaždic,
+    \item 3 prstence jsou vytvořeny z \(6+12+18\) dlaždic.
+\end{itemize}
+
+Počet dlaždic v jednotlivých prstencích tedy tvoří posloupnost:
+\[
+6,\ 12,\ 18,\ 24,\dots
+\]
+
+Jde o aritmetickou posloupnost s prvním členem
+\[
+a_1=6
+\]
+a diferencí
+\[
+d=6.
+\]
+
+Počet dlaždic v \(n\)-tém prstenci je:
+\[
+a_n=6n.
+\]
+
+Celkový počet dlaždic v \(n\) prstencích je součet prvních \(n\) členů této posloupnosti:
+\[
+S_n=\frac{n}{2}(a_1+a_n).
+\]
+
+Dosadíme:
+\[
+S_n=\frac{n}{2}(6+6n).
+\]
+
+Vytkneme šestku:
+\[
+S_n=\frac{n}{2}\cdot 6(n+1)=3n(n+1).
+\]
+
+Podle zadání je celkem \(1\,260\) dlaždic, tedy:
+\[
+3n(n+1)=1260.
+\]
+
+Vydělíme třemi:
+\[
+n(n+1)=420.
+\]
+
+Dostáváme rovnici:
+\[
+n^2+n-420=0.
+\]
+
+Rozložíme na součin:
+\[
+(n-20)(n+21)=0.
+\]
+
+Odtud:
+\[
+n=20 \quad \text{nebo} \quad n=-21.
+\]
+
+Záporné řešení nemá smysl, proto platí:
+\[
+n=20.
+\]
+
+\bigskip
+
+\textbf{Odpověď:}  
+Z \(1\,260\) dlaždic je vytvořeno 20 prstenců.
+
+
+% ---------------------------------
+% ------ Ú L O H A  -  č. 6 -------
+% ---------------------------------
+\newpage
+\section*{Úloha č. 6}
+
+\textbf{Zadání:}  
+Číslo, které se čte stejně zleva i zprava, se nazývá palindrom. Uvažujme všechny pětimístné palindromy, které mají první číslici větší než druhou.
+
+Kolik různých palindromů je možné uvedeným způsobem sestavit?
+
+\bigskip
+
+\textbf{Řešení:}
+
+Pětimístný palindrom má tvar
+\[
+\overline{abcba}.
+\]
+
+Podmínka ze zadání říká, že první číslice musí být větší než druhá, tedy:
+\[
+a>b.
+\]
+
+\medskip
+
+Nyní určíme možnosti pro jednotlivé číslice:
+
+\begin{itemize}
+    \item první číslice \(a\) nemůže být nula, takže
+    \[
+    a\in\{1,2,3,4,5,6,7,8,9\},
+    \]
+    tedy má \(9\) možností,
+    
+    \item druhá číslice \(b\) musí být menší než \(a\),
+    
+    \item prostřední číslice \(c\) může být libovolná od 0 do 9, tedy má \(10\) možností.
+\end{itemize}
+
+\medskip
+
+Pro každou volbu první číslice \(a\) spočítáme, kolik je možností pro \(b\):
+
+\[
+\begin{array}{c|c}
+a & \text{počet možností pro } b \\
+\hline
+1 & 1 \\
+2 & 2 \\
+3 & 3 \\
+4 & 4 \\
+5 & 5 \\
+6 & 6 \\
+7 & 7 \\
+8 & 8 \\
+9 & 9 \\
+\end{array}
+\]
+
+Celkový počet dvojic \((a,b)\) je tedy:
+\[
+1+2+3+4+5+6+7+8+9=45.
+\]
+
+Ke každé takové dvojici můžeme zvolit prostřední číslici \(c\) deseti způsoby, takže celkový počet palindromů je:
+\[
+45\cdot 10=450.
+\]
+
+\bigskip
+
+\textbf{Odpověď:}  
+Uvedeným způsobem je možné sestavit 450 různých palindromů.
+
+
+% ---------------------------------
+% ------ Ú L O H A  -  č. 7 -------
+% ---------------------------------
+\newpage
+\section*{Úloha č. 7}
+
+\textbf{Zadání:}  
+Aleš zaplatil za zlevněný zájezd \(9\,000\) korun a z původní ceny zájezdu tak ušetřil čtvrtinu. Sleva se týkala jen dopravy, jejíž cena klesla na \(40\ \%\) původní ceny. Ostatní náklady zůstaly v plné výši.
+
+Vypočtěte původní cenu dopravy \(d\).
+
+\bigskip
+
+\textbf{Řešení:}
+
+Označme si:
+\begin{itemize}
+    \item \(P\) \dots původní cena celého zájezdu,
+    \item \(d\) \dots původní cena dopravy.
+\end{itemize}
+
+Aleš zaplatil po slevě \(9\,000\) Kč a ušetřil čtvrtinu původní ceny. To znamená, že zaplatil
+\[
+\frac{3}{4}
+\]
+původní ceny zájezdu.
+
+Platí tedy:
+\[
+\frac{3}{4}P=9000.
+\]
+
+Odtud:
+\[
+P=9000\cdot \frac{4}{3}=12000.
+\]
+
+Původní cena zájezdu byla tedy
+\[
+12\,000\text{ Kč}.
+\]
+
+Sleva se týkala jen dopravy. Doprava po slevě stojí \(40\%\) původní ceny, tedy
+\[
+0{,}4d.
+\]
+
+Ostatní náklady zůstaly stejné. Zlevnění celého zájezdu tedy vzniklo jen tím, že doprava klesla z \(d\) na \(0{,}4d\).
+
+Úspora na dopravě je:
+\[
+d-0{,}4d=0{,}6d.
+\]
+
+Zároveň víme, že Aleš ušetřil čtvrtinu z původní ceny zájezdu:
+\[
+\frac{1}{4}\cdot 12000 = 3000.
+\]
+
+Tato úspora je právě rovna úspoře na dopravě, tedy:
+\[
+0{,}6d=3000.
+\]
+
+Odtud:
+\[
+d=\frac{3000}{0{,}6}=5000.
+\]
+
+\bigskip
+
+\textbf{Odpověď:}  
+Původní cena dopravy byla 5\,000 Kč.
+
+
+% ---------------------------------
+% ------ Ú L O H A  -  č. 8 -------
+% ---------------------------------
+\newpage
+\section*{Úloha č. 8.1}
+
+\textbf{Zadání:}  
+Pětimístné číslo má ve svém zápise čtyřikrát stejnou nenulovou číslici a jednu větší číslici.
+
+Určete, kolik čísel vyhovujících podmínkám zadání má ve svém zápise číslici 1.
+
+\bigskip
+
+\textbf{Řešení:}
+
+Máme pětimístné číslo, které obsahuje:
+\begin{itemize}
+    \item čtyři stejné číslice,
+    \item jednu větší číslici.
+\end{itemize}
+
+Podle zadání má číslo obsahovat číslici 1, takže čtyřikrát se opakuje právě číslice
+\[
+1.
+\]
+
+Zbývající číslice musí být větší než 1, tedy:
+\[
+x \in \{2,3,4,5,6,7,8,9\}.
+\]
+
+Máme tedy čísla složená ze čtyř jedniček a jedné číslice \(x\).
+
+\medskip
+
+Nejprve zvolíme číslici \(x\):
+\[
+8 \text{ možností}.
+\]
+
+Poté zvolíme pozici, na které se tato číslice nachází:
+\[
+5 \text{ možností}.
+\]
+
+Celkový počet čísel je tedy:
+\[
+8 \cdot 5 = 40.
+\]
+
+\bigskip
+
+\textbf{Odpověď:}  
+Takových čísel je 40.
+
+\section*{Úloha č. 8.2}
+
+\textbf{Zadání:}  
+Určete počet všech čísel vyhovujících podmínkám zadání.
+
+\bigskip
+
+\textbf{Řešení:}
+
+Obecně máme číslo, které obsahuje:
+\begin{itemize}
+    \item čtyři stejné nenulové číslice \(a\),
+    \item jednu větší číslici \(b\), tedy \(b>a\).
+\end{itemize}
+
+\medskip
+
+Nejprve volíme číslici \(a\):
+\[
+a \in \{1,2,3,4,5,6,7,8\}.
+\]
+
+(Pro \(a=9\) už neexistuje větší číslice.)
+
+\medskip
+
+Pro každé \(a\) volíme číslici \(b>a\):
+
+\[
+\begin{array}{c|c}
+a & \text{počet možností pro } b \\
+\hline
+1 & 8 \\
+2 & 7 \\
+3 & 6 \\
+4 & 5 \\
+5 & 4 \\
+6 & 3 \\
+7 & 2 \\
+8 & 1 \\
+\end{array}
+\]
+
+Celkem:
+\[
+8+7+6+5+4+3+2+1=36.
+\]
+
+Pro každou dvojici \((a,b)\) můžeme umístit číslici \(b\) na libovolnou z pěti pozic:
+\[
+5 \text{ možností}.
+\]
+
+Celkový počet čísel:
+\[
+36 \cdot 5 = 180.
+\]
+
+\bigskip
+
+\textbf{Odpověď:}  
+Takových čísel je 180.
+
+
+% ---------------------------------
+% ------ Ú L O H A  -  č. 9 -------
+% ---------------------------------
+\newpage
+\section*{Úloha č. 9.1}
+
+\textbf{Řešení:}
+
+Průměry dlaždic tvoří aritmetickou posloupnost:
+\[\
+51,\ 52,\ 53,\dots
+\]
+
+Platí:
+\[
+a_1=51,\quad d=1.
+\]
+
+Hledáme den, kdy průměr je 130 cm:
+\[
+a_n=130.
+\]
+
+Použijeme vzorec:
+\[
+a_n=a_1+(n-1)d.
+\]
+
+Dosadíme:
+\[
+130=51+(n-1).
+\]
+
+\[
+130=50+n,
+\]
+
+\[
+n=80.
+\]
+
+\bigskip
+
+\textbf{Odpověď:}  
+Průměr \(130\) cm mělo 80 dlaždic.
+
+\section*{Úloha č. 9.2}
+
+\textbf{Řešení:}
+
+Každý den pokládají o jednu dlaždici více:
+\[\
+1,2,3,\dots,80.
+\]
+
+Celkový počet dlaždic je součet:
+\[
+S_n=\frac{n}{2}(a_1+a_n).
+\]
+
+Dosadíme:
+\[
+S_{80}=\frac{80}{2}(1+80)=40\cdot 81=3240.
+\]
+
+\bigskip
+
+\textbf{Odpověď:}  
+Celkem bylo položeno 3240 dlaždic.
+
+\section*{Úloha č. 9.3}
+
+\textbf{Řešení:}
+
+Hledáme průměr dlaždice, která byla položena jako tisící v pořadí.
+
+Nejprve zjistíme, ve kterém dni byla položena.
+
+Hledáme nejmenší \(n\), pro které platí:
+\[
+\frac{n(n+1)}{2} \ge 1000.
+\]
+
+Zkusíme:
+\[
+44\cdot 45/2 = 990,
+\]
+\[
+45\cdot 46/2 = 1035.
+\]
+
+Tisící dlaždice tedy byla položena v 45. dni.
+
+\medskip
+
+Průměr dlaždice v \(n\)-tý den je:
+\[
+a_n=51+(n-1).
+\]
+
+Pro \(n=45\):
+\[
+a_{45}=51+44=95.
+\]
+
+\bigskip
+
+\textbf{Odpověď:}   
+Tisící dlaždice měla průměr 95 cm.
+
+
+% ---------------------------------
+% ------ Ú L O H A  -  č. 10 ------
+% ---------------------------------
+\newpage
+\section*{Úloha č. 10}
+
+\textbf{Zadání:}  
+Členové kapely si pořídili aparaturu za \(13\,500\) Kč. Všichni na nákup přispěli stejnou částkou. Kdyby jim vypomohl ještě fanoušek Jarda a celkovou částku si rovnocenně rozdělili i s ním, každému z členů kapely by se náklady snížily o \(450\) Kč.
+
+Užitím rovnice nebo soustavy rovnic vypočtěte, kolik členů má kapela.
+
+\bigskip
+
+\textbf{Řešení:}
+
+Označme si:
+\begin{itemize}
+    \item \(x\) \dots počet členů kapely.
+\end{itemize}
+
+Každý člen kapely původně zaplatil
+\[
+\frac{13500}{x}.
+\]
+
+Kdyby přispěl ještě fanoušek Jarda, dělila by se částka mezi
+\[
+x+1
+\]
+lidí. Každý by pak zaplatil
+\[
+\frac{13500}{x+1}.
+\]
+
+Podle zadání by se každému členovi kapely náklady snížily o \(450\) Kč. Platí tedy:
+\[
+\frac{13500}{x}-\frac{13500}{x+1}=450.
+\]
+
+\medskip
+
+Rovnici upravíme na společný jmenovatel:
+\[
+\frac{13500(x+1)-13500x}{x(x+1)}=450.
+\]
+
+V čitateli se členy s \(x\) odečtou:
+\[
+\frac{13500}{x(x+1)}=450.
+\]
+
+Vynásobíme:
+\[
+13500=450x(x+1).
+\]
+
+Vydělíme číslem \(450\):
+\[
+30=x(x+1).
+\]
+
+Dostáváme rovnici:
+\[
+x^2+x-30=0.
+\]
+
+Rozložíme na součin:
+\[
+(x+6)(x-5)=0.
+\]
+
+Odtud:
+\[
+x=-6 \quad \text{nebo} \quad x=5.
+\]
+
+Záporné řešení nedává smysl, proto:
+\[
+x=5.
+\]
+
+\bigskip
+
+\textbf{Kontrola:}
+
+Pokud má kapela 5 členů, každý původně zaplatí
+\[
+\frac{13500}{5}=2700\text{ Kč}.
+\]
+
+Kdyby platil i Jarda, dělilo by se mezi 6 lidí:
+\[
+\frac{13500}{6}=2250\text{ Kč}.
+\]
+
+Rozdíl je
+\[
+2700-2250=450\text{ Kč},
+\]
+což souhlasí.
+
+\bigskip
+
+\textbf{Odpověď:}  
+Kapela má 5 členů.
+
+
+% ---------------------------------
+% ------ Ú L O H A  -  č. 11 ------
+% ---------------------------------
+\newpage
+\section*{Úloha č. 11}
+
+\textbf{Zadání:}  
+Hvězdičky jsou v obrazci umístěny v řadách nad sebou. Počty hvězdiček v jednotlivých řadách tvoří konečnou aritmetickou posloupnost. V nejkratší řadě jsou dvě hvězdičky. Počet hvězdiček v nejdelší řadě je o \(99\) větší než počet všech řad.
+
+Kolik hvězdiček obsahuje celý obrazec?
+
+\bigskip
+
+\textbf{Řešení:}
+
+Označme si:
+\begin{itemize}
+    \item \(n\) \dots počet řad,
+    \item \(a_1=2\) \dots počet hvězdiček v nejkratší řadě,
+    \item \(a_n\) \dots počet hvězdiček v nejdelší řadě.
+\end{itemize}
+
+Z obrázku je vidět, že počty hvězdiček v řadách tvoří aritmetickou posloupnost a mezi sousedními řadami přibývají vždy 3 hvězdičky. Tedy:
+\[
+d=3.
+\]
+
+Počet hvězdiček v poslední řadě je podle zadání o \(99\) větší než počet všech řad:
+\[
+a_n=n+99.
+\]
+
+Zároveň pro \(n\)-tý člen aritmetické posloupnosti platí:
+\[
+a_n=a_1+(n-1)d.
+\]
+
+Dosadíme:
+\[
+n+99=2+(n-1)\cdot 3.
+\]
+
+Upravíme pravou stranu:
+\[
+n+99=2+3n-3,
+\]
+\[
+n+99=3n-1.
+\]
+
+Převedeme členy:
+\[
+100=2n,
+\]
+\[
+n=50.
+\]
+
+Počet řad je tedy
+\[
+50.
+\]
+
+Nyní určíme počet hvězdiček v poslední řadě:
+\[
+a_n=n+99=50+99=149.
+\]
+
+Celkový počet hvězdiček je součet aritmetické posloupnosti:
+\[
+S_n=\frac{n}{2}(a_1+a_n).
+\]
+
+Dosadíme:
+\[
+S_{50}=\frac{50}{2}(2+149)=25\cdot 151=3775.
+\]
+
+\bigskip
+
+\textbf{Odpověď:}  
+Celý obrazec obsahuje 3775 hvězdiček.
+
+
+% ---------------------------------
+% ------ Ú L O H A  -  č. 12 ------
+% ---------------------------------
+\newpage
+\section*{Úloha č. 12}
+
+\textbf{Zadání:}  
+Kladná čísla \(g, h\) se liší o 33. Číslo \(g\) je o \(20\%\) větší než neznámé číslo \(x\), neznámé číslo \(x\) je o \(20\%\) větší než číslo \(h\).
+
+Užitím rovnice nebo soustavy rovnic vypočtěte neznámé číslo \(x\).
+
+\bigskip
+
+\textbf{Řešení:}
+
+Ze zadání víme:
+\[
+g = 1{,}2x
+\]
+a zároveň
+\[
+x = 1{,}2h.
+\]
+
+Dosadíme druhý vztah do prvního:
+\[
+g = 1{,}2 \cdot 1{,}2h = 1{,}44h.
+\]
+
+Protože čísla \(g\) a \(h\) se liší o 33, platí:
+\[
+g-h=33.
+\]
+
+Dosadíme za \(g\):
+\[
+1{,}44h-h=33.
+\]
+
+\[
+0{,}44h=33.
+\]
+
+\[
+h=\frac{33}{0{,}44}=75.
+\]
+
+Nyní dopočítáme číslo \(x\):
+\[
+x=1{,}2h=1{,}2\cdot 75=90.
+\]
+
+\bigskip
+
+\textbf{Kontrola:}
+
+\[
+g=1{,}2x=1{,}2\cdot 90=108.
+\]
+
+Rozdíl:
+\[
+108-75=33,
+\]
+což souhlasí.
+
+\bigskip
+
+\textbf{Odpověď:}  
+Neznámé číslo je 90.
+
+
+% ---------------------------------
+% ------ Ú L O H A  -  č. 13 ------
+% ---------------------------------
+\newpage
+\section*{Úloha č. 13}
+
+\textbf{Zadání:}  
+Do rovnoramenného trojúhelníku \(ABC\) je vepsáno nekonečně mnoho čtverců. Jedna strana každého čtverce leží na základně \(AB\) trojúhelníku. Čtverce se vzájemně dotýkají.
+
+Největší čtverec s délkou strany \(20\ \mathrm{mm}\) je umístěn tak, že osa trojúhelníku je současně osou čtverce. Každé dva sousední čtverce mají jeden společný vrchol a délky jejich stran jsou v poměru \(5:4\).
+
+Vypočtěte v \(\mathrm{mm}^2\) obsah trojúhelníku \(ABC\).
+
+\bigskip
+
+\textbf{Řešení:}
+
+Největší čtverec má stranu
+\[
+20\ \mathrm{mm}.
+\]
+
+Sousledné čtverce mají délky stran v poměru
+\[
+5:4.
+\]
+Proto čtverec sousedící s největším čtvercem má stranu
+\[
+20\cdot \frac{4}{5}=16\ \mathrm{mm}.
+\]
+
+\medskip
+
+Budeme uvažovat pravou polovinu trojúhelníku.
+
+Označme:
+\begin{itemize}
+    \item \(D\) \dots pravý horní vrchol největšího čtverce,
+    \item \(E\) \dots pravý horní vrchol sousedního menšího čtverce.
+\end{itemize}
+
+Protože oba tyto vrcholy leží na rameni trojúhelníku, body \(D\) a \(E\) leží na téže přímce.
+
+\medskip
+
+Vodorovná vzdálenost bodů \(D\) a \(E\) je rovna straně menšího čtverce:
+\[
+16\ \mathrm{mm}.
+\]
+
+Svislá vzdálenost těchto bodů je rozdíl délek stran obou čtverců:
+\[
+20-16=4\ \mathrm{mm}.
+\]
+
+Rameno trojúhelníku tedy klesá o \(4\ \mathrm{mm}\) na každých \(16\ \mathrm{mm}\) vodorovného posunu. Poměr svislé a vodorovné změny je tedy
+\[
+4:16=1:4.
+\]
+
+\bigskip
+
+\textbf{Výška trojúhelníku}
+
+Největší čtverec je souměrně umístěn podle osy trojúhelníku, takže jeho pravý horní vrchol je od osy vzdálen
+\[
+10\ \mathrm{mm}.
+\]
+
+Jestliže na každé \(4\ \mathrm{mm}\) vodorovně připadá změna výšky o \(1\ \mathrm{mm}\), pak při vodorovné vzdálenosti \(10\ \mathrm{mm}\) odpovídá svislá změna
+\[
+\frac{10}{4}=2{,}5\ \mathrm{mm}.
+\]
+
+Výška trojúhelníku je tedy
+\[
+v = 20+2{,}5=22{,}5\ \mathrm{mm}.
+\]
+
+\bigskip
+
+\textbf{Délka základny}
+
+Od pravého horního vrcholu největšího čtverce do pravého krajního bodu základny klesne rameno trojúhelníku z výšky \(20\ \mathrm{mm}\) na nulu.
+
+Při poměru \(1:4\) tomu odpovídá vodorovná vzdálenost
+\[
+20\cdot 4=80\ \mathrm{mm}.
+\]
+
+Od osy trojúhelníku k pravému hornímu vrcholu čtverce je ještě
+\[
+10\ \mathrm{mm},
+\]
+takže polovina základny trojúhelníku je
+\[
+10+80=90\ \mathrm{mm}.
+\]
+
+Celá základna tedy měří
+\[
+AB=180\ \mathrm{mm}.
+\]
+
+\bigskip
+
+\textbf{Obsah trojúhelníku}
+
+Obsah trojúhelníku je
+\[
+S=\frac{AB\cdot v}{2}.
+\]
+
+Dosadíme:
+\[
+S=\frac{180\cdot 22{,}5}{2}=90\cdot 22{,}5=2025\ \mathrm{mm}^2.
+\]
+
+\bigskip
+
+\textbf{Odpověď:}  
+Obsah trojúhelníku \(ABC\) je 2025 \(\mathrm{mm}^2\).
+
+
+% ---------------------------------
+% ------ Ú L O H A  -  č. 14 ------
+% ---------------------------------
+\newpage
+\section*{Úloha č. 14}
+
+\textbf{Zadání:}  
+Adam, Bořek a Cyril si koupili ze společných příspěvků doplňky k hudební aparatuře.
+
+Cyril s Bořkem přispěli dohromady částkou \(5\,100\) korun. Bořek přispěl o třetinu vyšší částkou než Adam a Adam částkou o třetinu nižší než Cyril.
+
+Po zakoupení všech doplňků chlapci věnovali zbývající částku na dobročinné účely. Její hodnota se rovnala pětině částky, kterou zaplatili za všechny doplňky.
+
+Užitím rovnice nebo soustavy rovnic vypočtěte v korunách
+\begin{enumerate}
+    \item[4.1] příspěvek Adama,
+    \item[4.2] částku věnovanou na dobročinné účely.
+\end{enumerate}
+
+\bigskip
+
+\textbf{Řešení:}
+
+Označme si:
+\begin{itemize}
+    \item \(A\) \dots Adamův příspěvek,
+    \item \(B\) \dots Bořkův příspěvek,
+    \item \(C\) \dots Cyrilův příspěvek.
+\end{itemize}
+
+Ze zadání víme:
+\[
+B+C=5100.
+\]
+
+Dále Bořek přispěl o třetinu vyšší částkou než Adam, tedy
+\[
+B=\frac{4}{3}A.
+\]
+
+Adam přispěl o třetinu nižší částkou než Cyril, tedy
+\[
+A=\frac{2}{3}C.
+\]
+
+Z poslední rovnice vyjádříme:
+\[
+C=\frac{3}{2}A.
+\]
+
+Dosadíme do rovnice \(B+C=5100\):
+\[
+\frac{4}{3}A+\frac{3}{2}A=5100.
+\]
+
+Převedeme na společného jmenovatele:
+\[
+\frac{8}{6}A+\frac{9}{6}A=5100,
+\]
+\[
+\frac{17}{6}A=5100.
+\]
+
+Odtud:
+\[
+A=5100\cdot \frac{6}{17}=1800.
+\]
+
+Adamův příspěvek je tedy
+\[
+1800\text{ Kč}.
+\]
+
+\medskip
+
+Nyní dopočítáme ostatní příspěvky:
+\[
+B=\frac{4}{3}\cdot 1800=2400,
+\]
+\[
+C=\frac{3}{2}\cdot 1800=2700.
+\]
+
+Celkem chlapci přispěli:
+\[
+1800+2400+2700=6900\text{ Kč}.
+\]
+
+Označme si:
+\begin{itemize}
+    \item \(x\) \dots cena všech doplňků,
+    \item \(y\) \dots částka věnovaná na dobročinné účely.
+\end{itemize}
+
+Podle zadání platí:
+\[
+y=\frac{1}{5}x
+\]
+a zároveň
+\[
+x+y=6900.
+\]
+
+Dosadíme:
+\[
+x+\frac{1}{5}x=6900,
+\]
+\[
+\frac{6}{5}x=6900,
+\]
+\[
+x=6900\cdot \frac{5}{6}=5750.
+\]
+
+Potom
+\[
+y=6900-5750=1150.
+\]
+
+\bigskip
+
+\textbf{Odpověď:}
+\begin{itemize}
+    \item[14.1] Adam přispěl 1800 Kč.
+    \item[14.2] Na dobročinné účely věnovali 1150 Kč.
+\end{itemize}
+
+
+
+% ---------------------------------
+% ------ Ú L O H A  -  č. 15 ------
+% ---------------------------------
+\newpage
+\section*{Úloha č. 15}
+
+\textbf{Zadání:}  
+Každý pracovník firmy mluví alespoň jedním ze dvou jazyků – anglicky nebo německy.
+
+Polovina těch, kteří mluví německy, mluví i anglicky.  
+Třetina těch, kteří mluví anglicky, mluví i německy.
+
+Vyjádřete zlomkem v základním tvaru, jaká část všech pracovníků firmy mluví oběma jazyky (anglicky i německy).
+
+\bigskip
+
+\textbf{Řešení:}
+
+Označme si:
+\begin{itemize}
+    \item \(N\) \dots počet pracovníků, kteří mluví německy,
+    \item \(A\) \dots počet pracovníků, kteří mluví anglicky,
+    \item \(x\) \dots počet pracovníků, kteří mluví oběma jazyky.
+\end{itemize}
+
+Ze zadání víme:
+\[
+x=\frac{1}{2}N
+\]
+a zároveň
+\[
+x=\frac{1}{3}A.
+\]
+
+Odtud:
+\[
+N=2x,\qquad A=3x.
+\]
+
+Všichni pracovníci mluví alespoň jedním jazykem, takže celkový počet pracovníků je
+\[
+N+A-x.
+\]
+
+Dosadíme:
+\[
+2x+3x-x=4x.
+\]
+
+Počet pracovníků, kteří mluví oběma jazyky, je \(x\), z celkového počtu \(4x\). Hledaný podíl je tedy
+\[
+\frac{x}{4x}=\frac{1}{4}.
+\]
+
+\bigskip
+
+\textbf{Odpověď:}  
+Oběma jazyky mluví \(\frac{1}{4}\) všech pracovníků firmy.
+
+
+
+% ---------------------------------
+% ------ Ú L O H A  -  č. 16 ------
+% ---------------------------------
+\newpage
+\section*{Úloha č. 16}
+
+\textbf{Zadání:}  
+Třetí mocnina neznámého čísla je o 100 menší než druhá mocnina součtu téhož neznámého čísla s číslem 10.
+
+Vypočtěte neznámé číslo. Najděte všechna řešení.
+
+\bigskip
+
+\textbf{Řešení:}
+
+Označme neznámé číslo \(x\).
+
+Podle zadání platí:
+\[
+x^3=(x+10)^2-100.
+\]
+
+Nejprve upravíme pravou stranu:
+\[
+(x+10)^2-100=x^2+20x+100-100=x^2+20x.
+\]
+
+Dostáváme rovnici:
+\[
+x^3=x^2+20x.
+\]
+
+Vše převedeme na jednu stranu:
+\[
+x^3-x^2-20x=0.
+\]
+
+Vytkneme \(x\):
+\[
+x(x^2-x-20)=0.
+\]
+
+Kvadratický trojčlen rozložíme:
+\[
+x(x-5)(x+4)=0.
+\]
+
+Odtud dostáváme tři řešení:
+\[
+x=0,\qquad x=5,\qquad x=-4.
+\]
+
+\bigskip
+
+\textbf{Odpověď:}  
+Neznámé číslo může být -4,\ 0,\ 5.
+
+
+% ---------------------------------
+% ------ Ú L O H A  -  č. 17 ------
+% ---------------------------------
+\newpage
+\section*{Úloha č. 17}
+
+\textbf{Zadání:}  
+K dispozici je 11 ampulí o stejném objemu.
+
+Do 3 ampulí dohromady se vejde více než 4 centilitry tekutiny, ale méně než 5 centilitrů.  
+Do 4 ampulí dohromady se vejde více než 5 centilitrů tekutiny, ale méně než 6 centilitrů.  
+Celkový objem 11 ampulí je přesně \(n\) centilitrů, kde \(n\) je přirozené číslo.
+
+Vypočtěte \(n\).
+
+\bigskip
+
+\textbf{Řešení:}
+
+Označme objem jedné ampule \(v\) centilitrů.
+
+Ze zadání plyne:
+\[
+4<3v<5
+\]
+a zároveň
+\[
+5<4v<6.
+\]
+
+Z první nerovnosti dostaneme po vydělení třemi:
+\[
+\frac{4}{3}<v<\frac{5}{3}.
+\]
+
+Z druhé nerovnosti dostaneme po vydělení čtyřmi:
+\[
+\frac{5}{4}<v<\frac{6}{4}=\frac{3}{2}.
+\]
+
+Objem jedné ampule tedy musí splňovat obě podmínky současně:
+\[
+\frac{4}{3}<v<\frac{3}{2}.
+\]
+
+Hledáme takové \(v\), aby celkový objem 11 ampulí byl přirozené číslo:
+\[
+11v=n.
+\]
+
+Protože
+\[
+\frac{4}{3}<v<\frac{3}{2},
+\]
+po vynásobení číslem 11 dostaneme:
+\[
+\frac{44}{3}<11v<\frac{33}{2}.
+\]
+
+Tedy:
+\[
+14{,}6\overline{6}<n<16{,}5.
+\]
+
+Jediné přirozené číslo v tomto intervalu je
+\[
+n=15.
+\]
+
+\bigskip
+
+\textbf{Odpověď:}  
+\[
+n=15
+\].
+
+
+% ---------------------------------
+% ------ Ú L O H A  -  č. 18 ------
+% ---------------------------------
+\newpage
+\section*{Úloha č. 18}
+
+\textbf{Zadání:}  
+Byla vybrána skupina tří zaměstnanců, jejichž platy tvoří tři po sobě jdoucí členy aritmetické posloupnosti. Z těchto tří platů je nejvyšší plat o \(25\ \%\) vyšší než nejnižší plat a aritmetický průměr všech tří platů je \(36\,000\) korun.
+
+Vypočtěte, o kolik korun se liší nejvyšší a nejnižší plat ve vybrané skupině.
+
+\bigskip
+
+\textbf{Řešení:}
+
+Tři po sobě jdoucí členy aritmetické posloupnosti si označíme:
+\[
+a-d,\quad a,\quad a+d.
+\]
+
+Protože aritmetický průměr těchto tří čísel je roven prostřednímu členu, platí:
+\[
+a=36\,000.
+\]
+
+Platy tedy jsou:
+\[
+36\,000-d,\quad 36\,000,\quad 36\,000+d.
+\]
+
+Ze zadání dále víme, že nejvyšší plat je o \(25\%\) vyšší než nejnižší plat. To znamená:
+\[
+36\,000+d = 1{,}25(36\,000-d).
+\]
+
+Rovnici upravíme:
+\[
+36\,000+d = 45\,000-1{,}25d.
+\]
+
+\[
+d+1{,}25d = 45\,000-36\,000.
+\]
+
+\[
+2{,}25d = 9\,000.
+\]
+
+\[
+d = 4\,000.
+\]
+
+Nejnižší a nejvyšší plat se tedy liší o
+\[
+(36\,000+d)-(36\,000-d)=2d=8\,000.
+\]
+
+\bigskip
+
+\textbf{Odpověď:}  
+Nejvyšší a nejnižší plat se liší o \(8\,000\text{ Kč}\).
+
+
+% ---------------------------------
+% ------ Ú L O H A  -  č. 19 ------
+% ---------------------------------
+\newpage
+\section*{Úloha č. 19.1}
+
+\textbf{Zadání:}  
+Každý ze zobrazených čtverců má dva sousední vrcholy na přímce \(AE\), další vrchol na přímce \(CE\) a poslední vrchol na přímce \(DE\).
+
+Zobrazené čtverce splňují současně následující podmínky:
+\begin{itemize}
+    \item délka strany prvního čtverce je \(a_1=1\ \mathrm{dm}\),
+    \item délky stran všech po sobě jdoucích čtverců tvoří geometrickou posloupnost,
+    \item délka strany každého čtverce je součtem délek stran dvou následujících čtverců.
+\end{itemize}
+
+Vyjádřete (bez zaokrouhlení) kvocient \(q\) dané posloupnosti.
+
+\bigskip
+
+\textbf{Řešení:}
+
+Označme délky stran čtverců:
+\[
+a_1,\ a_2,\ a_3,\dots
+\]
+
+Protože tvoří geometrickou posloupnost, platí:
+\[
+a_2=a_1q,\qquad a_3=a_1q^2.
+\]
+
+Podle zadání je délka strany každého čtverce součtem délek stran dvou následujících čtverců, tedy například:
+\[
+a_1=a_2+a_3.
+\]
+
+Dosadíme:
+\[
+a_1=a_1q+a_1q^2.
+\]
+
+Vytkneme \(a_1\):
+\[
+a_1(1-q-q^2)=0.
+\]
+
+Protože \(a_1\neq 0\), musí platit:
+\[
+1-q-q^2=0.
+\]
+
+Upravíme:
+\[
+q^2+q-1=0.
+\]
+
+Použijeme kvadratický vzorec:
+\[
+q=\frac{-1\pm\sqrt{1+4}}{2}=\frac{-1\pm\sqrt{5}}{2}.
+\]
+
+Protože délky stran jsou kladné, musí být i kvocient kladný. Proto:
+\[
+q=\frac{-1+\sqrt{5}}{2}.
+\]
+
+\bigskip
+
+\textbf{Odpověď:}  
+\[
+q=\frac{\sqrt{5}-1}{2}.
+\]
+
+
+\section*{Úloha č. 19.2}
+
+\textbf{Zadání:}  
+Vypočtěte v dm (bez zaokrouhlení) délku úsečky \(AE\).
+
+\bigskip
+
+\textbf{Řešení:}
+
+Délka úsečky \(AE\) je součtem délek stran všech čtverců:
+\[
+AE=a_1+a_2+a_3+\dots
+\]
+
+Jde o nekonečnou geometrickou řadu s prvním členem
+\[
+a_1=1
+\]
+a kvocientem
+\[
+q=\frac{\sqrt{5}-1}{2}.
+\]
+
+Protože \(|q|<1\), můžeme použít vzorec pro součet nekonečné geometrické řady:
+\[
+S=\frac{a_1}{1-q}.
+\]
+
+Dosadíme:
+\[
+AE=\frac{1}{1-\frac{\sqrt{5}-1}{2}}.
+\]
+
+Upravíme jmenovatel:
+\[
+1-\frac{\sqrt{5}-1}{2}=\frac{2-(\sqrt{5}-1)}{2}=\frac{3-\sqrt{5}}{2}.
+\]
+
+Tedy:
+\[
+AE=\frac{1}{\frac{3-\sqrt{5}}{2}}=\frac{2}{3-\sqrt{5}}.
+\]
+
+Odstraníme odmocninu ze jmenovatele:
+\[
+AE=\frac{2}{3-\sqrt{5}}\cdot\frac{3+\sqrt{5}}{3+\sqrt{5}}
+=\frac{2(3+\sqrt{5})}{9-5}
+=\frac{2(3+\sqrt{5})}{4}
+=\frac{3+\sqrt{5}}{2}.
+\]
+
+\bigskip
+
+\textbf{Odpověď:}  
+\[
+AE=\frac{3+\sqrt{5}}{2}\ \mathrm{dm}.
+\]
+
+
+\section*{Úloha č. 19.3}
+
+\textbf{Zadání:}  
+Vypočtěte v \(\mathrm{dm}^2\) obsah trojúhelníku \(CDE\).
+
+\bigskip
+
+\textbf{Řešení:}
+
+Z obrázku je vidět, že:
+\begin{itemize}
+    \item bod \(D\) leží svisle nad bodem \(A\),
+    \item bod \(C\) leží svisle nad bodem \(B\),
+    \item strana prvního čtverce má délku \(a_1=1\ \mathrm{dm}\).
+\end{itemize}
+
+Proto:
+\[
+DC=AB=a_1=1\ \mathrm{dm}.
+\]
+
+Výška trojúhelníku \(CDE\) na základnu \(DC\) je vzdálenost bodu \(E\) od přímky \(DC\).  
+Přímka \(DC\) je vodorovná ve výšce \(1\ \mathrm{dm}\) nad přímkou \(AE\), na které leží bod \(E\). Výška trojúhelníku je tedy:
+\[
+v=1\ \mathrm{dm}.
+\]
+
+Obsah trojúhelníku:
+\[
+S=\frac{DC\cdot v}{2}=\frac{1\cdot 1}{2}=\frac12.
+\]
+
+\bigskip
+
+\textbf{Odpověď:}  
+\[
+\frac12\ \mathrm{dm}^2.
+\]
+
+
+
+% ---------------------------------
+% ------ Ú L O H A  -  č. 20 ------
+% ---------------------------------
+\newpage
+\section*{Úloha č. 20.1}
+
+\textbf{Zadání:}  
+V dílně se pracuje na dvou strojích.
+
+Na prvním stroji se za určitou dobu vyrobí \(n\) výrobků, zatímco na druhém stroji se za dobu o třetinu delší vyrobí \(2n\) výrobků.
+
+Vypočtěte, kolikrát více výrobků se za stejnou dobu vyrobí na druhém stroji než na prvním stroji.
+
+\bigskip
+
+\textbf{Řešení:}
+
+Označme dobu, za kterou první stroj vyrobí \(n\) výrobků, jako \(t\).
+
+Pak výkon prvního stroje je:
+\[
+\frac{n}{t}.
+\]
+
+Druhý stroj vyrobí \(2n\) výrobků za dobu o třetinu delší, tedy za čas
+\[
+\frac{4}{3}t.
+\]
+
+Jeho výkon je:
+\[
+\frac{2n}{\frac{4}{3}t}=2n\cdot\frac{3}{4t}=\frac{3n}{2t}.
+\]
+
+Hledáme, kolikrát je výkon druhého stroje větší než výkon prvního:
+\[
+\frac{\frac{3n}{2t}}{\frac{n}{t}}=\frac{3}{2}.
+\]
+
+\bigskip
+
+\textbf{Odpověď:}  
+Na druhém stroji se za stejnou dobu vyrobí \(\frac{3}{2}\)-krát více výrobků než na prvním stroji.
+
+
+\section*{Úloha č. 20.2}
+
+\textbf{Zadání:}  
+Na obou strojích se za \(p\) hodin vyrobí dohromady \(10n\) výrobků.
+
+V závislosti na \(p\) vyjádřete, za kolik hodin se \(10n\) výrobků vyrobí jen na prvním stroji.
+
+\bigskip
+
+\textbf{Řešení:}
+
+Z předchozí části víme, že výkon druhého stroje je
+\[
+\frac32
+\]
+násobkem výkonu prvního stroje.
+
+Označme výkon prvního stroje jako
+\[
+v.
+\]
+Pak výkon druhého stroje je
+\[
+\frac32v.
+\]
+
+Společný výkon obou strojů je:
+\[
+v+\frac32v=\frac52v.
+\]
+
+Podle zadání se za \(p\) hodin vyrobí dohromady \(10n\) výrobků, tedy společný výkon odpovídá hodnotě
+\[
+\frac{10n}{p}.
+\]
+
+Platí tedy:
+\[
+\frac52v=\frac{10n}{p}.
+\]
+
+Odtud:
+\[
+v=\frac{10n}{p}\cdot\frac{2}{5}=\frac{4n}{p}.
+\]
+
+První stroj tedy vyrábí rychlostí
+\[
+\frac{4n}{p}
+\]
+výrobků za hodinu.
+
+Hledáme čas \(T\), za který první stroj sám vyrobí \(10n\) výrobků:
+\[
+\frac{4n}{p}\cdot T=10n.
+\]
+
+Odtud:
+\[
+T=10n\cdot\frac{p}{4n}=\frac{10p}{4}=\frac{5p}{2}.
+\]
+
+\bigskip
+
+\textbf{Odpověď:}  
+Jen na prvním stroji se \(10n\) výrobků vyrobí za \(\frac{5p}{2}\) hodin.
+
+
+
+% ---------------------------------
+% ------ Ú L O H A  -  č. 21 ------
+% ---------------------------------
+\newpage
+\section*{Úloha č. 21}
+
+\textbf{Zadání:}  
+Každý z 10 soutěžících mohl získat 0 až 3 trestné body.
+
+Četnosti představující počty soutěžících, kteří získali stejný počet trestných bodů, jsou v první tabulce uvedeny v nesprávném pořadí.
+
+Při správném přiřazení četností je medián a modus počtu trestných bodů stejný.  
+Ze všech takových možností je správná pouze ta, která vede k nejmenší možné hodnotě aritmetického průměru počtu trestných bodů.
+
+Z údajů ve správně vyplněné tabulce vypočtěte aritmetický průměr počtu trestných bodů.
+
+\bigskip
+
+\textbf{Řešení:}
+
+Četnosti jsou čísla
+\[
+0,\ 2,\ 3,\ 5,
+\]
+ale nejsou správně přiřazena k počtům trestných bodů
+\[
+0,\ 1,\ 2,\ 3.
+\]
+
+Protože největší četnost je \(5\), bude modus právě ten počet bodů, ke kterému přiřadíme četnost \(5\).
+
+\medskip
+
+Aby byl medián stejný jako modus, nemůže být modus:
+\begin{itemize}
+    \item \(0\), protože pak by prvních 5 hodnot bylo \(0\), ale šestá už by byla větší než 0,
+    \item \(3\), protože pak by posledních 5 hodnot bylo \(3\), ale pátá by byla menší než 3.
+\end{itemize}
+
+Modus tedy může být jen
+\[
+1 \quad \text{nebo} \quad 2.
+\]
+
+\medskip
+
+Ze všech takových možností máme vybrat tu, která dává \textbf{nejmenší aritmetický průměr}.  
+Aby byl průměr co nejmenší, je výhodné přiřadit co největší četnosti co nejmenším počtům bodů.
+
+Proto zvolíme:
+\[
+\begin{array}{c|cccc}
+\text{Trestné body} & 0 & 1 & 2 & 3 \\
+\hline
+\text{Četnost} & 3 & 5 & 2 & 0
+\end{array}
+\]
+
+Zkontrolujeme:
+\begin{itemize}
+    \item modus je \(1\), protože má největší četnost \(5\),
+    \item uspořádaný soubor je
+    \[
+    0,0,0,1,1,1,1,1,2,2,
+    \]
+    takže medián je průměr 5. a 6. hodnoty:
+    \[
+    \frac{1+1}{2}=1.
+    \]
+\end{itemize}
+
+Medián i modus jsou tedy opravdu stejné.
+
+\medskip
+
+Nyní spočítáme aritmetický průměr:
+\[
+\overline{x}=\frac{0\cdot 3+1\cdot 5+2\cdot 2+3\cdot 0}{10}
+=\frac{0+5+4+0}{10}
+=\frac{9}{10}=0{,}9.
+\]
+
+\bigskip
+
+\textbf{Odpověď:}  
+Aritmetický průměr počtu trestných bodů je \(0{,}9\).
+
+
+
+% ---------------------------------
+% ------ Ú L O H A  -  č. 22 ------
+% ---------------------------------
+\newpage
+\section*{Úloha č. 22.1}
+
+\textbf{Zadání:}  
+Šestiúhelník \(ABCDEF\) je rozdělen na dva bílé rovnoramenné trojúhelníky a dva shodné tmavé čtverce. Všechny čtyři útvary mají společný vrchol \(V\).
+
+Součet obsahů obou bílých trojúhelníků označme \(S_B\).  
+Součet obsahů obou tmavých čtverců označme \(S_T\).  
+Úhel \(DVE\) má velikost \(\varphi \in \left(0;\frac{\pi}{2}\right)\).
+
+Vyjádřete poměr obsahů \(S_B : S_T\) v závislosti na velikosti úhlu \(\varphi\).
+
+\bigskip
+
+\textbf{Řešení:}
+
+Z obrázku je patrné, že:
+\begin{itemize}
+    \item oba bílé útvary jsou shodné rovnoramenné trojúhelníky,
+    \item oba tmavé útvary jsou shodné čtverce,
+    \item délky stran označené \(a\) jsou stranami těchto útvarů.
+\end{itemize}
+
+\medskip
+
+\textbf{Obsah jednoho bílého trojúhelníku}
+
+Každý bílý trojúhelník má dvě strany délky \(a\) a úhel mezi nimi \(\varphi\).  
+Jeho obsah tedy je:
+\[
+S_{\triangle}=\frac12 a^2 \sin\varphi.
+\]
+
+Jsou dva takové trojúhelníky, proto:
+\[
+S_B=2\cdot \frac12 a^2\sin\varphi=a^2\sin\varphi.
+\]
+
+\medskip
+
+\textbf{Obsah tmavých čtverců}
+
+Jeden čtverec se stranou \(a\) má obsah
+\[
+a^2.
+\]
+
+Jsou dva, tedy:
+\[
+S_T=2a^2.
+\]
+
+\medskip
+
+Poměr obsahů je:
+\[
+S_B:S_T = a^2\sin\varphi : 2a^2.
+\]
+
+Po krácení \(a^2\) dostáváme:
+\[
+S_B:S_T = \sin\varphi : 2.
+\]
+
+\bigskip
+
+\textbf{Odpověď:}  
+\[
+S_B:S_T=\sin\varphi:2.
+\]
+
+
+\section*{Úloha č. 22.2}
+
+\textbf{Zadání:}  
+Vypočtěte velikost úhlu \(\varphi\), je-li poměr obsahů \(S_B:S_T\) roven \(1:4\).
+
+\bigskip
+
+\textbf{Řešení:}
+
+Z předchozí části víme, že
+\[
+S_B:S_T=\sin\varphi:2.
+\]
+
+Podle zadání platí:
+\[
+\sin\varphi:2 = 1:4.
+\]
+
+To znamená:
+\[
+\frac{\sin\varphi}{2}=\frac14.
+\]
+
+Odtud:
+\[
+\sin\varphi=\frac12.
+\]
+
+Protože
+\[
+\varphi \in \left(0;\frac{\pi}{2}\right),
+\]
+připadá v úvahu jen řešení
+\[
+\varphi=\frac{\pi}{6}.
+\]
+
+\bigskip
+
+\textbf{Odpověď:}  
+\[
+\boxed{\varphi=\frac{\pi}{6}}
+\]
+
+
+
+% ---------------------------------
+% ------ Ú L O H A  -  č. 23 ------
+% ---------------------------------
+\newpage
+\section*{Úloha č. 23}
+
+\textbf{Zadání:}  
+Ve čtverci \(PQRS\) o straně délky \(6\ \mathrm{m}\) je nekonečně mnoho stále se zmenšujících tmavých rovnoramenných pravoúhlých trojúhelníků. Největší z nich je trojúhelník \(PQR\).
+
+Každý následující trojúhelník má vrchol pravého úhlu uprostřed přepony předchozího trojúhelníku, což je i jediný společný bod dvou trojúhelníků.
+
+Středem stejnolehlosti libovolné dvojice těchto trojúhelníků je vrchol \(S\).
+
+Vyjádřete poměr obsahu všech bílých ploch ku obsahu všech tmavých ploch ve čtverci \(PQRS\).
+
+\bigskip
+
+\textbf{Řešení:}
+
+Obsah celého čtverce je
+\[
+S_{\square}=6^2=36\ \mathrm{m}^2.
+\]
+
+\medskip
+
+\textbf{Obsah největšího tmavého trojúhelníku}
+
+Trojúhelník \(PQR\) je pravoúhlý rovnoramenný s odvěsnami délky \(6\ \mathrm{m}\), takže jeho obsah je
+\[
+S_1=\frac12\cdot 6\cdot 6=18\ \mathrm{m}^2.
+\]
+
+\medskip
+
+\textbf{Poměr obsahů po sobě jdoucích trojúhelníků}
+
+Zadání říká, že všechny trojúhelníky jsou si podobné a středem stejnolehlosti je bod \(S\).  
+Každý další trojúhelník má vrchol pravého úhlu ve středu přepony předchozího trojúhelníku, proto se všechny délky zmenší na polovinu.
+
+Lineární koeficient podobnosti je tedy
+\[
+\frac12.
+\]
+
+Obsahy se proto zmenšují v poměru
+\[
+\left(\frac12\right)^2=\frac14.
+\]
+
+Obsahy tmavých trojúhelníků tedy tvoří geometrickou řadu:
+\[
+18,\ 18\cdot\frac14,\ 18\cdot\frac{1}{4^2},\dots
+\]
+
+Součet obsahů všech tmavých trojúhelníků je:
+\[
+S_T=\frac{18}{1-\frac14}
+=\frac{18}{\frac34}
+=24\ \mathrm{m}^2.
+\]
+
+\medskip
+
+Obsah všech bílých ploch je tedy:
+\[
+S_B=36-24=12\ \mathrm{m}^2.
+\]
+
+Hledaný poměr:
+\[
+S_B:S_T=12:24=1:2.
+\]
+
+\bigskip
+
+\textbf{Odpověď:}  
+Poměr obsahu všech bílých ploch ku obsahu všech tmavých ploch je
+\[
+1:2.
+\]
+
+
+
+% ---------------------------------
+% ------ Ú L O H A  -  č. 24 ------
+% ---------------------------------
+\newpage
+\section*{Úloha č. 24.1}
+
+\textbf{Zadání:}  
+Z dlouhodobých statistik vyplývá, že \(5\%\) osob má vlastnost \(A\) a \(10\%\) osob vlastnost \(B\). Obě vlastnosti se nepodmiňují, naopak jsou nezávislé.
+
+Vypočtěte s přesností na tisíciny pravděpodobnost jevu:  
+Náhodně vybraná osoba nemá ani jednu z obou vlastností \(A, B\).
+
+\bigskip
+
+\textbf{Řešení:}
+
+Označme si:
+\[
+P(A)=0{,}05,\qquad P(B)=0{,}10.
+\]
+
+Hledáme pravděpodobnost, že osoba nemá ani jednu z vlastností:
+\[
+P(\overline{A}\cap \overline{B}).
+\]
+
+Protože jsou jevy \(A\) a \(B\) nezávislé, jsou nezávislé i jejich doplňky. Platí tedy:
+\[
+P(\overline{A}\cap \overline{B})=P(\overline{A})\cdot P(\overline{B}).
+\]
+
+Spočítáme doplňkové pravděpodobnosti:
+\[
+P(\overline{A})=1-0{,}05=0{,}95,
+\]
+\[
+P(\overline{B})=1-0{,}10=0{,}90.
+\]
+
+Dosadíme:
+\[
+P(\overline{A}\cap \overline{B})=0{,}95\cdot 0{,}90=0{,}855.
+\]
+
+\bigskip
+
+\textbf{Odpověď:}  
+Hledaná pravděpodobnost je \(0{,}855\).
+
+
+\section*{Úloha č. 24.2}
+
+\textbf{Zadání:}  
+Z dlouhodobých statistik vyplývá, že \(5\%\) osob má vlastnost \(A\) a \(10\%\) osob vlastnost \(B\). Obě vlastnosti se nepodmiňují, naopak jsou nezávislé.
+
+Vypočtěte s přesností na tisíciny pravděpodobnost jevu:  
+Alespoň jedna z 5 náhodně vybraných osob má alespoň jednu z obou vlastností \(A, B\).
+
+\bigskip
+
+\textbf{Řešení:}
+
+Nejprve spočítáme pravděpodobnost, že jedna osoba má alespoň jednu z vlastností \(A\) nebo \(B\).
+
+Platí:
+\[
+P(A\cup B)=P(A)+P(B)-P(A\cap B).
+\]
+
+Protože jsou jevy \(A\) a \(B\) nezávislé:
+\[
+P(A\cap B)=P(A)\cdot P(B)=0{,}05\cdot 0{,}10=0{,}005.
+\]
+
+Dosadíme:
+\[
+P(A\cup B)=0{,}05+0{,}10-0{,}005=0{,}145.
+\]
+
+Pravděpodobnost, že jedna osoba nemá ani jednu z těchto vlastností, je tedy:
+\[
+1-0{,}145=0{,}855.
+\]
+
+Hledáme pravděpodobnost, že \textbf{alespoň jedna z 5 osob} má alespoň jednu z vlastností.  
+To je výhodnější spočítat přes doplněk:
+
+\[
+P(\text{alespoň jedna})=1-P(\text{žádná z 5 osob nemá ani jednu vlastnost}).
+\]
+
+Pravděpodobnost, že žádná z 5 osob nemá ani jednu vlastnost, je:
+\[
+0{,}855^5.
+\]
+
+Proto:
+\[
+P(\text{alespoň jedna})=1-0{,}855^5.
+\]
+
+Vypočítáme:
+\[
+0{,}855^5 \approx 0{,}457,
+\]
+tedy
+\[
+1-0{,}855^5 \approx 1-0{,}457=0{,}543.
+\]
+
+\bigskip
+
+\textbf{Odpověď:}  
+Hledaná pravděpodobnost je \(0{,}543\).
+
+
+
+
+\section*{Úloha č. 24.3}
+
+\textbf{Zadání:}  
+Pětimístný kód má být sestaven z 5 různých číslic.
+
+Z číslic \(0\)–\(9\) kód musí obsahovat číslice \(0,1,2\) a s nimi ještě další dvě číslice. Číslice \(0\) bude uprostřed kódu.
+
+Jaký je počet všech možností pro sestavení kódu?
+
+\bigskip
+
+\textbf{Řešení:}
+
+Kód má 5 míst a uprostřed musí být číslice
+\[
+0.
+\]
+
+Třetí pozice je tedy pevně daná.
+
+Kód musí dále obsahovat číslice
+\[
+1 \quad \text{a} \quad 2
+\]
+a ještě dvě další různé číslice z množiny
+\[
+\{3,4,5,6,7,8,9\}.
+\]
+
+\medskip
+
+\textbf{1. krok: výběr dvou dalších číslic}
+
+Z číslic \(3\) až \(9\) vybíráme dvě:
+\[
+\binom{7}{2}=21.
+\]
+
+\medskip
+
+\textbf{2. krok: rozmístění číslic}
+
+Máme tedy k dispozici čtyři číslice:
+\[
+1,\ 2,\ a,\ b,
+\]
+které rozmísťujeme na zbývající čtyři pozice (první, druhou, čtvrtou a pátou).
+
+Počet možností je:
+\[
+4! = 24.
+\]
+
+\medskip
+
+Celkový počet kódů je:
+\[
+21\cdot 24=504.
+\]
+
+\bigskip
+
+\textbf{Odpověď:}  
+Počet všech možných kódů je \(504\).
+
+
+% ---------------------------------
+% ------ Ú L O H A  -  č. 25 ------
+% ---------------------------------
+\newpage
+\section*{Úloha č. 25}
+
+\textbf{Zadání:}  
+Výrobní družstvo vyrobilo sadu stejných sekaček, každou s týmiž náklady na její výrobu.
+
+Polovinu sekaček družstvo prodalo za cenu o \(70\%\) vyšší, než byly náklady na jejich výrobu.  
+Každou další sekačku družstvo prodává za cenu o \(50\%\) vyšší, než byly náklady na její výrobu.
+
+Přestože družstvo ještě neprodalo všechny sekačky, peníze získané za prodané sekačky již nyní přesně pokryly náklady na výrobu celé sady sekaček.
+
+Vypočtěte, kolik procent všech vyrobených sekaček již družstvo prodalo.
+
+\bigskip
+
+\textbf{Řešení:}
+
+Označme si:
+\begin{itemize}
+    \item \(n\) \dots celkový počet vyrobených sekaček,
+    \item \(x\) \dots náklady na výrobu jedné sekačky.
+\end{itemize}
+
+Celkové náklady na výrobu celé sady jsou:
+\[
+nx.
+\]
+
+\medskip
+
+Polovina sekaček, tedy
+\[
+\frac{n}{2},
+\]
+byla prodána za cenu o \(70\%\) vyšší než výrobní náklady, tedy za
+\[
+1{,}7x
+\]
+za kus.
+
+Tržba z této poloviny je:
+\[
+\frac{n}{2}\cdot 1{,}7x = 0{,}85nx.
+\]
+
+\medskip
+
+Označme si dále \(k\) počet dalších prodaných sekaček.  
+Každá z nich byla prodána za cenu o \(50\%\) vyšší než výrobní náklady, tedy za
+\[
+1{,}5x.
+\]
+
+Tržba z těchto dalších prodaných sekaček je:
+\[
+1{,}5kx.
+\]
+
+\medskip
+
+Podle zadání už celková tržba přesně pokryla náklady na výrobu celé sady, tedy:
+\[
+0{,}85nx + 1{,}5kx = nx.
+\]
+
+Odečteme \(0{,}85nx\):
+\[
+1{,}5kx = 0{,}15nx.
+\]
+
+Vydělíme \(x\):
+\[
+1{,}5k = 0{,}15n.
+\]
+
+Odtud:
+\[
+k = \frac{0{,}15}{1{,}5}n = 0{,}1n.
+\]
+
+Družstvo tedy kromě poloviny sekaček prodalo ještě dalších
+\[
+0{,}1n
+\]
+sekaček.
+
+Celkem prodalo:
+\[
+\frac{n}{2}+0{,}1n = 0{,}5n+0{,}1n = 0{,}6n.
+\]
+
+To je
+\[
+60\%
+\]
+všech vyrobených sekaček.
+
+\bigskip
+
+\textbf{Odpověď:}  
+Družstvo již prodalo \(60\%\) všech vyrobených sekaček.
+
+
+% ---------------------------------
+% ------ Ú L O H A  -  č. 26 ------
+% ---------------------------------
+\newpage
+\section*{Úloha č. 26.1}
+
+\textbf{Zadání:}  
+Na obrázku jsou nakresleny tři obrazce složené ze čtverců o straně délky \(1\ \mathrm{cm}\).
+
+Za těmito obrazci následují další. Obrazec s pořadovým číslem \(n>1\) se vytvoří z předchozího obrazce přidáním spodní řady, která obsahuje \(n\) čtverců.
+
+Jeden z obrazců je složen z \(210\) čtverců.
+
+Vypočtěte, kolikátý je tento obrazec.
+
+\bigskip
+
+\textbf{Řešení:}
+
+Počty čtverců v jednotlivých obrazcích jsou:
+\[
+1,\ 1+2,\ 1+2+3,\dots
+\]
+
+\(n\)-tý obrazec tedy obsahuje součet prvních \(n\) přirozených čísel:
+\[
+S_n = 1+2+3+\dots+n = \frac{n(n+1)}{2}.
+\]
+
+Podle zadání platí:
+\[
+\frac{n(n+1)}{2}=210.
+\]
+
+Vynásobíme dvěma:
+\[
+n(n+1)=420.
+\]
+
+Dostáváme rovnici:
+\[
+n^2+n-420=0.
+\]
+
+Rozložíme na součin:
+\[
+(n-20)(n+21)=0.
+\]
+
+Odtud:
+\[
+n=20 \quad \text{nebo} \quad n=-21.
+\]
+
+Záporné řešení nedává smysl, proto:
+\[
+n=20.
+\]
+
+\bigskip
+
+\textbf{Odpověď:}  
+Je to \(20.\) obrazec.
+
+
+
+\section*{Úloha č. 26.2}
+\textbf{Zadání:}  
+Vypočtěte v cm obvod tohoto obrazce.
+
+\bigskip
+
+\textbf{Řešení:}
+
+Z předchozí části víme, že jde o \(20.\) obrazec.
+
+Tento obrazec má tvar ``schodů'':
+\begin{itemize}
+    \item dole je řada o \(20\) čtvercích,
+    \item nad ní řada o \(19\) čtvercích,
+    \item \dots
+    \item nahoře je 1 čtverec.
+\end{itemize}
+
+Každý čtverec má stranu délky
+\[
+1\ \mathrm{cm}.
+\]
+
+\medskip
+
+Obvod spočítáme po částech:
+\begin{itemize}
+    \item dolní vodorovná strana má délku
+    \[
+    20\ \mathrm{cm},
+    \]
+    \item horní vodorovná strana má délku
+    \[
+    1\ \mathrm{cm},
+    \]
+    \item levý bok tvoří 20 svislých úseků délky 1 cm, tedy
+    \[
+    20\ \mathrm{cm},
+    \]
+    \item pravý bok také tvoří 20 svislých úseků délky 1 cm, tedy
+    \[
+    20\ \mathrm{cm},
+    \]
+    \item na levé horní hraně je navíc 19 vodorovných ``schodů'' délky 1 cm, tedy
+    \[
+    19\ \mathrm{cm},
+    \]
+    \item stejně tak na pravé horní hraně je 19 vodorovných ``schodů'' délky 1 cm, tedy
+    \[
+    19\ \mathrm{cm}.
+    \]
+\end{itemize}
+
+Celkový obvod je:
+\[
+20+1+20+20+19+19=99.
+\]
+
+Tohle ale není správný způsob počítání, protože horní strana délky \(1\) už je započtena mezi horními ``schody''.
+
+Přesnější je vidět obrazec takto:
+
+\begin{itemize}
+    \item dolní strana: \(20\),
+    \item levá svislá strana: \(20\),
+    \item pravá svislá strana: \(20\),
+    \item horní lomená čára se skládá z 20 vodorovných a 20 svislých úseků délky 1 cm:
+    \[
+    20+20=40.
+    \]
+\end{itemize}
+
+Celkem:
+\[
+20+20+20+40=100.
+\]
+
+Jenže v tomto součtu jsou krajní svislé úseky započítány dvakrát, protože už jsou zahrnuty v horní lomené čáře. Proto odečteme 20 + 20?
+
+Nejjednodušší je použít obecný vzorec pro obvod \(n\)-tého obrazce:
+\[
+o_n = 4n.
+\]
+
+Pro \(n=20\) tedy:
+\[
+o_{20}=4\cdot 20=80.
+\]
+
+\bigskip
+
+\textbf{Kontrola na malých případech:}
+
+\begin{itemize}
+    \item 1. obrazec má obvod \(4\),
+    \item 2. obrazec má obvod \(8\),
+    \item 3. obrazec má obvod \(12\).
+\end{itemize}
+
+Skutečně tedy platí:
+\[
+o_n=4n.
+\]
+
+Proto:
+\[
+o_{20}=4\cdot 20=80.
+\]
+
+\bigskip
+
+\textbf{Odpověď:}  
+Obvod tohoto obrazce je \(80\ \mathrm{cm}\).
+
+
+
+% ---------------------------------
+% ------ Ú L O H A  -  č. 27 ------
+% ---------------------------------
+\newpage
+\section*{Úloha č. 27}
+
+\textbf{Zadání:}  
+Šedý obrazec je složen z nekonečně mnoha rovnoramenných trojúhelníků. Každé dva sousední trojúhelníky mají právě jeden společný bod a jsou obrazem a vzorem ve stejnolehlosti se středem \(V\). Na obrázku jsou zakresleny pouze 4 trojúhelníky.
+
+V největším trojúhelníku má základna délku \(14\ \mathrm{cm}\) a výška na základnu velikost \(7\ \mathrm{cm}\).  
+Výška celého obrazce je \(28\ \mathrm{cm}\).
+
+Vypočtěte v \(\mathrm{cm}^2\) obsah šedého obrazce.
+
+\bigskip
+
+\textbf{Řešení:}
+
+Nejprve spočítáme obsah největšího trojúhelníku:
+\[
+S_1=\frac{1}{2}\cdot 14 \cdot 7 = 49\ \mathrm{cm}^2.
+\]
+
+\medskip
+
+Teď potřebujeme zjistit, v jakém poměru se zmenšují po sobě jdoucí trojúhelníky.
+
+Celý obrazec má výšku
+\[
+28\ \mathrm{cm},
+\]
+zatímco největší trojúhelník má výšku
+\[
+7\ \mathrm{cm}.
+\]
+
+Vrchol největšího trojúhelníku je tedy od bodu \(V\) vzdálen
+\[
+28-7=21\ \mathrm{cm}.
+\]
+
+Protože sousední trojúhelníky jsou ve stejnolehlosti se středem \(V\), poměr podobnosti mezi dvěma po sobě jdoucími trojúhelníky je
+\[
+q=\frac{21}{28}=\frac{3}{4}.
+\]
+
+\medskip
+
+Obsahy podobných útvarů se mění s druhou mocninou koeficientu podobnosti.  
+Proto poměr obsahů dvou po sobě jdoucích trojúhelníků je
+\[
+q^2=\left(\frac{3}{4}\right)^2=\frac{9}{16}.
+\]
+
+Obsahy všech trojúhelníků tedy tvoří nekonečnou geometrickou řadu:
+\[
+49,\ 49\cdot\frac{9}{16},\ 49\cdot\left(\frac{9}{16}\right)^2,\dots
+\]
+
+Součet nekonečné geometrické řady je:
+\[
+S=\frac{a_1}{1-q}
+\]
+kde
+\[
+a_1=49,\qquad q=\frac{9}{16}.
+\]
+
+Dosadíme:
+\[
+S=\frac{49}{1-\frac{9}{16}}
+=\frac{49}{\frac{7}{16}}
+=49\cdot\frac{16}{7}
+=112.
+\]
+
+\bigskip
+
+\textbf{Odpověď:}  
+Obsah šedého obrazce je \(112\ \mathrm{cm}^2\).
+
+
+
+% ---------------------------------
+% ------ Ú L O H A  -  č. 28 ------
+% ---------------------------------
+\newpage
+\section*{Úloha č. 28.1}
+
+\textbf{Zadání:}  
+Obdélníkový pozemek \(ABCD\) má rozměry \(360\ \mathrm{m}\) a \(480\ \mathrm{m}\). Uvnitř pozemku je rybníček.
+
+První cestu mezi protějšími rohy pozemku představuje lomená čára \(AMNC\), druhou cestu lomená čára \(AXYC\). Body \(X, M\) leží na úhlopříčce \(AC\), body \(N, Y\) na stranách obdélníku a úsečky \(MN, XY\) jsou rovnoběžné se stranami obdélníku.
+
+U první cesty tvoří délka úsečky \(AM\) dvě třetiny délky úhlopříčky \(AC\).
+
+Vypočtěte, v jakém poměru je délka úsečky \(AM\) ku délce lomené čáry \(MNC\).
+
+\bigskip
+
+\textbf{Řešení:}
+
+Nejprve spočítáme délku úhlopříčky obdélníku:
+\[
+|AC|=\sqrt{360^2+480^2}
+=\sqrt{129600+230400}
+=\sqrt{360000}
+=600\ \mathrm{m}.
+\]
+
+Podle zadání je
+\[
+|AM|=\frac{2}{3}|AC|=\frac{2}{3}\cdot 600=400\ \mathrm{m}.
+\]
+
+\medskip
+
+Protože bod \(M\) leží na úhlopříčce \(AC\), rozdělí ji ve stejném poměru i v obou souřadnicích.
+
+Úhlopříčka vede z bodu
+\[
+A=(0,0)
+\]
+do bodu
+\[
+C=(360,480).
+\]
+
+Bod \(M\) leží ve dvou třetinách této úhlopříčky, tedy má souřadnice
+\[
+M=\left(\frac{2}{3}\cdot 360,\ \frac{2}{3}\cdot 480\right)=(240,320).
+\]
+
+Úsečka \(MN\) je vodorovná až ke straně obdélníku, proto
+\[
+|MN|=360-240=120\ \mathrm{m}.
+\]
+
+Úsečka \(NC\) je svislá, tedy
+\[
+|NC|=480-320=160\ \mathrm{m}.
+\]
+
+Délka lomené čáry \(MNC\) je:
+\[
+|MN|+|NC|=120+160=280\ \mathrm{m}.
+\]
+
+Hledaný poměr je tedy:
+\[
+|AM|:|MNC|=400:280.
+\]
+
+Po zkrácení číslem 40 dostaneme:
+\[
+400:280=10:7.
+\]
+
+\bigskip
+
+\textbf{Odpověď:}  
+Hledaný poměr je \(10:7\).
+
+\section*{Úloha č. 28.2}
+
+\textbf{Zadání:}  
+U druhé cesty je délka úsečky \(AX\) stejná jako délka lomené čáry \(XYC\).
+
+Vypočtěte v metrech délku lomené čáry \(AXYC\) představující druhou cestu.
+
+\bigskip
+
+\textbf{Řešení:}
+
+Opět použijeme délku úhlopříčky obdélníku:
+\[
+|AC|=600\ \mathrm{m}.
+\]
+
+Označme
+\[
+|AX|=t.
+\]
+
+Protože bod \(X\) leží na úhlopříčce \(AC\), zbývající část úhlopříčky má délku
+\[
+|XC|=600-t.
+\]
+
+Z podobnosti trojúhelníků nebo ze souřadnicového vyjádření plyne, že délky vodorovné a svislé části lomené čáry \(XYC\) odpovídají stejnému podílu zbývající části úhlopříčky.
+
+Jinak řečeno: když je bod \(X\) v určité části úhlopříčky, pak:
+\[
+|XY|+|YC|
+\]
+odpovídá součtu zbývajících vodorovných a svislých rozměrů obdélníku.
+
+Zavedeme parametr
+\[
+\lambda=\frac{|AX|}{|AC|}=\frac{t}{600}.
+\]
+
+Pak bod \(X\) má souřadnice
+\[
+(360\lambda,\ 480\lambda).
+\]
+
+Odtud:
+\[
+|XY|=480-480\lambda=480(1-\lambda),
+\]
+\[
+|YC|=360-360\lambda=360(1-\lambda).
+\]
+
+Proto:
+\[
+|XYC|=480(1-\lambda)+360(1-\lambda)=840(1-\lambda).
+\]
+
+Podle zadání však platí:
+\[
+|AX|=|XYC|.
+\]
+
+Tedy:
+\[
+600\lambda = 840(1-\lambda).
+\]
+
+Upravíme:
+\[
+600\lambda = 840-840\lambda,
+\]
+\[
+1440\lambda = 840,
+\]
+\[
+\lambda=\frac{840}{1440}=\frac{7}{12}.
+\]
+
+Odtud:
+\[
+|AX|=600\cdot \frac{7}{12}=350\ \mathrm{m}.
+\]
+
+A protože
+\[
+|AX|=|XYC|,
+\]
+je i délka lomené čáry \(XYC\)
+\[
+350\ \mathrm{m}.
+\]
+
+Celá lomená čára \(AXYC\) má tedy délku
+\[
+|AX|+|XYC|=350+350=700\ \mathrm{m}.
+\]
+
+\bigskip
+
+\textbf{Odpověď:}  
+Délka lomené čáry \(AXYC\) je \(700\ \mathrm{m}\).
+
+
+
+% ---------------------------------
+% ------ Ú L O H A  -  č. 29 ------
+% ---------------------------------
+\newpage
+\section*{Úloha č. 29}
+
+\textbf{Zadání:}  
+V balíčku je 12 karet očíslovaných přirozenými čísly od 1 do 12.  
+Balíček zamícháme a náhodně vytáhneme dvojici karet.
+
+Jaká je pravděpodobnost, že součet obou čísel na tažených kartách je dělitelný šesti?
+
+\bigskip
+
+\textbf{Řešení:}
+
+Celkový počet dvojic karet (bez ohledu na pořadí) je:
+\[
+\binom{12}{2}=66.
+\]
+
+\medskip
+
+Součet dvou čísel je dělitelný šesti, pokud je dělitelný současně dvěma a třemi.
+
+Rozdělíme čísla \(1\) až \(12\) podle zbytků modulo 6:
+
+\[
+\begin{array}{c|c}
+\text{Zbytek mod 6} & \text{Čísla} \\
+\hline
+0 & 6, 12 \\
+1 & 1, 7 \\
+2 & 2, 8 \\
+3 & 3, 9 \\
+4 & 4, 10 \\
+5 & 5, 11 \\
+\end{array}
+\]
+
+Součet je dělitelný šesti, pokud součet zbytků je 0 modulo 6. Možné kombinace jsou:
+\[
+(0,0),\ (1,5),\ (2,4),\ (3,3).
+\]
+
+\medskip
+
+Spočítáme příznivé dvojice:
+
+\begin{itemize}
+    \item zbytek (0,0): z množiny \(\{6,12\}\)
+    \[
+    \binom{2}{2}=1,
+    \]
+    
+    \item zbytek (1,5): množiny po 2 prvcích
+    \[
+    2\cdot 2=4,
+    \]
+    
+    \item zbytek (2,4): opět
+    \[
+    2\cdot 2=4,
+    \]
+    
+    \item zbytek (3,3): z množiny \(\{3,9\}\)
+    \[
+    \binom{2}{2}=1.
+    \]
+\end{itemize}
+
+Celkem:
+\[
+1+4+4+1=10.
+\]
+
+\medskip
+
+Pravděpodobnost je tedy:
+\[
+\frac{10}{66}=\frac{5}{33}.
+\]
+
+\bigskip
+
+\textbf{Odpověď:}  
+Hledaná pravděpodobnost je \(\frac{5}{33}\).
+
+
+
+% ---------------------------------
+% ------ Ú L O H A  -  č. 30 ------
+% ---------------------------------
+\newpage
+\section*{Úloha č. 30}
+
+\textbf{Zadání:}  
+Uvažujme dvě tělesa – rotační válec a polokouli.
+
+Výška válce je o polovinu větší než poloměr \(r\) jeho podstavy.  
+Povrch polokoule (tedy včetně podstavy) je stejný jako povrch válce.  
+Poloměr polokoule označme \(R\).
+
+Který vztah vyjadřuje závislost poloměrů \(R\) a \(r\)?
+
+\bigskip
+
+\textbf{Řešení:}
+
+\textbf{1. Povrch válce}
+
+Výška válce:
+\[
+h = r + \frac{1}{2}r = \frac{3}{2}r.
+\]
+
+Povrch válce:
+\[
+S_{\text{válec}} = 2\pi r^2 + 2\pi r h.
+\]
+
+Dosadíme:
+\[
+S_{\text{válec}} = 2\pi r^2 + 2\pi r \cdot \frac{3}{2}r
+= 2\pi r^2 + 3\pi r^2
+= 5\pi r^2.
+\]
+
+\medskip
+
+\textbf{2. Povrch polokoule}
+
+Povrch polokoule včetně podstavy:
+\[
+S_{\text{polokoule}} = 2\pi R^2 + \pi R^2 = 3\pi R^2.
+\]
+
+\medskip
+
+\textbf{3. Rovnost povrchů}
+
+Podle zadání:
+\[
+S_{\text{válec}} = S_{\text{polokoule}}.
+\]
+
+Dosadíme:
+\[
+5\pi r^2 = 3\pi R^2.
+\]
+
+Zkrátíme \(\pi\):
+\[
+5r^2 = 3R^2.
+\]
+
+Vyjádříme \(R\):
+\[
+R^2 = \frac{5}{3}r^2,
+\]
+
+\[
+R = r\sqrt{\frac{5}{3}}.
+\]
+
+\bigskip
+
+\textbf{Odpověď:}  
+\[
+R = r\sqrt{\frac{5}{3}}.
+\]
+
+
+
+% ---------------------------------
+% ------ Ú L O H A  -  č. 31 ------
+% ---------------------------------
+\newpage
+\section*{Úloha č. 31}
+
+\textbf{Zadání:}  
+Profilované desky z akustické pěny se vyrábějí ve dvou provedeních.
+
+Spodní část každé desky tvoří platforma tvaru pravidelného čtyřbokého hranolu s podstavnou hranou délky \(50\ \mathrm{cm}\) a výškou \(2\ \mathrm{cm}\).
+
+V prvním provedení horní podstavu platformy zcela pokrývá \(100\) shodných pravidelných čtyřbokých jehlanů. V každém jehlanu je výška stejná jako délka podstavné hrany.
+
+Ve druhém provedení horní podstavu platformy zcela pokrývá \(10\) shodných kolmých trojbokých hranolů. Podstava trojbokého hranolu má tvar rovnoramenného trojúhelníku, který přiléhá k platformě svou základnou. Výška na základnu je stejná jako délka základny.
+
+Jaký je poměr objemů obou provedení akustických desek (větší objem ku menšímu)?
+
+\bigskip
+
+\textbf{Řešení:}
+
+\textbf{1. Objem platformy}
+
+Platforma má rozměry:
+\[
+50\times 50 \times 2.
+\]
+
+Objem:
+\[
+V_{\text{plat}}=50\cdot 50 \cdot 2 = 5000\ \mathrm{cm}^3.
+\]
+
+\medskip
+
+\textbf{2. První provedení (jehlany)}
+
+Podstava jednoho jehlanu:
+\[
+\frac{50\cdot 50}{100}=25\ \mathrm{cm}^2.
+\]
+
+Strana podstavy:
+\[
+5\ \mathrm{cm}.
+\]
+
+Výška jehlanu:
+\[
+5\ \mathrm{cm}.
+\]
+
+Objem jednoho jehlanu:
+\[
+V_1=\frac{1}{3}\cdot 25 \cdot 5=\frac{125}{3}.
+\]
+
+Celkem:
+\[
+100\cdot \frac{125}{3}=\frac{12500}{3}.
+\]
+
+Celkový objem:
+\[
+V_{\text{I}}=5000+\frac{12500}{3}
+=\frac{15000+12500}{3}
+=\frac{27500}{3}.
+\]
+
+\medskip
+
+\textbf{3. Druhé provedení (trojboké hranoly)}
+
+Základna každého trojúhelníku:
+\[
+\frac{50}{10}=5\ \mathrm{cm}.
+\]
+
+Výška trojúhelníku:
+\[
+5\ \mathrm{cm}.
+\]
+
+Obsah podstavy:
+\[
+S=\frac{1}{2}\cdot 5\cdot 5=\frac{25}{2}.
+\]
+
+Délka hranolu:
+\[
+50\ \mathrm{cm}.
+\]
+
+Objem jednoho hranolu:
+\[
+V_2=\frac{25}{2}\cdot 50=625.
+\]
+
+Celkem:
+\[
+10\cdot 625=6250.
+\]
+
+Celkový objem:
+\[
+V_{\text{II}}=5000+6250=11250.
+\]
+
+\medskip
+
+\textbf{4. Poměr}
+
+\[
+V_{\text{I}}:V_{\text{II}}=\frac{27500}{3}:11250.
+\]
+
+Vynásobíme 3:
+\[
+27500:33750.
+\]
+
+Zkrátíme:
+\[
+=22:27.
+\]
+
+\bigskip
+
+\textbf{Odpověď:}  
+Poměr objemů je \(27:22\) (větší ku menšímu).
+
+
+
+
+% ---------------------------------
+% ------ Ú L O H A  -  č. 32 ------
+% ---------------------------------
+\newpage
+\section*{Úloha č. 32}
+
+\textbf{Zadání:}  
+Aleš si naspořil o \(60\%\) vyšší částku než Dana a ze své naspořené částky již \(45\%\) utratil.
+
+Když si Dana za část svých úspor koupila nové kolo, z úspor jí zbyla úplně stejná částka, jako zbyla Alešovi.
+
+\begin{enumerate}
+    \item[2.1] kolik procent svých úspor utratila Dana za kolo,
+    \item[2.2] kolikrát více utratil Aleš než Dana.
+\end{enumerate}
+
+\bigskip
+
+\textbf{Řešení:}
+
+Označme:
+\begin{itemize}
+    \item \(D\) \dots úspory Dany,
+    \item Aleš má \(1{,}6D\).
+\end{itemize}
+
+Aleš utratil \(45\%\), tedy mu zůstalo:
+\[
+0{,}55 \cdot 1{,}6D = 0{,}88D.
+\]
+
+Dana po nákupu kola má také \(0{,}88D\), takže utratila:
+\[
+D - 0{,}88D = 0{,}12D.
+\]
+
+\medskip
+
+\textbf{2.1}
+
+Dana utratila:
+\[
+12\%.
+\]
+
+\medskip
+
+\textbf{2.2}
+
+Aleš utratil:
+\[
+0{,}45 \cdot 1{,}6D = 0{,}72D.
+\]
+
+Poměr:
+\[
+\frac{0{,}72D}{0{,}12D}=6.
+\]
+
+\bigskip
+
+\textbf{Odpověď:}
+\begin{itemize}
+    \item[2.1] \(12\%\),
+    \item[2.2] \(6\)-krát více.
+\end{itemize}
+
+
+
+% ---------------------------------
+% ------ Ú L O H A  -  č. 33 ------
+% ---------------------------------
+\newpage
+\section*{Úloha č. 33}
+
+\textbf{Zadání:}  
+Karel by pokosil louku sám za \(t\) hodin. Emil by ji pokosil dvakrát rychleji.
+
+Louku začal kosit Karel, po půl hodině se k němu přidal Emil a oba společně pak pracovali ještě několik hodin, než byla louka posekána.
+
+Vyjádřete v závislosti na veličině \(t\):
+
+\begin{enumerate}
+    \item[3.1] jakou část louky pokosil Karel za půl hodiny,
+    \item[3.2] jakou část louky pokosil Emil.
+\end{enumerate}
+
+\bigskip
+
+\textbf{Řešení:}
+
+Výkon Karla:
+\[
+\frac{1}{t}.
+\]
+
+\medskip
+
+\textbf{3.1}
+
+Za půl hodiny:
+\[
+\frac{1}{t}\cdot \frac12 = \frac{1}{2t}.
+\]
+
+\medskip
+
+\textbf{3.2}
+
+Emil pracuje dvakrát rychleji, tedy jeho výkon je:
+\[
+\frac{2}{t}.
+\]
+
+Karel za půl hodiny poseká:
+\[
+\frac{1}{2t}.
+\]
+
+Zbývá:
+\[
+1-\frac{1}{2t}.
+\]
+
+Společný výkon:
+\[
+\frac{1}{t}+\frac{2}{t}=\frac{3}{t}.
+\]
+
+Doba společné práce:
+\[
+\frac{1-\frac{1}{2t}}{\frac{3}{t}}.
+\]
+
+Emil poseká:
+\[
+\frac{2}{t}\cdot \frac{1-\frac{1}{2t}}{\frac{3}{t}}
+=\frac{2}{3}\left(1-\frac{1}{2t}\right).
+\]
+
+\bigskip
+
+\textbf{Odpověď:}
+\begin{itemize}
+    \item[3.1] \(\frac{1}{2t}\),
+    \item[3.2] \(\frac{2}{3}\left(1-\frac{1}{2t}\right)\).
+\end{itemize}
+
+
+
+% ---------------------------------
+% ------ Ú L O H A  -  č. 34 ------
+% ---------------------------------
+\newpage
+\section*{Úloha č. 34}
+
+\textbf{Zadání:}  
+Všech \(90\) žáků čtvrtého ročníku dostalo známku ze závěrečného testu.  
+V tabulce jsou uvedeny pouze četnosti známek \(1\) a \(4\).
+
+Dále platí: Žádné dvě četnosti nejsou stejné, medián známek je \(2\) a modus známek je \(3\).
+
+Určete, kolik žáků dostalo ze závěrečného testu trojku.
+
+\bigskip
+
+\textbf{Řešení:}
+
+Označme si četnosti jednotlivých známek:
+\[
+\begin{array}{c|ccccc}
+\text{Známka} & 1 & 2 & 3 & 4 & 5 \\
+\hline
+\text{Četnost} & 5 & x & y & 2 & z
+\end{array}
+\]
+
+Celkem je \(90\) žáků, takže:
+\[
+5+x+y+2+z=90,
+\]
+tedy
+\[
+x+y+z=83.
+\]
+
+\medskip
+
+\textbf{Podmínka na medián}
+
+Protože je \(90\) sudé číslo, medián je určen 45. a 46. hodnotou v seřazeném souboru.
+
+Medián je \(2\), takže 45. i 46. známka musí být dvojka.
+
+Počet jedniček a dvojek dohromady tedy musí být alespoň \(46\):
+\[
+5+x \ge 46.
+\]
+
+Zároveň trojka nesmí začínat dříve než po 46. místě, takže dvojky musí končit právě na 46. místě nebo později. Aby medián opravdu byl 2, musí platit:
+\[
+5+x \ge 46
+\]
+a současně
+\[
+5 < 45,
+\]
+což je splněno automaticky.
+
+Tedy:
+\[
+x \ge 41.
+\]
+
+Kdyby bylo \(x \ge 42\), pak by dvojek bylo alespoň \(42\), což by vedlo k tomu, že četnost dvojek by mohla být stejná jako četnost trojek nebo by trojky nemusely být modem. Musíme tedy využít i podmínku na modus.
+
+\medskip
+
+\textbf{Podmínka na modus}
+
+Modus je známka \(3\), takže četnost trojek \(y\) musí být největší ze všech četností.
+
+Má tedy platit:
+\[
+y>x,\qquad y>5,\qquad y>2,\qquad y>z.
+\]
+
+Navíc žádné dvě četnosti nejsou stejné.
+
+\medskip
+
+Zkusme nejmenší možné \(x\), které ještě zajistí medián 2:
+\[
+x=41.
+\]
+
+Pak z rovnice
+\[
+x+y+z=83
+\]
+dostaneme
+\[
+41+y+z=83,
+\]
+\[
+y+z=42.
+\]
+
+Aby \(y\) bylo větší než \(x=41\), muselo by platit
+\[
+y>41.
+\]
+
+To ale není možné, protože pak by
+\[
+z=42-y<1,
+\]
+a četnost známky 5 by nemohla být záporná. Jediná možnost by byla \(y=42\) a \(z=0\), což je přípustné a zároveň:
+\begin{itemize}
+    \item \(42>41\),
+    \item \(42>5\),
+    \item \(42>2\),
+    \item \(42>0\).
+\end{itemize}
+
+Všechny četnosti jsou různé:
+\[
+5,\ 41,\ 42,\ 2,\ 0.
+\]
+
+To splňuje všechny podmínky.
+
+\bigskip
+
+\textbf{Odpověď:}  
+Ze závěrečného testu dostalo trojku \(42\) žáků.
+
+
+% ---------------------------------
+% ------ Ú L O H A  -  č. 35 ------
+% ---------------------------------
+\newpage
+\section*{Úloha č. 35}
+
+\textbf{Zadání:}  
+Šestimístné číslo splňuje obě následující podmínky:
+\begin{itemize}
+    \item obsahuje všech šest číslic \(1,2,3,4,5,6\),
+    \item lze ho rozdělit na tři dvojčíslí, která mají stejný ciferný součet.
+\end{itemize}
+
+(Např. číslo \(254316\) lze rozdělit na dvojčíslí \(25\), \(43\) a \(16\).)
+
+Vypočtěte, kolik různých čísel splňuje uvedené podmínky.
+
+\bigskip
+
+\textbf{Řešení:}
+
+Číslo obsahuje právě číslice
+\[
+1,2,3,4,5,6.
+\]
+
+Součet všech těchto číslic je
+\[
+1+2+3+4+5+6=21.
+\]
+
+Máme číslo rozdělit na tři dvojčíslí tak, aby všechna měla stejný ciferný součet.  
+Součet cifer všech tří dvojčíslí je tedy 21, takže na každé dvojčíslí připadá ciferný součet
+\[
+\frac{21}{3}=7.
+\]
+
+\medskip
+
+Hledáme tedy dvojice číslic z množiny \(\{1,2,3,4,5,6\}\), které mají součet 7. Jsou to právě:
+\[
+(1,6),\quad (2,5),\quad (3,4).
+\]
+
+To jsou jediné možné dvojice, ze kterých musí být tři dvojčíslí sestavena.
+
+\medskip
+
+Z každé dvojice lze vytvořit dvě různá dvojčíslí:
+\[
+16 \text{ nebo } 61,\qquad
+25 \text{ nebo } 52,\qquad
+34 \text{ nebo } 43.
+\]
+
+Pro orientaci uvnitř dvojic tedy máme:
+\[
+2\cdot 2\cdot 2 = 2^3 = 8
+\]
+možností.
+
+\medskip
+
+Tři vzniklá dvojčíslí pak ještě můžeme mezi sebou libovolně uspořádat.  
+Počet pořadí je:
+\[
+3! = 6.
+\]
+
+Celkový počet hledaných šestimístných čísel je tedy:
+\[
+8\cdot 6 = 48.
+\]
+
+\bigskip
+
+\textbf{Odpověď:}  
+Uvedené podmínky splňuje \(48\) různých čísel.
+
+
+
+
+% ---------------------------------
+% ------ Ú L O H A  -  č. 36 ------
+% ---------------------------------
+\newpage
+\section*{Úloha č. 36.1}
+
+\textbf{Zadání:}  
+Výběh pro koně bude mít tvar pravoúhelníku, jehož jedna strana měří \(x\) metrů.
+
+K ohrazení části výběhu využijeme již hotových hrazení sousedních pozemků  
+(v obrázku jsou vyznačena čárkovanou čarou) úsek dlouhý \((x+40)\) metrů.
+
+Zbytek hranice výběhu bude tvořit plot v celkové délce \(200\) metrů.
+
+Pro \(x \in (0;160)\) vyjádřete v \(\mathrm{m}^2\) rozlohu výběhu \(S\) v závislosti na veličině \(x\).
+
+\bigskip
+
+\textbf{Řešení:}
+
+Označme druhou stranu pravoúhelníku jako \(y\).
+
+Obvod pravoúhelníku je
+\[
+2x+2y.
+\]
+
+Z toho část délky
+\[
+x+40
+\]
+je již hotové hrazení, a nově stavěný plot má délku \(200\) m. Platí tedy:
+\[
+(2x+2y)-(x+40)=200.
+\]
+
+Upravíme:
+\[
+x+2y-40=200,
+\]
+\[
+x+2y=240,
+\]
+\[
+2y=240-x,
+\]
+\[
+y=120-\frac{x}{2}.
+\]
+
+Obsah výběhu je:
+\[
+S=x\cdot y.
+\]
+
+Dosadíme:
+\[
+S(x)=x\left(120-\frac{x}{2}\right).
+\]
+
+Po roznásobení:
+\[
+S(x)=120x-\frac{x^2}{2}.
+\]
+
+\bigskip
+
+\textbf{Odpověď:}  
+\[
+S(x)=120x-\frac{x^2}{2}.
+\]
+
+\section*{Úloha 36.2}
+
+\textbf{Zadání:}  
+Určete všechny hodnoty \(x\), pro které bude mít výběh rozlohu alespoň \(7\,000\ \mathrm{m}^2\).
+
+\bigskip
+
+\textbf{Řešení:}
+
+Z předchozí části víme, že
+\[
+S(x)=120x-\frac{x^2}{2}.
+\]
+
+Požadujeme:
+\[
+120x-\frac{x^2}{2}\ge 7000.
+\]
+
+Vynásobíme dvěma:
+\[
+240x-x^2\ge 14000.
+\]
+
+Převedeme vše na jednu stranu:
+\[
+-x^2+240x-14000\ge 0.
+\]
+
+Vynásobíme \(-1\), přičemž obrátíme znaménko nerovnosti:
+\[
+x^2-240x+14000\le 0.
+\]
+
+Vyřešíme rovnici
+\[
+x^2-240x+14000=0.
+\]
+
+Diskriminant:
+\[
+D=240^2-4\cdot 1\cdot 14000=57600-56000=1600.
+\]
+
+\[
+\sqrt{D}=40.
+\]
+
+Kořeny:
+\[
+x_{1,2}=\frac{240\pm 40}{2}.
+\]
+
+\[
+x_1=100,\qquad x_2=140.
+\]
+
+Protože parabola
+\[
+x^2-240x+14000
+\]
+je otevřená nahoru, platí nerovnost
+\[
+x^2-240x+14000\le 0
+\]
+mezi kořeny. Tedy:
+\[
+100\le x\le 140.
+\]
+
+To zároveň vyhovuje podmínce
+\[
+x\in(0;160).
+\]
+
+\bigskip
+
+\textbf{Odpověď:}  
+\[
+x\in\langle 100;140\rangle
+\]
+
+
+\section*{Úloha 36.3}
+
+\textbf{Zadání:}  
+Vypočtěte největší možnou rozlohu výběhu.
+
+\bigskip
+
+\textbf{Řešení:}
+
+Z předchozí části máme:
+\[
+S(x)=120x-\frac{x^2}{2}.
+\]
+
+Jde o kvadratickou funkci s koeficientem u \(x^2\) záporným, takže maximum má ve vrcholu paraboly.
+
+Souřadnici vrcholu určíme:
+\[
+x_v=\frac{-b}{2a}.
+\]
+
+Zde je
+\[
+a=-\frac12,\qquad b=120.
+\]
+
+Proto:
+\[
+x_v=\frac{-120}{2\cdot\left(-\frac12\right)}=120.
+\]
+
+Dosadíme do vzorce pro obsah:
+\[
+S(120)=120\cdot 120-\frac{120^2}{2}.
+\]
+
+\[
+S(120)=14400-\frac{14400}{2}=14400-7200=7200.
+\]
+
+\bigskip
+
+\textbf{Odpověď:}  
+Největší možná rozloha výběhu je \(7200\ \mathrm{m}^2\).
+
+
+
+% ---------------------------------
+% ------ Ú L O H A  -  č. 37 ------
+% ---------------------------------
+\newpage
+\section*{Úloha č. 37}
+
+\textbf{Zadání:}  
+Jedna osmina všech osob si koupila po třech losech, jedna čtvrtina osob po dvou losech a zbytek po jednom losu. Ze všech losů zakoupených těmito osobami vyhraje jediný.
+
+Jaká je pravděpodobnost, že vítězný los bude patřit některé osobě, která si koupila alespoň 2 losy?
+
+\bigskip
+
+\textbf{Řešení:}
+
+Označme celkový počet osob jako
+\[
+n.
+\]
+
+Potom:
+\begin{itemize}
+    \item \(\frac18 n\) osob si koupilo 3 losy,
+    \item \(\frac14 n\) osob si koupilo 2 losy,
+    \item zbytek, tedy
+    \[
+    n-\frac18 n-\frac14 n = \frac58 n,
+    \]
+    si koupil 1 los.
+\end{itemize}
+
+\medskip
+
+\textbf{Počet všech zakoupených losů}
+
+Osoby se 3 losy koupily celkem:
+\[
+\frac18 n \cdot 3 = \frac38 n
+\]
+losů.
+
+Osoby se 2 losy koupily celkem:
+\[
+\frac14 n \cdot 2 = \frac12 n
+\]
+losů.
+
+Osoby s 1 losem koupily celkem:
+\[
+\frac58 n \cdot 1 = \frac58 n
+\]
+losů.
+
+Celkový počet losů je tedy:
+\[
+\frac38 n+\frac12 n+\frac58 n
+= \frac38 n+\frac48 n+\frac58 n
+= \frac{12}{8}n
+= \frac32 n.
+\]
+
+\medskip
+
+\textbf{Počet losů osob, které si koupily alespoň 2 losy}
+
+To jsou osoby, které si koupily 2 nebo 3 losy, tedy dohromady:
+\[
+\frac38 n+\frac12 n
+= \frac38 n+\frac48 n
+= \frac78 n.
+\]
+
+\medskip
+
+Hledaná pravděpodobnost je:
+\[
+\frac{\frac78 n}{\frac32 n}.
+\]
+
+Po úpravě:
+\[
+\frac78 \cdot \frac23 = \frac{14}{24}=\frac{7}{12}.
+\]
+
+\bigskip
+
+\textbf{Odpověď:}  
+Hledaná pravděpodobnost je \(\frac{7}{12}\).
+
+
+% ---------------------------------
+% ------ Ú L O H A  -  č. 38 ------
+% ---------------------------------
+\newpage
+\section*{Úloha č. 38.1}
+
+\textbf{Zadání:}  
+Při hře házíme žetonem, na němž může padnout buď číslo 1, nebo číslo 0, a to se stejnou pravděpodobností.  
+Pokud padne číslo 1, házíme žetonem znovu.
+
+Hra končí, jakmile padne číslo 0, nebo padne-li číslo 1 celkem sedmkrát.
+
+Vypočtěte pravděpodobnost jevu:  
+Číslo 1 padne za celou hru právě třikrát.
+
+\bigskip
+
+\textbf{Řešení:}
+
+Aby číslo 1 padlo za celou hru právě třikrát, musí nastat posloupnost:
+\[
+1,1,1,0.
+\]
+
+Jiná možnost není, protože hra končí hned při prvním padnutí nuly.
+
+Pravděpodobnost této posloupnosti je:
+\[
+\left(\frac12\right)^4=\frac{1}{16}.
+\]
+
+\bigskip
+
+\textbf{Odpověď:}  
+\[
+\frac{1}{16}
+\]
+
+
+\section*{Úloha 38.2}
+
+\textbf{Zadání:}  
+Vypočtěte pravděpodobnost jevu:  
+Číslo 1 padne za celou hru nejvýše čtyřikrát.
+
+\bigskip
+
+\textbf{Řešení:}
+
+To znamená, že za celou hru padne 1 právě:
+\[
+0,\ 1,\ 2,\ 3 \text{ nebo } 4 \text{ krát.}
+\]
+
+Tyto možnosti odpovídají posloupnostem:
+\[
+0,
+\]
+\[
+1,0,
+\]
+\[
+1,1,0,
+\]
+\[
+1,1,1,0,
+\]
+\[
+1,1,1,1,0.
+\]
+
+Pravděpodobnosti jednotlivých možností jsou:
+\[
+\frac12,\quad \frac14,\quad \frac18,\quad \frac{1}{16},\quad \frac{1}{32}.
+\]
+
+Sečteme je:
+\[
+\frac12+\frac14+\frac18+\frac{1}{16}+\frac{1}{32}
+= \frac{16+8+4+2+1}{32}
+= \frac{31}{32}.
+\]
+
+\bigskip
+
+\textbf{Odpověď:}  
+\[
+\frac{31}{32}
+\]
+
+
+\section*{Úloha 38.3}
+
+\textbf{Zadání:}  
+Vypočtěte pravděpodobnost jevu:  
+Číslo 1 padne za celou hru alespoň jednou.
+
+\bigskip
+
+\textbf{Řešení:}
+
+Použijeme doplněk.
+
+Jev "číslo 1 padne alespoň jednou" je doplňkem jevu "číslo 1 nepadne ani jednou".
+
+Číslo 1 nepadne ani jednou právě tehdy, když hned v prvním hodu padne 0. To má pravděpodobnost
+\[
+\frac12.
+\]
+
+Proto:
+\[
+P(\text{alespoň jedna 1}) = 1-\frac12 = \frac12.
+\]
+
+\bigskip
+
+\textbf{Odpověď:}  
+\[
+\frac12
+\]
+
+
+
+% ---------------------------------
+% ------ Ú L O H A  -  č. 39 ------
+% ---------------------------------
+\newpage
+\section*{Úloha č. 39}
+
+\textbf{Zadání:}  
+Pan K na jeden rok investoval všechny své úspory do dvou různých fondů \(A\) a \(B\).
+
+Částka, kterou vložil do fondu \(A\), byla o třetinu vyšší než částka, kterou vložil do fondu \(B\).  
+Celkový roční výnos z úspor pana K byl \(13\%\). Přitom roční výnos z částky vložené do fondu \(A\) byl jen \(10\%\).
+
+Makléř panu K původně radil obě částky vzájemně zaměnit, tedy tu vyšší vložit do fondu \(B\) a nižší do fondu \(A\).
+
+(Vzájemná záměna vložených částek by nezměnila výkonnost jednotlivých fondů. Zdanění výnosů ani poplatky neuvažujte.)
+
+Vypočtěte v procentech, jaký by byl celkový roční výnos z úspor pana K, kdyby je byl investoval podle makléřovy rady.
+
+\bigskip
+
+\textbf{Řešení:}
+
+Označme částku vloženou do fondu \(B\) jako
+\[
+x.
+\]
+
+Pak do fondu \(A\) vložil částku o třetinu vyšší:
+\[
+\frac{4}{3}x.
+\]
+
+Celkem tedy investoval:
+\[
+x+\frac{4}{3}x=\frac{7}{3}x.
+\]
+
+\medskip
+
+Výnos fondu \(A\) je \(10\%\), tedy z částky \(\frac{4}{3}x\) získal:
+\[
+0{,}10\cdot \frac{4}{3}x=\frac{2}{15}x.
+\]
+
+Označme výnos fondu \(B\) jako \(p\%\), tedy v desetinném tvaru \(p\).
+
+Pak z částky \(x\) ve fondu \(B\) získal:
+\[
+px.
+\]
+
+Celkový výnos činil \(13\%\) z celé investované částky:
+\[
+0{,}13\cdot \frac{7}{3}x.
+\]
+
+Sestavíme rovnici:
+\[
+\frac{2}{15}x + px = 0{,}13\cdot \frac{7}{3}x.
+\]
+
+Vydělíme \(x\):
+\[
+\frac{2}{15}+p = 0{,}13\cdot \frac{7}{3}.
+\]
+
+Spočítáme pravou stranu:
+\[
+0{,}13\cdot \frac{7}{3}=\frac{13}{100}\cdot \frac{7}{3}=\frac{91}{300}.
+\]
+
+Dostáváme:
+\[
+\frac{2}{15}+p=\frac{91}{300}.
+\]
+
+Převedeme \(\frac{2}{15}\) na jmenovatele 300:
+\[
+\frac{2}{15}=\frac{40}{300}.
+\]
+
+Proto:
+\[
+p=\frac{91}{300}-\frac{40}{300}=\frac{51}{300}=\frac{17}{100}=0{,}17.
+\]
+
+Fond \(B\) má tedy výnos
+\[
+17\%.
+\]
+
+\bigskip
+
+\textbf{Investice podle makléřovy rady}
+
+Podle makléřovy rady by větší částka \(\frac{4}{3}x\) byla vložena do fondu \(B\) a menší částka \(x\) do fondu \(A\).
+
+Výnos by pak byl:
+\[
+0{,}17\cdot \frac{4}{3}x + 0{,}10\cdot x.
+\]
+
+\[
+=\frac{17}{100}\cdot \frac{4}{3}x+\frac{1}{10}x
+=\frac{68}{300}x+\frac{30}{300}x
+=\frac{98}{300}x.
+\]
+
+Celková investovaná částka je stále:
+\[
+\frac{7}{3}x.
+\]
+
+Hledaný celkový výnos tedy je:
+\[
+\frac{\frac{98}{300}x}{\frac{7}{3}x}.
+\]
+
+Po úpravě:
+\[
+\frac{98}{300}\cdot \frac{3}{7}
+=\frac{14}{100}=0{,}14.
+\]
+
+To je
+\[
+14\%.
+\]
+
+\bigskip
+
+\textbf{Odpověď:}  
+Kdyby pan K investoval podle makléřovy rady, celkový roční výnos by byl \(14\%\).
+
+
+% ---------------------------------
+% ------ Ú L O H A  -  č. 40 ------
+% ---------------------------------
+\newpage
+\section*{Úloha č. 40}
+
+\textbf{Zadání:}  
+Pan K na jeden rok investoval všechny své úspory do dvou různých fondů \(A\) a \(B\).
+
+Částka, kterou vložil do fondu \(A\), byla o třetinu vyšší než částka, kterou vložil do fondu \(B\).  
+Celkový roční výnos z úspor pana K byl \(13\%\). Přitom roční výnos z částky vložené do fondu \(A\) byl jen \(10\%\).
+
+Makléř panu K původně radil obě částky vzájemně zaměnit, tedy tu vyšší vložit do fondu \(B\) a nižší do fondu \(A\).
+
+(Vzájemná záměna vložených částek by nezměnila výkonnost jednotlivých fondů. Zdanění výnosů ani poplatky neuvažujte.)
+
+Vypočtěte v procentech, jaký by byl celkový roční výnos z úspor pana K, kdyby je byl investoval podle makléřovy rady.
+
+\bigskip
+
+\textbf{Řešení:}
+
+Označme částku vloženou do fondu \(B\) jako
+\[
+x.
+\]
+
+Pak do fondu \(A\) vložil částku o třetinu vyšší:
+\[
+\frac{4}{3}x.
+\]
+
+Celkem tedy investoval:
+\[
+x+\frac{4}{3}x=\frac{7}{3}x.
+\]
+
+\medskip
+
+Výnos fondu \(A\) je \(10\%\), tedy z částky \(\frac{4}{3}x\) získal:
+\[
+0{,}10\cdot \frac{4}{3}x=\frac{2}{15}x.
+\]
+
+Označme výnos fondu \(B\) jako \(p\%\), tedy v desetinném tvaru \(p\).
+
+Pak z částky \(x\) ve fondu \(B\) získal:
+\[
+px.
+\]
+
+Celkový výnos činil \(13\%\) z celé investované částky:
+\[
+0{,}13\cdot \frac{7}{3}x.
+\]
+
+Sestavíme rovnici:
+\[
+\frac{2}{15}x + px = 0{,}13\cdot \frac{7}{3}x.
+\]
+
+Vydělíme \(x\):
+\[
+\frac{2}{15}+p = 0{,}13\cdot \frac{7}{3}.
+\]
+
+Spočítáme pravou stranu:
+\[
+0{,}13\cdot \frac{7}{3}=\frac{13}{100}\cdot \frac{7}{3}=\frac{91}{300}.
+\]
+
+Dostáváme:
+\[
+\frac{2}{15}+p=\frac{91}{300}.
+\]
+
+Převedeme \(\frac{2}{15}\) na jmenovatele 300:
+\[
+\frac{2}{15}=\frac{40}{300}.
+\]
+
+Proto:
+\[
+p=\frac{91}{300}-\frac{40}{300}=\frac{51}{300}=\frac{17}{100}=0{,}17.
+\]
+
+Fond \(B\) má tedy výnos
+\[
+17\%.
+\]
+
+\bigskip
+
+\textbf{Investice podle makléřovy rady}
+
+Podle makléřovy rady by větší částka \(\frac{4}{3}x\) byla vložena do fondu \(B\) a menší částka \(x\) do fondu \(A\).
+
+Výnos by pak byl:
+\[
+0{,}17\cdot \frac{4}{3}x + 0{,}10\cdot x.
+\]
+
+\[
+=\frac{17}{100}\cdot \frac{4}{3}x+\frac{1}{10}x
+=\frac{68}{300}x+\frac{30}{300}x
+=\frac{98}{300}x.
+\]
+
+Celková investovaná částka je stále:
+\[
+\frac{7}{3}x.
+\]
+
+Hledaný celkový výnos tedy je:
+\[
+\frac{\frac{98}{300}x}{\frac{7}{3}x}.
+\]
+
+Po úpravě:
+\[
+\frac{98}{300}\cdot \frac{3}{7}
+=\frac{14}{100}=0{,}14.
+\]
+
+To je
+\[
+14\%.
+\]
+
+\bigskip
+
+\textbf{Odpověď:}  
+Kdyby pan K investoval podle makléřovy rady, celkový roční výnos by byl \(14\%\).
+
+
+
+
+% ---------------------------------
+% ------ Ú L O H A  -  č. 41 ------
+% ---------------------------------
+\newpage
+\section*{Úloha č. 41}
+
+\textbf{Zadání:}  
+Je dána nekonečná geometrická řada
+\[
+a_1+a_2+\dots+a_n+\dots,
+\]
+kde pro všechna přirozená čísla \(n\) platí:
+\[
+a_n=\frac{-3^{2n-1}}{4^n}.
+\]
+
+Pokud existuje součet této řady, označme jej \(s\).
+
+\bigskip
+
+\textbf{Řešení:}
+
+Nejprve upravíme obecný člen:
+\[
+a_n=\frac{-3^{2n-1}}{4^n}.
+\]
+
+Protože
+\[
+3^{2n-1}=3^{2n}\cdot 3^{-1}=\frac{3^{2n}}{3}=\frac{9^n}{3},
+\]
+můžeme psát:
+\[
+a_n=-\frac{9^n}{3\cdot 4^n}
+=-\frac{1}{3}\left(\frac94\right)^n.
+\]
+
+\medskip
+
+Nyní zjistíme kvocient geometrické řady:
+\[
+q=\frac{a_{n+1}}{a_n}=\frac94.
+\]
+
+Protože
+\[
+\left|q\right|=\frac94>1,
+\]
+nekonečná geometrická řada \textbf{nemá součet}.
+
+\bigskip
+
+\textbf{Odpověď:}  
+Součet této nekonečné geometrické řady \textbf{neexistuje}, protože její kvocient je
+\[
+q=\frac94>1.
+\]
+
+
+% ---------------------------------
+% ------ Ú L O H A  -  č. 42 ------
+% ---------------------------------
+\newpage
+\section*{Úloha č. 42}
+
+\textbf{Zadání:}  
+V pekařství mají housky dvou velikostí.
+
+Hmotnost 4 velkých housek je stejná jako hmotnost 9 malých housek, přitom 1 velká houska stojí stejně jako 2 malé housky.
+
+V pekařství uvádějí u pečiva také měrnou cenu, tj. cenu přepočtenou na \(1\ \mathrm{kg}\) pečiva.
+
+O kolik procent je měrná cena malé housky vyšší než měrná cena velké housky?
+
+\bigskip
+
+\textbf{Řešení:}
+
+Označme:
+\begin{itemize}
+    \item \(m_V\) \dots hmotnost jedné velké housky,
+    \item \(m_M\) \dots hmotnost jedné malé housky,
+    \item \(c_V\) \dots cena jedné velké housky,
+    \item \(c_M\) \dots cena jedné malé housky.
+\end{itemize}
+
+Ze zadání víme:
+\[
+4m_V=9m_M
+\]
+a
+\[
+c_V=2c_M.
+\]
+
+\medskip
+
+Měrná cena je cena za jednotku hmotnosti.
+
+Pro velkou housku tedy:
+\[
+p_V=\frac{c_V}{m_V}.
+\]
+
+Pro malou housku:
+\[
+p_M=\frac{c_M}{m_M}.
+\]
+
+Chceme zjistit, o kolik procent je \(p_M\) vyšší než \(p_V\).  
+Nejprve spočítáme jejich poměr:
+\[
+\frac{p_M}{p_V}
+=
+\frac{\frac{c_M}{m_M}}{\frac{c_V}{m_V}}
+=
+\frac{c_M}{m_M}\cdot\frac{m_V}{c_V}.
+\]
+
+Dosadíme ze zadání:
+\[
+c_V=2c_M
+\quad \Rightarrow \quad
+\frac{c_M}{c_V}=\frac12,
+\]
+a z rovnice
+\[
+4m_V=9m_M
+\quad \Rightarrow \quad
+\frac{m_V}{m_M}=\frac94.
+\]
+
+Proto:
+\[
+\frac{p_M}{p_V}
+=
+\frac12 \cdot \frac94
+=
+\frac98.
+\]
+
+To znamená, že měrná cena malé housky je
+\[
+\frac98 = 1{,}125
+\]
+násobkem měrné ceny velké housky.
+
+Je tedy vyšší o
+\[
+1{,}125-1=0{,}125=12{,}5\%.
+\]
+
+\bigskip
+
+\textbf{Odpověď:}  
+Měrná cena malé housky je vyšší o \(12{,}5\%\).
+
+
+
+% ---------------------------------
+% ------ Ú L O H A  -  č. 43 ------
+% ---------------------------------
+\newpage
+\section*{Úloha č. 43}
+
+\textbf{Zadání:}  
+Cestovní kancelář nakoupila všechna hotelová místa za jednotnou cenu.
+
+Nákupní cena každého místa byla o \(60\%\) nižší než prodejní cena, kterou za toto místo cestovní kancelář utržila.
+
+Cestovní kanceláři se podařilo prodat pouze \(80\%\) všech nakoupených míst.
+
+Vypočtěte, o kolik procent více cestovní kancelář utržila za prodaná místa, než zaplatila za nákup všech hotelových míst.
+
+\bigskip
+
+\textbf{Řešení:}
+
+Označme:
+\begin{itemize}
+    \item \(p\) \dots prodejní cenu jednoho místa,
+    \item \(n\) \dots počet všech nakoupených míst.
+\end{itemize}
+
+Nákupní cena jednoho místa byla o \(60\%\) nižší než prodejní cena, tedy:
+\[
+0{,}4p.
+\]
+
+\medskip
+
+\textbf{Celkové náklady}
+
+Cestovní kancelář nakoupila \(n\) míst, takže celkové náklady byly:
+\[
+n \cdot 0{,}4p = 0{,}4np.
+\]
+
+\medskip
+
+\textbf{Celková tržba}
+
+Prodalo se pouze \(80\%\) míst, tedy
+\[
+0{,}8n
+\]
+míst.
+
+Za každé prodané místo kancelář utržila \(p\), takže celková tržba byla:
+\[
+0{,}8n \cdot p = 0{,}8np.
+\]
+
+\medskip
+
+Porovnáme tržbu a náklady:
+\[
+\frac{0{,}8np}{0{,}4np}=2.
+\]
+
+Tržba je tedy dvojnásobná oproti nákladům.
+
+To znamená, že tržba je vyšší o
+\[
+2-1=1=100\%.
+\]
+
+\bigskip
+
+\textbf{Odpověď:}  
+Cestovní kancelář utržila za prodaná místa o \(100\%\) více, než zaplatila za nákup všech hotelových míst.
+
+
+
+% ---------------------------------
+% ------ Ú L O H A  -  č. 44 ------
+% ---------------------------------
+\newpage
+\section*{Úloha č. 44.1}
+
+\textbf{Zadání:}  
+V kartézské soustavě souřadnic \(Oxy\) je na souřadnicových osách umístěno nekonečně mnoho bodů
+\[
+A_1,A_2,A_3,\dots,A_n,\dots
+\]
+Pro body \(A_1,A_2\) platí:
+\[
+|A_1A_2|=1,\qquad |\sphericalangle A_2A_1O|=\alpha,\qquad 0^\circ<\alpha<45^\circ.
+\]
+Úhel \(A_nA_{n+1}A_{n+2}\) je pro každé \(n\in\mathbb{N}\) pravý.
+
+Pro každé \(n\in\mathbb{N}\) označme \(a_n\) vzdálenost bodů \(A_n,A_{n+1}\), tedy
+\[
+a_n=|A_nA_{n+1}|.
+\]
+
+Vyjádřete vzdálenost \(a_n\) v závislosti na \(n\) a velikosti úhlu \(\alpha\).
+
+\bigskip
+
+\textbf{Řešení:}
+
+Máme
+\[
+a_1=|A_1A_2|=1.
+\]
+
+Z obrázku i ze zadání je vidět, že každé tři po sobě jdoucí body tvoří pravoúhlý trojúhelník a že vznikající trojúhelníky jsou navzájem podobné.
+
+\medskip
+
+Podívejme se na první dva úseky:
+
+\begin{itemize}
+    \item \(A_1A_2\) má délku \(a_1=1\),
+    \item trojúhelník \(A_1OA_2\) je pravoúhlý,
+    \item v bodě \(A_1\) je úhel \(\alpha\).
+\end{itemize}
+
+V pravoúhlém trojúhelníku \(A_1OA_2\) tedy platí:
+\[
+|OA_2| = a_1\sin\alpha = \sin\alpha,
+\qquad
+|OA_1| = a_1\cos\alpha = \cos\alpha.
+\]
+
+Nyní se podívejme na trojúhelník \(A_2OA_3\). Ten je také pravoúhlý a je podobný předchozímu.  
+Úsečka \(A_2A_3\) má délku \(a_2\) a platí:
+\[
+\tan\alpha=\frac{|OA_2|}{|OA_1|}.
+\]
+
+Z podobnosti vyjde, že každá další délka vznikne z předchozí vynásobením \(\tan\alpha\), tedy:
+\[
+a_2=a_1\tan\alpha,
+\qquad
+a_3=a_2\tan\alpha,
+\qquad
+\dots
+\]
+
+Posloupnost \((a_n)\) je tedy geometrická s prvním členem
+\[
+a_1=1
+\]
+a kvocientem
+\[
+q=\tan\alpha.
+\]
+
+Proto:
+\[
+a_n=a_1q^{n-1}=1\cdot (\tan\alpha)^{n-1}.
+\]
+
+\bigskip
+
+\textbf{Odpověď:}
+\[
+a_n=(\tan\alpha)^{\,n-1}
+\]
+
+\section*{Úloha 44.2}
+
+\textbf{Zadání:}  
+Nekonečná lomená čára
+\[
+A_1A_2\dots A_n\dots
+\]
+má délku
+\[
+\ell=a_1+a_2+\dots+a_n+\dots
+\]
+
+Pro \(\ell=10\) vypočtěte ve stupních velikost úhlu \(\alpha\).  
+Výsledek zaokrouhlete na jedno desetinné místo.
+
+\bigskip
+
+\textbf{Řešení:}
+
+Z předchozí části víme, že
+\[
+a_n=(\tan\alpha)^{n-1}.
+\]
+
+Součet nekonečné geometrické řady je:
+\[
+\ell=1+\tan\alpha+\tan^2\alpha+\dots
+=\frac{1}{1-\tan\alpha}.
+\]
+
+Podle zadání:
+\[
+\ell=10,
+\]
+tedy:
+\[
+\frac{1}{1-\tan\alpha}=10.
+\]
+
+Upravíme:
+\[
+1-\tan\alpha=\frac{1}{10},
+\]
+
+\[
+\tan\alpha=1-\frac{1}{10}=\frac{9}{10}.
+\]
+
+\medskip
+
+Nyní spočítáme úhel:
+\[
+\alpha=\arctan\!\left(\frac{9}{10}\right).
+\]
+
+Numericky:
+\[
+\alpha \approx 42{,}0^\circ.
+\]
+
+\bigskip
+
+\textbf{Odpověď:}
+\[
+\boxed{\alpha \approx 42{,}0^\circ}
+\]
+
+
+
+% ---------------------------------
+% ------ Ú L O H A  -  č. 45 ------
+% ---------------------------------
+\newpage
+\section*{Úloha č. 45.1}
+
+\textbf{Zadání:}  
+Desková hra se hraje vždy na \(90\) kol a v libovolném z nich může hráč začít s těžbou ropy.
+
+Začne-li hráč těžit ropu v \(k\)-tém kole \((k\in\mathbb{N},\ k\le 90)\), vytěží v tomto kole \(k\) barelů ropy.  
+V každém dalším kole vytěží vždy o \(k\) barelů ropy více než v předchozím kole.
+
+Jiným způsobem ve hře těžit ropu nelze.
+
+Vypočtěte, kolik barelů ropy vytěží za celou hru hráč, který začne s těžbou v \(85.\) kole.
+
+\bigskip
+
+\textbf{Řešení:}
+
+Začne-li hráč těžit v \(85.\) kole, bude těžit v kolech:
+\[
+85,\ 86,\ 87,\ 88,\ 89,\ 90.
+\]
+
+To je celkem
+\[
+90-85+1=6
+\]
+kol.
+
+V \(85.\) kole vytěží:
+\[
+85
+\]
+barelů.
+
+V každém dalším kole vytěží vždy o \(85\) barelů více, takže vytěžené množství tvoří aritmetickou posloupnost:
+\[
+85,\ 170,\ 255,\ 340,\ 425,\ 510.
+\]
+
+Součet spočítáme pomocí vzorce pro součet aritmetické posloupnosti:
+\[
+S_n=\frac{n}{2}(a_1+a_n).
+\]
+
+Dosadíme:
+\[
+S_6=\frac{6}{2}(85+510)=3\cdot 595=1785.
+\]
+
+\bigskip
+
+\textbf{Odpověď:}  
+Hráč vytěží celkem \(1785\) barelů ropy.
+
+
+\section*{Úloha 45.2}
+
+\textbf{Zadání:}  
+Vyjádřete v závislosti na \(k\), kolik barelů ropy vytěží za celou hru hráč, který začne s těžbou v \(k\)-tém kole.
+
+\bigskip
+
+\textbf{Řešení:}
+
+Začne-li hráč těžit v \(k\)-tém kole, bude těžit od kola \(k\) až do kola \(90\).  
+Počet těžebních kol je tedy:
+\[
+90-k+1=91-k.
+\]
+
+V prvním těžebním kole vytěží:
+\[
+a_1=k.
+\]
+
+V každém dalším kole vytěží o \(k\) barelů více, takže jde o aritmetickou posloupnost s diferencí
+\[
+d=k.
+\]
+
+Počet členů posloupnosti je:
+\[
+n=91-k.
+\]
+
+Poslední člen je:
+\[
+a_n=a_1+(n-1)d.
+\]
+
+Dosadíme:
+\[
+a_n=k+(91-k-1)\cdot k
+= k+(90-k)k.
+\]
+
+\[
+a_n=k(91-k).
+\]
+
+Celkový počet vytěžených barelů je součet aritmetické posloupnosti:
+\[
+S=\frac{n}{2}(a_1+a_n).
+\]
+
+Dosadíme:
+\[
+S(k)=\frac{91-k}{2}\left(k+k(91-k)\right).
+\]
+
+Vytkneme \(k\):
+\[
+S(k)=\frac{91-k}{2}\cdot k(92-k).
+\]
+
+\bigskip
+
+\textbf{Odpověď:}  
+Celkový počet vytěžených barelů je
+\[
+S(k)=\frac{k(91-k)(92-k)}{2}.
+\]
+
+
+
+% ---------------------------------
+% ------ Ú L O H A  -  č. 46 ------
+% ---------------------------------
+\newpage
+\section*{Úloha č. 46}
+
+\textbf{Zadání:}  
+Stánek s ovocem byl v tržnici otevřen 3 dny. Před otevřením byl stánek prázdný.
+
+Množství ovoce v kg, které do stánku přivezli v prvním, druhém a třetím dnu v tomto pořadí, bylo v poměru
+\[
+3:2:1.
+\]
+
+Množství ovoce v kg, které v jednotlivých dnech (ve stejném pořadí) ve stánku prodali, bylo v poměru
+\[
+2:3:2.
+\]
+
+Na konci dne zůstávalo neprodané ovoce ve stánku. Druhý den zbylo ve stánku \(60\ \mathrm{kg}\) ovoce, třetí den se všechno ovoce prodalo.
+
+Vypočtěte, kolik kg ovoce
+\begin{enumerate}
+    \item[6.1] přivezli do stánku třetí den,
+    \item[6.2] prodali ve stánku druhý den.
+\end{enumerate}
+
+\bigskip
+
+\textbf{Řešení:}
+
+Označme množství dovezeného ovoce v jednotlivých dnech jako
+\[
+3x,\ 2x,\ x.
+\]
+
+Množství prodaného ovoce v jednotlivých dnech označme jako
+\[
+2y,\ 3y,\ 2y.
+\]
+
+\medskip
+
+Po prvním dni zůstane ve stánku:
+\[
+3x-2y.
+\]
+
+Po druhém dni zůstane:
+\[
+(3x-2y)+2x-3y=5x-5y.
+\]
+
+Podle zadání po druhém dni zbylo
+\[
+60\ \mathrm{kg},
+\]
+tedy:
+\[
+5x-5y=60.
+\]
+
+Po vydělení pěti:
+\[
+x-y=12.
+\]
+
+\medskip
+
+Po třetím dni se všechno ovoce prodalo, tedy zůstatek je 0:
+\[
+(5x-5y)+x-2y=0.
+\]
+
+\[
+6x-7y=0.
+\]
+
+\medskip
+
+Máme tedy soustavu:
+\[
+x-y=12,
+\]
+\[
+6x-7y=0.
+\]
+
+Z první rovnice:
+\[
+x=y+12.
+\]
+
+Dosadíme do druhé:
+\[
+6(y+12)-7y=0,
+\]
+\[
+6y+72-7y=0,
+\]
+\[
+-y+72=0,
+\]
+\[
+y=72.
+\]
+
+Potom:
+\[
+x=y+12=84.
+\]
+
+\bigskip
+
+\textbf{6.1}
+
+Třetí den přivezli:
+\[
+x=84\ \mathrm{kg}.
+\]
+
+\bigskip
+
+\textbf{6.2}
+
+Druhý den prodali:
+\[
+3y=3\cdot 72=216\ \mathrm{kg}.
+\]
+
+\bigskip
+
+\textbf{Odpověď:}
+\begin{itemize}
+    \item[6.1] Třetí den přivezli \(84\ \mathrm{kg}\) ovoce.
+    \item[6.2] Druhý den prodali \(216\ \mathrm{kg}\) ovoce.
+\end{itemize}
+
+
+
+% ---------------------------------
+% ------ Ú L O H A  -  č. 47 ------
+% ---------------------------------
+\newpage
+\section*{Úloha č. 47}
+
+\textbf{Zadání:}  
+Nová metoda léčení byla testována na myších. Pravděpodobnost, že léčení touto metodou je úspěšné alespoň u jedné ze dvou náhodně vybraných myší, je \(0{,}84\).
+
+Výsledky léčení jednotlivých myší jsou na sobě nezávislé.
+
+Vypočtěte pravděpodobnost, že u jedné náhodně vybrané myši bude léčení novou metodou úspěšné.
+
+\bigskip
+
+\textbf{Řešení:}
+
+Označme
+\[
+p
+\]
+pravděpodobnost, že u jedné náhodně vybrané myši bude léčení úspěšné.
+
+Pak pravděpodobnost, že u jedné myši léčení úspěšné \textbf{nebude}, je
+\[
+1-p.
+\]
+
+Protože výsledky léčení jsou nezávislé, pravděpodobnost, že léčba nebude úspěšná ani u jedné ze dvou myší, je
+\[
+(1-p)^2.
+\]
+
+Podle zadání je pravděpodobnost, že léčba bude úspěšná alespoň u jedné ze dvou myší,
+\[
+0{,}84.
+\]
+
+Použijeme doplněk:
+\[
+1-(1-p)^2=0{,}84.
+\]
+
+Upravíme:
+\[
+(1-p)^2=0{,}16.
+\]
+
+Odmocníme:
+\[
+1-p=0{,}4.
+\]
+
+(Odmocnina \(-0{,}4\) nepřipadá v úvahu, protože pravděpodobnost musí být mezi 0 a 1.)
+
+Proto:
+\[
+p=0{,}6.
+\]
+
+\bigskip
+
+\textbf{Odpověď:}  
+Hledaná pravděpodobnost je \(0{,}6\).
+
+
+
+% ---------------------------------
+% ------ Ú L O H A  -  č. 48 ------
+% ---------------------------------
+\newpage
+\section*{Úloha č. 48}
+
+\textbf{Zadání:}  
+Na obrázku jsou znázorněny vrcholy trojúhelníků \(ABC_k\) a úhly \(\alpha_k\) pro \(k\in\{1,2,3\}\).
+
+Najděte vztah pro výpočet délky strany \(BC_k\) \(k\)-tého rovnoramenného trojúhelníku \(ABC_k\) v závislosti na zvoleném úhlu
+\[
+\alpha_k\in(0;\pi),
+\]
+jestliže platí:
+\[
+|AB|=|AC_k|=5\ \text{cm},\qquad k\in\{1,2,3\}.
+\]
+
+\bigskip
+
+\textbf{Řešení:}
+
+V trojúhelníku \(ABC_k\) platí:
+\begin{itemize}
+    \item \(AB=AC_k=5\ \text{cm}\),
+    \item jde tedy o rovnoramenný trojúhelník,
+    \item vrcholový úhel při vrcholu \(A\) má velikost \(\alpha_k\).
+\end{itemize}
+
+Spustíme z vrcholu \(A\) osu rovnoramenného trojúhelníku na základnu \(BC_k\).  
+Ta rozdělí:
+\begin{itemize}
+    \item základnu \(BC_k\) na dvě stejné části,
+    \item úhel \(\alpha_k\) na dva úhly o velikosti
+    \[
+    \frac{\alpha_k}{2}.
+    \]
+\end{itemize}
+
+Vznikne pravoúhlý trojúhelník, ve kterém:
+\begin{itemize}
+    \item přepona má délku \(5\),
+    \item proti úhlu \(\frac{\alpha_k}{2}\) leží polovina základny:
+    \[
+    \frac{BC_k}{2}.
+    \]
+\end{itemize}
+
+Použijeme sinus:
+\[
+\sin\frac{\alpha_k}{2}=\frac{\frac{BC_k}{2}}{5}.
+\]
+
+Odtud:
+\[
+\frac{BC_k}{2}=5\sin\frac{\alpha_k}{2}.
+\]
+
+Po vynásobení dvěma dostaneme:
+\[
+BC_k=10\sin\frac{\alpha_k}{2}.
+\]
+
+\bigskip
+
+\textbf{Odpověď:}
+\[
+BC_k=10\sin\left(\frac{\alpha_k}{2}\right)\ \text{cm}.
+\]
+
+
+% ---------------------------------
+% ------ Ú L O H A  -  č. 49 ------
+% ---------------------------------
+\newpage
+\section*{Úloha č. 49}
+
+\textbf{Zadání:}  
+Součet \(s_k\) prvních \(k\) členů aritmetické posloupnosti \((a_n)_{n=1}^{\infty}\) je roven sumě
+\[
+\sum_{n=1}^{k} n,
+\]
+kde \(k\in\mathbb{N}\).
+
+Pro aritmetickou posloupnost \((b_m)_{m=1}^{\infty}\) platí:
+\[
+b_1=7,\qquad d=-\frac12.
+\]
+
+Určete všechna \(n\in\mathbb{N}\), pro něž existuje nějaké \(m\in\mathbb{N}\) takové, že
+\[
+a_n=b_m.
+\]
+
+\bigskip
+
+\textbf{Řešení:}
+
+Ze zadání víme, že
+\[
+s_k=\sum_{n=1}^{k} n=\frac{k(k+1)}{2}.
+\]
+
+Zároveň \(s_k\) je součet prvních \(k\) členů posloupnosti \((a_n)\).  
+Proto platí:
+\[
+a_k=s_k-s_{k-1}.
+\]
+
+Dosadíme:
+\[
+a_k=\frac{k(k+1)}{2}-\frac{(k-1)k}{2}.
+\]
+
+Upravíme:
+\[
+a_k=\frac{k^2+k-k^2+k}{2}=\frac{2k}{2}=k.
+\]
+
+Tedy:
+\[
+a_n=n.
+\]
+
+\medskip
+
+Pro druhou posloupnost platí:
+\[
+b_m=b_1+(m-1)d=7+(m-1)\left(-\frac12\right).
+\]
+
+\[
+b_m=7-\frac{m-1}{2}=\frac{14-(m-1)}{2}=\frac{15-m}{2}.
+\]
+
+Hledáme všechna \(n\in\mathbb{N}\), pro která existuje \(m\in\mathbb{N}\) tak, že
+\[
+a_n=b_m.
+\]
+
+Dosadíme:
+\[
+n=\frac{15-m}{2}.
+\]
+
+Odtud:
+\[
+m=15-2n.
+\]
+
+Aby \(m\) bylo přirozené číslo, musí platit:
+\[
+15-2n\ge 1.
+\]
+
+\[
+14\ge 2n,
+\]
+
+\[
+7\ge n.
+\]
+
+Proto:
+\[
+n\in\{1,2,3,4,5,6,7\}.
+\]
+
+\bigskip
+
+\textbf{Odpověď:}
+\[
+n\in\{1,2,3,4,5,6,7\}.
+\]
+
+
+\end{document}

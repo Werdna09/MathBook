@@ -1,0 +1,2106 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[czech]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{tikz}
+\usepackage{amsmath}
+
+\begin{document}
+
+\section*{TicTacToe}
+
+Hra TicTacToe je jednoduchá hra, kterou pravděpodobně zná téměř každý.
+Hraje se ve čtvercové síti tvořené třemi řádky a třemi sloupci
+(viz obr.~\ref{fig:TicTacToeHraciPole}).
+
+Hráči se pravidelně střídají v umisťování symbolů
+$\mathrm{X}$ a $\mathrm{O}$ do jednotlivých polí.
+Cílem hráče je jako první vytvořit trojici svých symbolů
+v jednom řádku, sloupci nebo na jedné z diagonál.
+
+Tato hra má konečný počet možných průběhů a zakončení.
+V tomto textu se pokusíme zjistit, kolik jich skutečně je.
+
+\begin{figure}[h]
+    \centering
+    \begin{tikzpicture}[scale = 1.5]
+        \draw[thick] (1,0) -- (1,3);
+        \draw[thick] (2,0) -- (2,3);
+        \draw[thick] (0,1) -- (3,1);
+        \draw[thick] (0,2) -- (3,2);
+    \end{tikzpicture}
+
+    \caption{Hrací pole hry TicTacToe}
+    \label{fig:TicTacToeHraciPole}
+\end{figure}
+
+Pro usnadnění další práce a lepší orientaci v hrací síti zavedeme
+označení jednotlivých polí podobné označení prvků matice.
+Pozici budeme zapisovat ve tvaru
+
+\begin{equation}
+p(a;b),
+\label{eq:OznaceniPozice}
+\end{equation}
+
+kde $a$ označuje číslo řádku a $b$ číslo sloupce.
+Řádky i sloupce číslujeme od $1$ do $3$, přičemž řádky počítáme
+shora dolů a sloupce zleva doprava.
+
+Například $p(2;3)$ označuje pole ve druhém řádku a třetím sloupci
+(viz obr.~\ref{fig:TicTacToeVyznaceniP23}).
+
+\begin{figure}[h]
+    \begin{center}
+        \begin{tikzpicture}[scale = 1.5]
+            \draw[thick] (1,0) -- (1,3);
+            \draw[thick] (2,0) -- (2,3);
+            \draw[thick] (0,1) -- (3,1);
+            \draw[thick] (0,2) -- (3,2);
+
+            \fill (2.5,1.5) circle (2pt);
+        \end{tikzpicture}
+
+        \caption{Vyznačení pozice $p(2;3)$}
+        \label{fig:TicTacToeVyznaceniP23}
+    \end{center}
+\end{figure}
+
+Dále si označíme hráče.
+Hráč hrající $\mathrm{X}$ bude začínat a označovat jej budeme $\mathrm{X}$.
+Hráč hrající $\mathrm{O}$ bude hrát vždy jako druhý a označovat jej budeme $\mathrm{O}$.
+
+Nejprve musíme zjistit, kolik různých posloupností tahů lze v TicTacToe vytvořit.
+Prozatím budeme předpokládat, že se hra vždy odehraje až do obsazení všech devíti polí.
+
+Hráč $\mathrm{X}$ může svůj symbol vložit na libovolnou z $9$ pozic.
+Poté již zbývá $8$ pozic pro hráče $\mathrm{O}$.
+Po jeho tahu zbývá pouze $7$ volných pozic a každým dalším tahem se počet
+volných míst na hrací ploše sníží o jedna.
+
+Pro první tah hráče $\mathrm{X}$ máme tedy $9$ možností umístění.
+Pro každou z těchto možností existuje $8$ možných tahů hráče $\mathrm{O}$,
+pro každý z nich dalších $7$ možností hráče $\mathrm{X}$ a tak dále.
+
+Celkový počet možných posloupností devíti tahů můžeme zapsat jako
+
+\begin{equation}
+P(9) = 9! = 9\cdot8\cdot7\cdot6\cdot5\cdot4\cdot3\cdot2\cdot1 = 362\,880.
+\label{eq:PocetVsechPoradi}
+\end{equation}
+
+Tento počet však stále obsahuje hry, které se od sebe liší pouze otočením
+nebo zrcadlením hrací plochy.
+
+Například následující dvě posloupnosti tahů se od sebe liší pouze otočením
+hrací plochy o $90^\circ$.
+
+\begin{figure}[h]
+    \begin{center}
+        \begin{tikzpicture}[scale = 1.2]
+
+            \begin{scope}
+                \draw[thick] (1,0) -- (1,3);
+                \draw[thick] (2,0) -- (2,3);
+                \draw[thick] (0,1) -- (3,1);
+                \draw[thick] (0,2) -- (3,2);
+
+                \node at (0.5,2.5) {\Large $X_1$};
+                \node at (1.5,1.5) {\Large $O_1$};
+                \node at (1.5,0.5) {\Large $O_2$};
+                \node at (2.5,0.5) {\Large $X_2$};
+            \end{scope}
+
+            \begin{scope}[xshift = 5cm]
+                \draw[thick] (1,0) -- (1,3);
+                \draw[thick] (2,0) -- (2,3);
+                \draw[thick] (0,1) -- (3,1);
+                \draw[thick] (0,2) -- (3,2);
+
+                \node at (2.5,2.5) {\Large $X_1$};
+                \node at (1.5,1.5) {\Large $O_1$};
+                \node at (0.5,1.5) {\Large $O_2$};
+                \node at (0.5,0.5) {\Large $X_2$};
+            \end{scope}
+
+            \draw[->,thick] (3.4,1.5) -- (4.6,1.5)
+                node[midway,above] {$90^\circ$};
+
+        \end{tikzpicture}
+
+        \caption{Dvě posloupnosti tahů lišící se pouze otočením hrací plochy}
+        \label{fig:TicTacToeRotaceHraciPlochy}
+    \end{center}
+\end{figure}
+
+Hrací plocha má celkem 8 symetrií. Čtyři z nich jsou osové souměrnosti podle:
+\begin{itemize}
+    \item podle vodorovné osy procházející středem hrací plochy,
+    \item podle svislé osy procházející středem hrací plochy,
+    \item diagonály vedoucí poli $p(1;1)$ a $p(3;3)$,
+    \item diagonály vedoucí poli $p(1;3)$ a $p(3;1)$.
+\end{itemize}
+
+Tyto osové souměrnosti jsou znázorněny na obr.~\ref{fig:TicTacToeOsovaSymetrieHry}.
+
+\begin{figure}[h]
+    \begin{center}
+        \begin{tikzpicture}[scale = 1.5]
+            \draw[thick] (1,0) -- (1,3);
+            \draw[thick] (2,0) -- (2,3);
+            \draw[thick] (0,1) -- (3,1);
+            \draw[thick] (0,2) -- (3,2);
+
+            \draw[thick,red] (1.5,2.7) -- (1.5,0.3) node[below right] {$o_1$};
+            \draw[thick,red] (0.3,1.5) -- (2.7,1.5) node[below right] {$o_2$};
+            \draw[thick,red] (0.3,2.7) -- (2.7,0.3) node[below right] {$o_3$};
+            \draw[thick,red] (0.3,0.3) -- (2.7,2.7) node[below right] {$o_4$};
+        \end{tikzpicture}
+    \end{center}
+
+    \caption{Osové souměrnosti hrací plochy}
+    \label{fig:TicTacToeOsovaSymetrieHry}
+\end{figure}
+
+Zbývající čtyři symetrie jsou otočení hrací plochy kolem jejího středu o:
+\begin{itemize}
+    \item $90^\circ$,
+    \item $180^\circ$,
+    \item $270^\circ$,
+    \item $360^\circ = 0^\circ$
+\end{itemize}
+
+Otočení o $0^\circ$ ponechává hrací plochu beze změny a představuje tedy
+původní polohu hrací plochy. Ostatní tři otočení mění pozice jednotlivých polí,
+ale zachovávají jejich vzájemné uspořádání.
+
+Máme tedy celkem $8$ různých symetrií hrací plochy:
+$4$ osové souměrnosti a $4$ otočení.
+
+Nyní můžeme tyto symetrie využít při počítání různých posloupností tahů.
+Pokud lze jednu posloupnost tahů získat z jiné pouze otočením nebo osovou
+souměrností celé hrací plochy, budeme je považovat za stejnou hru.
+
+Každá úplná posloupnost devíti tahů má právě $8$ takových symetrických podob.
+Žádná z nenulových symetrií totiž nemůže úplnou posloupnost tahů převést samu
+na sebe. V takovém případě by musela ponechat na stejném místě první tah,
+druhý tah a postupně všechny další tahy. Protože je po devíti tazích obsazeno
+všech $9$ polí, musela by tato symetrie ponechat na místě všechna pole hrací
+plochy, což splňuje pouze otočení o $0^\circ$.
+
+Počet různých posloupností tahů po odstranění symetrických variant je tedy
+
+\begin{equation}
+    \frac{9!}{8} = \frac{362\,880}{8} = 45\,360.
+\end{equation}
+
+Máme tedy $45\,360$ různých posloupností devíti tahů, pokud posloupnosti,
+které se od sebe liší pouze otočením nebo osovou souměrností hrací plochy,
+považujeme za stejné.
+
+Tento výsledek však stále není konečný.
+Doposud jsme totiž předpokládali, že každá hra obsahuje právě $9$ tahů.
+Ve skutečnosti může hra skončit dříve, pokud některý z hráčů vytvoří
+vítěznou trojici.
+
+Protože první vítězná trojice může vzniknout už v pátém tahu, 
+musíme spočítat každou z variant ukončení v tazích od 5. do 9. zvlášť 
+a poté tyto varianty sečíst.
+
+Nejprve začneme určovat počet her končících 5. tahem.
+Po pěti tazích je vítězem $\mathrm{X}$ a tedy vytvořil vítěznou trojici, 
+zatímco $\mathrm{O}$ má položené pouze dva tokeny.
+
+Vítěznými trojicemi jsou buď tři řádky, tři sloupce, nebo dvě diagonály. 
+Vítězných trojic je tedy:
+\[
+    3+3+2 = 8
+\]
+V těchto jednotlivých výherních pozicích může $\mathrm{X}$ položit tokeny:
+\[
+    3! = 3\cdot2\cdot1 = 6
+\]
+způsoby.
+
+Po obsazení tří vítězných míst zbývá $\mathrm{O}$ 6 polí, kde může hrát. 
+A protože má dva tokeny, tak první může umístit na 6 volných míst 
+a druhý token už jen na 5. Tedy:
+\[
+    6\cdot5 = 30
+\]
+způsobů pořadí umístění tokenů.
+
+Dosadíme a dostáváme
+\[
+    8\cdot3!\cdot6\cdot5 = 8\cdot6\cdot30 = 1\,440.
+\]
+Her končících po pátém tahu je tedy celkem $1\,440$, 
+tento počet ale opět obsahuje i symetrické varianty. 
+Musíme tedy výsledek o tyto symetrie ošetřit.
+\begin{equation}
+    \frac{1\,440}{8} = 180
+\end{equation}
+Celkem tedy můžeme mít $180$ různých her, 
+které byly ukončeny vítězstvím $\mathrm{X}$ po pátém tahu.
+
+Nyní určíme počet her končících 6. tahem.
+Po šesti tazích je vítězem $\mathrm{O}$, který vytvořil vítěznou trojici, 
+zatímco $\mathrm{X}$ má položené tři tokeny.
+
+Stejně jako v předchozím případě může vítězná trojice hráče $\mathrm{O}$ vzniknout 8 způsoby 
+a své tři tokeny může v této trojici položit:
+\[
+    3! = 6
+\]
+způsoby.
+
+Hráč $\mathrm{X}$ může své tři tokeny položit na tři ze zbývajících 6 polí. 
+První token může položit na 6 polí, druhý na 5 a třetí na 4. Tedy:
+\[
+    6\cdot5\cdot4 = 120
+\]
+způsoby.
+
+Dostáváme tedy:
+\[
+    8\cdot3!\cdot6\cdot5\cdot4 = 5\,760
+\]
+možných her.
+
+V tomto počtu jsou však zahrnuty také hry, ve kterých již $\mathrm{X}$ zvítězil v 5. tahu. 
+Tyto hry tedy musíme odečíst.
+
+Aby mohl $\mathrm{X}$ zvítězit v 5. tahu a zároveň měl $\mathrm{O}$ po 6. tahu vítěznou trojici,
+musí být jejich vítězné trojice navzájem oddělené. 
+To je možné pouze tehdy, pokud jsou obě vítězné trojice tvořeny dvěma různými řádky nebo dvěma různými sloupci.
+
+Pro vítěznou trojici hráče $\mathrm{O}$ máme tedy 6 možností, 
+protože musí jít o jeden ze tří řádků nebo jeden ze tří sloupců. 
+Pro každou z těchto možností existují 2 vítězné trojice hráče $\mathrm{X}$, 
+které s ní nemají žádné společné pole. 
+Tokeny obou hráčů mohou být ve svých trojicích položeny $3!$ způsoby. 
+Dostáváme tedy:
+\[
+    6\cdot2\cdot3!\cdot3! = 432
+\]
+her, které již skončily vítězstvím hráče $\mathrm{X}$ v 5. tahu.
+
+Počet her skutečně končících 6. tahem je tedy:
+\[
+    5\,760-432 = 5\,328
+\]
+
+Po ošetření symetrií dostáváme:
+\begin{equation}
+    \frac{5\,328}{8} = 666
+\end{equation}
+
+Celkem tedy můžeme mít $666$ různých her, 
+které byly ukončeny vítězstvím $\mathrm{O}$ po šestém tahu.
+
+Nyní určíme počet her končících 7. tahem.
+Po sedmi tazích je vítězem opět $\mathrm{X}$. 
+Hráč $\mathrm{X}$ má v tomto okamžiku položené čtyři tokeny, 
+přičemž tři z nich musí tvořit vítěznou trojici a jeden token leží mimo ni.
+
+Vítěznou trojici můžeme opět vybrat 8 způsoby a 
+čtvrtý token hráče $\mathrm{X}$ může ležet na jednom ze zbývajících 6 polí.
+
+Aby hra skončila skutečně až 7. tahem, musí být posledním položeným tokenem hráče 
+$\mathrm{X}$ jeden ze tří tokenů tvořících vítěznou trojici. 
+Pro poslední token tedy máme 3 možnosti 
+a zbývající tři tokeny hráče $\mathrm{X}$ můžeme položit:
+\[
+    3! = 6
+\]
+způsoby.
+
+Pro každé rozmístění tokenů hráče $\mathrm{X}$ tedy máme:
+\[
+    3\cdot3! = 18
+\]
+možných pořadí jeho tahů.
+
+Nyní musíme určit možnosti hráče $\mathrm{O}$. 
+Pokud je vítěznou trojicí hráče $\mathrm{X}$ řádek nebo sloupec, 
+máme 6 možností vítězné trojice a 6 možností umístění čtvrtého tokenu. 
+Celkem tedy:
+\[
+    6\cdot6 = 36
+\]
+možností.
+
+Ve zbývajících pěti polích se v tomto případě nachází jedna celá vítězná trojice, 
+kterou by mohl vytvořit hráč $\mathrm{O}$. 
+Hráč $\mathrm{O}$ může své tři tokeny obecně položit:
+\[
+    5\cdot4\cdot3 = 60
+\]
+způsoby. Z toho je ale $3! = 6$ možností, 
+při kterých by již vytvořil vítěznou trojici v 6. tahu. 
+Zbývá tedy:
+\[
+    60-6 = 54
+\]
+možností.
+
+Pokud je vítěznou trojicí hráče $\mathrm{X}$ diagonála, 
+máme 2 možnosti vítězné trojice a opět 6 možností umístění čtvrtého tokenu. 
+Tedy:
+\[
+    2\cdot6 = 12
+\]
+možností.
+
+V tomto případě se mezi zbývajícími pěti poli nenachází žádná celá vítězná trojice. 
+Hráč $\mathrm{O}$ tedy může své tokeny položit všemi:
+\[
+    5\cdot4\cdot3 = 60
+\]
+způsoby.
+
+Celkový počet her končících 7. tahem je tedy:
+\[
+    36\cdot18\cdot54+12\cdot18\cdot60 = 47\,952
+\]
+
+Po ošetření symetrií dostáváme:
+\begin{equation}
+    \frac{47\,952}{8} = 5\,994
+\end{equation}
+
+Celkem tedy můžeme mít $5\,994$ různých her, 
+které byly ukončeny vítězstvím $\mathrm{X}$ po sedmém tahu.
+
+Nyní určíme počet her končících 8. tahem.
+Po osmi tazích je vítězem $\mathrm{O}$. 
+Hráč $\mathrm{O}$ má položené čtyři tokeny, 
+přičemž tři z nich tvoří vítěznou trojici a jeden token leží mimo ni.
+
+Stejně jako v předchozím případě může být posledním tokenem hráče 
+$\mathrm{O}$ jeden ze tří tokenů tvořících vítěznou trojici. 
+Zbývající tři tokeny může položit $3!$ způsoby. 
+Pro každé rozmístění jeho čtyř tokenů máme tedy:
+\[
+    3\cdot3! = 18
+\]
+možných pořadí tahů.
+
+Opět musíme rozlišit, zda je vítěznou trojicí řádek nebo sloupec, nebo zda jde o diagonálu.
+
+Pokud je vítěznou trojicí hráče $\mathrm{O}$ řádek nebo sloupec, máme:
+\[
+    6\cdot6 = 36
+\]
+možností rozmístění jeho čtyř tokenů.
+
+Ve zbývajících pěti polích se nachází jedna vítězná trojice, 
+kterou by mohl vytvořit hráč $\mathrm{X}$. 
+Protože hráč $\mathrm{X}$ obsadí čtyři z těchto pěti polí, 
+musí jediné neobsazené pole ležet právě v této vítězné trojici. 
+Pro neobsazené pole máme tedy 3 možnosti.
+
+Čtyři tokeny hráče $\mathrm{X}$ mohou být následně položeny:
+\[
+    4! = 24
+\]
+způsoby.
+
+Pokud je vítěznou trojicí hráče $\mathrm{O}$ diagonála, máme:
+\[
+    2\cdot6 = 12
+\]
+možností rozmístění jeho čtyř tokenů.
+
+Mezi zbývajícími pěti poli v tomto případě není žádná vítězná trojice. 
+Jediné neobsazené pole tedy může být kterékoliv z těchto 5 polí.
+
+Celkový počet her končících 8. tahem je tedy:
+\[
+    \left(36\cdot3+12\cdot5\right)\cdot18\cdot4! = 72\,576
+\]
+
+Po ošetření symetrií dostáváme:
+\begin{equation}
+    \frac{72\,576}{8} = 9\,072
+\end{equation}
+
+Celkem tedy můžeme mít $9\,072$ různých her, 
+které byly ukončeny vítězstvím $\mathrm{O}$ po osmém tahu.
+
+Zbývá určit počet her končících až 9. tahem.
+Z původních $9! = 362\,880$ posloupností musíme odečíst všechny posloupnosti, 
+které by ve skutečnosti skončily již po 5., 6., 7. nebo 8. tahu.
+
+Hra ukončená po 5. tahu je v původním počtu $9!$ obsažena vícekrát.
+Po ukončení hry totiž zbývají 4 neobsazená pole, 
+která mohou být v původní devítitahové posloupnosti seřazena:
+\[
+    4! = 24
+\]
+způsoby.
+
+Stejně tak hra končící po 6. tahu je započítána $3!$ krát, 
+hra končící po 7. tahu $2!$ krát a hra končící po 8. tahu $1!$ krát.
+
+Počet posloupností, které skutečně pokračují až k 9. tahu, je tedy:
+\[
+    9!-1\,440\cdot4!-5\,328\cdot3!-47\,952\cdot2!-72\,576\cdot1!
+\]
+tedy:
+\[
+    362\,880-34\,560-31\,968-95\,904-72\,576 = 127\,872
+\]
+
+Tento počet obsahuje jak hry, ve kterých hráč $\mathrm{X}$ vytvoří vítěznou trojici až v 9. tahu,
+ tak hry, ve kterých ani jeden z hráčů nevytvoří vítěznou trojici a hra skončí remízou.
+
+Po ošetření symetrií dostáváme:
+\begin{equation}
+    \frac{127\,872}{8} = 15\,984
+\end{equation}
+
+Celkem tedy můžeme mít $15\,984$ různých her, které byly ukončeny po devátém tahu.
+
+Nyní můžeme sečíst všechny možnosti ukončení hry (výsledky rovnic 4--8):
+\[
+    180+666+5\,994+9\,072+15\,984 = 31\,896
+\]
+
+Celkově tedy existuje $31\,896$ různých her TicTacToe, pokud hry, 
+které se od sebe liší pouze otočením nebo osovou souměrností hrací plochy, 
+považujeme za stejné.
+
+Doposud jsme počítali jednotlivé hry podle pořadí, 
+ve kterém byly tokeny na hrací plochu pokládány.
+Dvě různé posloupnosti tahů však mohou vést ke stejné pozici na hrací ploše.
+
+Nyní se tedy můžeme podívat na jinou otázku. 
+Kolik různých pozic může během hry TicTacToe vzniknout?
+
+Na začátku hry máme pouze jednu možnou pozici, a to prázdnou hrací plochu.
+Po prvním tahu má hráč $\mathrm{X}$ položený jeden token. 
+Ten může umístit na libovolné z 9 polí. Počet pozic po prvním tahu je tedy:
+\[
+    \binom{9}{1}=9
+\]
+
+Po druhém tahu má hráč $\mathrm{X}$ položený jeden token a hráč $\mathrm{O}$ také jeden token. 
+Hráč $\mathrm{X}$ může obsadit jedno z 9 polí a hráč $\mathrm{O}$ následně jedno ze zbývajících 8 polí. 
+Dostáváme tedy:
+\[
+    9\cdot8=72
+\]
+různých pozic.
+
+Po třetím tahu má hráč $\mathrm{X}$ položené dva tokeny a hráč $\mathrm{O}$ jeden token.
+Na rozdíl od počítání jednotlivých her nás nyní nezajímá pořadí, 
+ve kterém hráč $\mathrm{X}$ své dva tokeny položil. 
+Z 9 polí tedy pouze vybíráme dvě pole, která budou obsazena tokeny hráče $\mathrm{X}$.
+
+Počet možností pro hráče $\mathrm{X}$ je:
+\[
+    \binom{9}{2}=36
+\]
+
+Hráči $\mathrm{O}$ poté zbývá 7 možných polí. Celkem tedy dostáváme:
+\[
+    \binom{9}{2}\cdot7=36\cdot7=252
+\]
+různých pozic.
+
+Po čtvrtém tahu mají oba hráči položené dva tokeny. 
+Nejprve vybereme dvě z 9 polí pro hráče $\mathrm{X}$ 
+a následně dvě ze zbývajících 7 polí pro hráče $\mathrm{O}$. 
+Tedy:
+\[
+    \binom{9}{2}\cdot\binom{7}{2}=36\cdot21=756
+\]
+různých pozic.
+
+Po pátém tahu má hráč $\mathrm{X}$ položené tři tokeny a hráč $\mathrm{O}$ dva tokeny. 
+Pro hráče $\mathrm{X}$ vybereme tři z 9 polí a pro hráče $\mathrm{O}$ dvě ze zbývajících 6 polí:
+\[
+    \binom{9}{3}\cdot\binom{6}{2}=84\cdot15=1\,260
+\]
+
+Po pátém tahu tedy existuje $1\,260$ různých pozic. 
+V tomto případě zatím nemusíme žádné pozice odečítat, 
+protože pátý tah je prvním tahem, ve kterém může některý z hráčů vyhrát. 
+Pozice, ve které hráč $\mathrm{X}$ vytvořil vítěznou trojici právě v tomto tahu, 
+je tedy stále platnou konečnou pozicí hry.
+
+Po šestém tahu mají oba hráči položené tři tokeny. 
+Pokud bychom zatím nebrali v úvahu možné dřívější ukončení hry, 
+dostali bychom:
+\[
+    \binom{9}{3}\cdot\binom{6}{3}=84\cdot20=1\,680
+\]
+různých pozic.
+
+Ne všechny tyto pozice však mohou ve skutečné hře nastat. 
+Pokud tři tokeny hráče $\mathrm{X}$ tvoří vítěznou trojici, 
+hra skončila již po pátém tahu a hráč $\mathrm{O}$ již svůj třetí token položit nemohl.
+
+Hráč $\mathrm{X}$ může vytvořit jednu z 8 vítězných trojic. 
+Hráč $\mathrm{O}$ potom může své tři tokeny rozmístit na tři ze zbývajících 6 polí:
+\[
+    8\cdot\binom{6}{3}=8\cdot20=160
+\]
+způsoby.
+
+Tyto pozice musíme od původního počtu odečíst:
+\[
+    1\,680-160=1\,520
+\]
+
+Po šestém tahu tedy může skutečně nastat $1\,520$ různých pozic.
+
+Po sedmém tahu má hráč $\mathrm{X}$ položené čtyři tokeny a hráč $\mathrm{O}$ tři tokeny. 
+Bez omezení bychom dostali:
+\[
+    \binom{9}{4}\cdot\binom{5}{3}=126\cdot10=1\,260
+\]
+různých pozic.
+
+Nyní však musíme odstranit pozice, 
+ve kterých již hráč $\mathrm{O}$ vytvořil vítěznou trojici v šestém tahu. 
+Protože má hráč $\mathrm{O}$ právě tři tokeny, 
+musí tyto tři tokeny tvořit jednu z 8 vítězných trojic.
+
+Pro každou vítěznou trojici hráče $\mathrm{O}$ může hráč $\mathrm{X}$ obsadit 
+čtyři ze zbývajících 6 polí. Počet neplatných pozic je tedy:
+\[
+    8\cdot\binom{6}{4}=8\cdot15=120
+\]
+
+Počet možných pozic po sedmém tahu je tedy:
+\[
+    1\,260-120=1\,140
+\]
+
+Po osmém tahu mají oba hráči položené čtyři tokeny. 
+Bez omezení bychom dostali:
+\[
+    \binom{9}{4}\cdot\binom{5}{4}=126\cdot5=630
+\]
+různých pozic.
+
+Musíme však odstranit pozice, ve kterých hráč $\mathrm{X}$ vytvořil vítěznou trojici 
+již před osmým tahem.
+
+Hráč $\mathrm{X}$ má čtyři tokeny. 
+Jeho vítěznou trojici můžeme vybrat 8 způsoby 
+a čtvrtý token může ležet na jednom ze zbývajících 6 polí. 
+Dostáváme tedy:
+\[
+    8\cdot6=48
+\]
+možných rozmístění tokenů hráče $\mathrm{X}$ obsahujících vítěznou trojici.
+
+Pro každé takové rozmístění může hráč $\mathrm{O}$ obsadit čtyři z 5 zbývajících polí:
+\[
+    \binom{5}{4}=5
+\]
+způsoby.
+
+Počet neplatných pozic je tedy:
+\[
+    48\cdot5=240
+\]
+
+Počet možných pozic po osmém tahu je:
+\[
+    630-240=390
+\]
+
+Po devátém tahu má hráč $\mathrm{X}$ položeno pět tokenů 
+a hráč $\mathrm{O}$ čtyři tokeny. 
+Hrací plocha je tedy již zcela zaplněna.
+
+Bez omezení můžeme vybrat pět z 9 polí pro hráče $\mathrm{X}$ 
+a zbývající čtyři pole již automaticky patří hráči $\mathrm{O}$:
+\[
+    \binom{9}{5}=126
+\]
+možnými způsoby.
+
+Musíme však odstranit pozice, ve kterých hráč $\mathrm{O}$ již vytvořil 
+vítěznou trojici v osmém tahu.
+
+Stejně jako v předchozím případě může hráč $\mathrm{O}$ vytvořit jednu z 
+8 vítězných trojic a svůj čtvrtý token umístit na jedno ze zbývajících 6 polí. 
+Takových pozic je:
+\[
+    8\cdot6=48
+\]
+
+Počet možných konečných pozic po devátém tahu je tedy:
+\[
+    126-48=78
+\]
+
+Nyní můžeme sečíst počty všech pozic, které mohou během hry nastat. 
+Započítáme také počáteční prázdnou hrací plochu:
+\begin{equation}
+    1+9+72+252+756+1\,260+1\,520+1\,140+390+78=5\,478.
+\end{equation}
+
+Celkem tedy může ve hře TicTacToe nastat $5\,478$ různých pozic,
+ pokud započítáme také počáteční prázdnou hrací plochu. 
+ Pokud bychom počítali pouze pozice vzniklé po provedení 
+ alespoň jednoho tahu, dostali bychom:
+\[
+    5\,478-1=5\,477
+\]
+různých pozic.
+
+Tento počet však opět nerozlišuje pozice podle jejich symetrie. 
+Mohlo by se tedy zdát, že stejně jako v případě jednotlivých her stačí výsledný počet vydělit 8.
+
+U pozic to však již není možné.
+
+Například pozice, ve které hráč $\mathrm{X}$ položí svůj první token do středu hrací plochy, 
+zůstane při každém otočení i osové souměrnosti stejná. 
+Naproti tomu pozice, ve které je token položen v rohu, 
+může mít několik různých symetrických podob.
+
+Jednotlivé pozice tedy nemají vždy 8 různých symetrických variant. 
+Počet různých pozic po zohlednění symetrií proto nemůžeme získat 
+jednoduchým vydělením čísla $5\,478$ osmi.
+
+U jednotlivých pozic tedy musíme postupovat jiným způsobem.
+
+Po prvním tahu jsme získali celkem 9 různých pozic. Pokud ale zohledníme symetrie hrací plochy, existují pouze tři navzájem různé možnosti. Hráč $\mathrm{X}$ může položit svůj token:
+\begin{itemize}
+    \item do středu hrací plochy,
+    \item do jednoho z rohů,
+    \item doprostřed jedné ze stran.
+\end{itemize}
+
+Všechny čtyři rohy lze pomocí otočení převést jeden na druhý a stejně tak lze mezi sebou převádět všechna čtyři pole ležící uprostřed stran. Středové pole zůstává při všech symetriích na stejném místě.
+
+Z původních 9 pozic tedy po prvním tahu dostáváme pouze:
+\[
+    3
+\]
+různé pozice po zohlednění symetrií.
+
+Po druhém tahu máme celkem 72 pozic. 
+Nyní musíme pro každou ze tří možností prvního tahu určit, 
+kolik různých možností má hráč $\mathrm{O}$.
+
+Pokud hráč $\mathrm{X}$ zahrál do středu, 
+jsou všechna čtyři rohová pole navzájem symetrická 
+a stejně tak všechna čtyři pole uprostřed stran. 
+Hráč $\mathrm{O}$ má tedy pouze 2 navzájem různé možnosti tahu.
+
+Pokud hráč $\mathrm{X}$ zahrál do rohu, 
+můžeme zbývající pole rozdělit podle jejich polohy vůči tomuto rohu. 
+Po zohlednění symetrií, které zachovávají původní roh na jeho místě, 
+dostáváme 5 různých možností tahu hráče $\mathrm{O}$.
+
+Stejně tak pokud hráč $\mathrm{X}$ zahrál doprostřed strany, 
+dostáváme pro hráče $\mathrm{O}$ opět 5 navzájem různých možností.
+
+Celkem tedy po druhém tahu existuje:
+\[
+    2+5+5=12
+\]
+různých pozic po zohlednění symetrií.
+
+Od třetího tahu již začíná být podobné ruční rozdělování pozic 
+na jednotlivé případy značně nepřehledné. 
+Proto si zavedeme jednotný způsob, kterým budeme symetrické pozice porovnávat.
+
+Každou pozici můžeme pomocí osmi symetrií hrací plochy převést až na 8 různých podob. 
+Z těchto podob vždy vybereme jednu, kterou budeme považovat za reprezentanta dané pozice.
+
+Pro jednoznačný výběr reprezentanta si můžeme jednotlivá pole hrací plochy 
+zapsat postupně po řádcích a každému poli přiřadit hodnotu:
+\[
+    0=\text{prázdné pole}, \qquad 1=\mathrm{O}, \qquad 2=\mathrm{X}.
+\]
+
+Každou pozici tak můžeme zapsat jako posloupnost devíti čísel. Například pozici:
+\[
+\begin{array}{c|c|c}
+    \mathrm{X} & & \\
+    \hline
+    & \mathrm{O} & \\
+    \hline
+    & & \mathrm{X}
+\end{array}
+\]
+můžeme zapsat jako:
+\[
+    200010002.
+\]
+
+Pro každou pozici vytvoříme všech 8 podob získaných pomocí symetrií hrací plochy 
+a jako jejího reprezentanta vybereme vždy číselně nejmenší z těchto zápisů.
+
+Pokud mají dvě pozice stejného reprezentanta, znamená to, 
+že lze jednu z nich převést na druhou pomocí některé ze symetrií hrací plochy. 
+Považujeme je tedy za stejnou pozici.
+
+Tímto způsobem můžeme postupně projít všechny možné pozice, 
+které jsme získali v předchozí části, a započítat každého reprezentanta pouze jednou.
+
+Po prvním tahu jsme již dostali:
+\[
+    3
+\]
+různé pozice a po druhém tahu:
+\[
+    12.
+\]
+
+Stejným postupem pro další tahy dostáváme:
+\[
+\begin{array}{c|c|c}
+    \text{Počet tahů} & \text{Pozic bez zohlednění symetrií} & \text{Pozic po zohlednění symetrií} \\
+    \hline
+    0 & 1 & 1 \\
+    1 & 9 & 3 \\
+    2 & 72 & 12 \\
+    3 & 252 & 38 \\
+    4 & 756 & 108 \\
+    5 & 1\,260 & 174 \\
+    6 & 1\,520 & 204 \\
+    7 & 1\,140 & 153 \\
+    8 & 390 & 57 \\
+    9 & 78 & 15
+\end{array}
+\]
+
+Nyní můžeme všechny navzájem různé pozice sečíst:
+\begin{equation}
+    1+3+12+38+108+174+204+153+57+15=765.
+\end{equation}
+
+Celkem tedy může během hry TicTacToe vzniknout $765$ navzájem různých pozic, 
+pokud pozice lišící se pouze otočením nebo osovou souměrností hrací plochy považujeme za stejné.
+
+Do tohoto počtu je opět započítána i počáteční prázdná hrací plocha. 
+Pokud bychom ji nezapočítali, dostáváme:
+\[
+    765-1=764
+\]
+různých pozic vzniklých po provedení alespoň jednoho tahu.
+
+Tím jsme určili jak počet různých průběhů hry, tak počet různých pozic,
+které mohou během hry vzniknout. 
+Zůstává však ještě jedna přirozená otázka. 
+Pokud oba hráči hrají optimálně, může některý z nich vždy zvítězit, 
+nebo může druhý hráč vítězství zabránit?
+
+Abychom mohli tuto otázku zodpovědět, můžeme se na hru podívat jako na strom možností.
+
+Na začátku máme prázdnou hrací plochu. Z ní vede 9 možných prvních tahů hráče $\mathrm{X}$.
+Z každé takto vzniklé pozice vede následně až 8 možných tahů hráče $\mathrm{O}$ a tímto způsobem můžeme pokračovat až do okamžiku, kdy některý z hráčů zvítězí nebo hra skončí remízou.
+
+Takovou strukturu nazýváme herní strom.
+
+Každý vrchol tohoto stromu představuje jednu pozici hry 
+a hrany mezi jednotlivými vrcholy představují možné tahy hráčů.
+
+Na začátku však není nutné rozlišovat všech 9 možností prvního tahu.
+Jak jsme již ukázali při práci se symetriemi, 
+po prvním tahu existují pouze 3 navzájem různé pozice.
+
+Hráč $\mathrm{X}$ může začít:
+\begin{itemize}
+    \item ve středu hrací plochy,
+    \item v jednom z rohů,
+    \item uprostřed jedné ze stran.
+\end{itemize}
+
+Ostatní možnosti lze na některou z těchto tří převést pomocí otočení 
+nebo osové souměrnosti hrací plochy.
+
+Nyní potřebujeme určit, která z těchto možností vede při optimální hře k vítězství, 
+prohře nebo remíze.
+
+Jednotlivým konečným pozicím proto přiřadíme hodnotu podle výsledku hry 
+z pohledu hráče $\mathrm{X}$:
+\[
+    v=
+    \begin{cases}
+        1, & \text{pokud zvítězí } \mathrm{X},\\
+        0, & \text{pokud hra skončí remízou},\\
+        -1, & \text{pokud zvítězí } \mathrm{O}.
+    \end{cases}
+\]
+
+Pokud je na tahu hráč $\mathrm{X}$, bude se snažit vybrat takový tah, 
+který vede k co nejvyšší možné hodnotě. Hodnotu dané pozice tedy určíme jako:
+\[
+    v(P)=\max\{v(P_1),v(P_2),\ldots,v(P_n)\},
+\]
+kde $P_1,P_2,\ldots,P_n$ jsou všechny pozice, 
+které mohou vzniknout jedním tahem hráče $\mathrm{X}$.
+
+Naopak hráč $\mathrm{O}$ se snaží hodnotu z pohledu hráče $\mathrm{X}$ co nejvíce snížit. 
+Pokud je tedy na tahu hráč $\mathrm{O}$, dostáváme:
+\[
+    v(P)=\min\{v(P_1),v(P_2),\ldots,v(P_n)\}.
+\]
+
+Tímto způsobem můžeme začít u konečných pozic hry a postupně určovat hodnoty předchozích pozic,
+dokud nedojdeme až k počáteční prázdné hrací ploše.
+
+Tento postup nazýváme algoritmus minimax.
+
+Pokud má například hráč $\mathrm{X}$ možnost přejít do pozic s hodnotami:
+\[
+    -1,\qquad 0,\qquad 1,
+\]
+vybere si možnost s nejvyšší hodnotou:
+\[
+    \max\{-1,0,1\}=1.
+\]
+
+Naopak pokud je ve stejné situaci na tahu hráč $\mathrm{O}$, vybere možnost:
+\[
+    \min\{-1,0,1\}=-1.
+\]
+
+Hodnotu pozice tedy neurčuje pouze to, zda z ní existuje cesta k vítězství.
+Důležité je také to, zda může soupeř této cestě zabránit.
+
+Pokud tímto způsobem vyhodnotíme celý herní strom TicTacToe, 
+dostáváme pro počáteční prázdnou hrací plochu hodnotu:
+\[
+    v(P_0)=0.
+\]
+
+To znamená, že pokud oba hráči hrají optimálně, hra vždy skončí remízou.
+
+Hráč $\mathrm{X}$ si tedy nemůže vynutit vítězství bez ohledu na tahy soupeře.
+Stejně tak si však hráč $\mathrm{O}$ nemůže vynutit vítězství 
+proti optimálně hrajícímu hráči $\mathrm{X}$.
+
+Výsledek hry při optimální strategii obou hráčů je tedy:
+\[
+    \mathrm{X}\;-\;\mathrm{O}=\text{remíza}.
+\]
+
+Nyní se můžeme podívat na jednotlivé možnosti prvního tahu hráče $\mathrm{X}$ podrobněji.
+
+Jak jsme již ukázali, po zohlednění symetrií existují pouze tři různé možnosti prvního tahu:
+\begin{itemize}
+    \item střed hrací plochy,
+    \item roh hrací plochy,
+    \item střed strany hrací plochy.
+\end{itemize}
+
+Pokud oba hráči hrají optimálně, mají všechny tři možnosti stejnou hodnotu:
+\[
+    v(P)=0.
+\]
+
+Bez ohledu na první tah hráče $\mathrm{X}$ tedy může hráč 
+$\mathrm{O}$ správnou hrou zabránit jeho vítězství a dovést hru k remíze.
+
+Jednotlivé první tahy se však liší v tom, 
+kolik správných odpovědí má hráč $\mathrm{O}$ k dispozici.
+
+Nejprve předpokládejme, že hráč $\mathrm{X}$ zahraje do středu hrací plochy.
+
+Zbývajících 8 polí můžeme vzhledem k symetrii rozdělit na dva typy:
+\begin{itemize}
+    \item 4 rohová pole,
+    \item 4 pole ležící uprostřed stran.
+\end{itemize}
+
+Pokud hráč $\mathrm{O}$ odpoví tahem do některého z rohů, 
+může při dalším optimálním hraní vynutit remízu. 
+Pokud však zahraje doprostřed některé ze stran, 
+může hráč $\mathrm{X}$ při správném pokračování vynutit vítězství.
+
+Hráč $\mathrm{O}$ má tedy po tahu hráče $\mathrm{X}$ do středu:
+\[
+    4
+\]
+tahy vedoucí při optimální další hře k remíze a:
+\[
+    4
+\]
+tahy, po kterých může hráč $\mathrm{X}$ vynutit vítězství.
+
+Nyní předpokládejme, že hráč $\mathrm{X}$ zahraje do některého z rohů.
+
+V tomto případě existuje pro hráče $\mathrm{O}$ pouze jediný tah, 
+kterým může při optimální další hře zabránit vynucenému vítězství hráče $\mathrm{X}$. 
+Musí zahrát do středu hrací plochy.
+
+Z 8 možných odpovědí hráče $\mathrm{O}$ tedy pouze:
+\[
+    1
+\]
+vede při správném pokračování k remíze, zatímco po zbývajících:
+\[
+    7
+\]
+tazích může hráč $\mathrm{X}$ vynutit vítězství.
+
+Nakonec předpokládejme, že hráč $\mathrm{X}$ zahraje doprostřed některé ze stran.
+
+Také v tomto případě má hráč $\mathrm{O}$ několik možností, 
+kterými může zabránit vynucenému vítězství hráče $\mathrm{X}$.
+
+Pokud například hráč $\mathrm{X}$ zahraje na pole $p(1;2)$,
+může hráč $\mathrm{O}$ odpovědět na:
+\[
+    p(1;1),\qquad p(1;3),\qquad p(2;2),\qquad p(3;2).
+\]
+Tyto čtyři tahy vedou při optimální další hře k remíze.
+
+Po zbývajících čtyřech možnostech:
+\[
+    p(2;1),\qquad p(2;3),\qquad p(3;1),\qquad p(3;3)
+\]
+může hráč $\mathrm{X}$ při správném pokračování vynutit vítězství.
+
+Pro jednotlivé typy prvního tahu tedy dostáváme:
+\[
+\begin{array}{c|c|c}
+    \text{První tah } \mathrm{X} & \text{Odpovědi vedoucí k remíze} & \text{Odpovědi umožňující výhru } \mathrm{X} \\
+    \hline
+    \text{střed} & 4 & 4 \\
+    \text{roh} & 1 & 7 \\
+    \text{střed strany} & 4 & 4
+\end{array}
+\]
+Z pohledu optimální hry jsou tedy všechny tři první tahy rovnocenné, 
+protože proti správně hrajícímu soupeři vedou k remíze.
+
+Pokud však předpokládáme, že soupeř nemusí vždy zahrát optimálně,
+je nejzajímavějším prvním tahem roh hrací plochy. 
+Hráč $\mathrm{O}$ má totiž v takovém případě pouze jedinou z 8 možných odpovědí, 
+která mu umožňuje zabránit vynucenému vítězství hráče $\mathrm{X}$.
+
+Pravděpodobnost, že náhodně hrající hráč $\mathrm{O}$ zvolí po tahu do rohu 
+právě tuto jedinou správnou odpověď, je:
+\[
+    \frac{1}{8}=0{,}125=12{,}5\,\%.
+\]
+Naopak pravděpodobnost, že zvolí některou ze zbývajících možností, 
+po kterých může hráč $\mathrm{X}$ vynutit vítězství, je:
+\[
+    \frac{7}{8}=0{,}875=87{,}5\,\%.
+\]
+Tento výsledek však neznamená, 
+že hráč $\mathrm{X}$ po chybném druhém tahu soupeře automaticky vyhraje. 
+Znamená pouze, že od tohoto okamžiku existuje strategie, 
+pomocí které může hráč $\mathrm{X}$ zvítězit bez ohledu na další tahy hráče $\mathrm{O}$.
+
+Podívejme se nyní, proč je například po prvním tahu hráče $\mathrm{X}$ do rohu nutné, 
+aby hráč $\mathrm{O}$ zahrál do středu hrací plochy.
+
+Bez újmy na obecnosti předpokládejme, že hráč $\mathrm{X}$ začne tahem:
+\[
+    \mathrm{X}_1=p(1;1).
+\]
+Hráč $\mathrm{O}$ nyní udělá chybu a místo středu hrací plochy zahraje například:
+\[
+    \mathrm{O}_1=p(1;2).
+\]
+Hráč $\mathrm{X}$ následně zahraje do středu hrací plochy:
+\[
+    \mathrm{X}_2=p(2;2).
+\]
+V tomto okamžiku hrozí hráči $\mathrm{X}$ dokončení diagonály pomocí pole $p(3;3)$. 
+Hráč $\mathrm{O}$ tedy musí tuto hrozbu zablokovat:
+\[
+    \mathrm{O}_2=p(3;3).
+\]
+Hráč $\mathrm{X}$ nyní zahraje:
+\[
+    \mathrm{X}_3=p(2;1).
+\]
+Dostáváme tak následující pozici:
+
+\begin{figure}[h]
+    \begin{center}
+        \begin{tikzpicture}[scale=1.5]
+            \draw[thick] (1,0) -- (1,3);
+            \draw[thick] (2,0) -- (2,3);
+            \draw[thick] (0,1) -- (3,1);
+            \draw[thick] (0,2) -- (3,2);
+
+            \node at (0.5,2.5) {\Large $\mathrm{X}$};
+            \node at (1.5,2.5) {\Large $\mathrm{O}$};
+
+            \node at (0.5,1.5) {\Large $\mathrm{X}$};
+            \node at (1.5,1.5) {\Large $\mathrm{X}$};
+
+            \node at (2.5,0.5) {\Large $\mathrm{O}$};
+
+            \draw[red,thick,dashed] (2.5,1.5) circle (0.3);
+            \draw[red,thick,dashed] (0.5,0.5) circle (0.3);
+        \end{tikzpicture}
+    \end{center}
+
+    \caption{Pozice, ve které hráč $\mathrm{X}$ vytvořil dvě vítězné hrozby}
+    \label{fig:TicTacToeVidlicka}
+\end{figure}
+
+Hráč $\mathrm{X}$ nyní hrozí vítězstvím na dvou různých místech současně.
+
+Pokud v následujícím tahu zahraje:
+\[
+    \mathrm{X}=p(2;3),
+\]
+vytvoří vítěznou trojici ve druhém řádku.
+
+Zároveň může zahrát:
+\[
+    \mathrm{X}=p(3;1),
+\]
+a vytvořit vítěznou trojici v prvním sloupci.
+
+Hráč $\mathrm{O}$ může svým následujícím tahem zablokovat pouze jedno z těchto dvou polí.
+Druhá vítězná možnost tedy zůstane volná a hráč $\mathrm{X}$ v následujícím tahu zvítězí.
+
+Takovou pozici budeme nazývat \textit{vidličkou}.
+
+Vidlička vzniká v okamžiku, kdy jeden hráč vytvoří současně dvě různé možnosti 
+vítězství v následujícím tahu. Soupeř může běžným tahem zablokovat pouze jednu z nich,
+a nemůže tedy zabránit vítězství.
+
+V našem případě tedy po tahu:
+\[
+    \mathrm{X}_3=p(2;1)
+\]
+vznikly dvě vítězné možnosti:
+\[
+    p(2;3)
+    \qquad\text{a}\qquad
+    p(3;1).
+\]
+Vidlička je proto jedním z nejdůležitějších prvků strategie TicTacToe. 
+Nestačí pouze sledovat, zda může některý z hráčů zvítězit v následujícím tahu. 
+Je nutné také sledovat, zda některý tah nevytvoří dvě vítězné možnosti současně.
+
+Na základě těchto úvah můžeme sestavit jednoduché pořadí priorit, 
+podle kterého může hráč vybírat svůj následující tah.
+
+\begin{enumerate}
+    \item Pokud může hráč v aktuálním tahu zvítězit, provede vítězný tah.
+    \item Pokud může soupeř zvítězit v následujícím tahu, hráč jeho vítěznou trojici zablokuje.
+    \item Pokud může hráč vytvořit vidličku, vytvoří ji.
+    \item Pokud může soupeř v následujícím tahu vytvořit vidličku, hráč jejímu vytvoření zabrání.
+    \item Pokud je střed hrací plochy volný, hráč jej obsadí.
+    \item Pokud soupeř obsadil některý roh a protější roh je volný, hráč obsadí protější roh.
+    \item Pokud je volný některý z rohů, hráč obsadí jeden z nich.
+    \item Pokud již není možné využít žádnou z předchozích možností, hráč obsadí některé volné pole uprostřed strany.
+\end{enumerate}
+
+Pořadí jednotlivých pravidel je důležité. Pokud například může hráč okamžitě zvítězit, 
+nemá význam vytvářet vidličku nebo obsazovat střed hrací plochy. 
+Stejně tak je nutné zabránit bezprostřednímu vítězství soupeře dříve, 
+než se budeme zabývat vlastní vidličkou.
+
+Poněkud složitější je zabránění soupeřově vidličce. 
+Pokud existuje pouze jedno pole, jehož obsazením může soupeř vidličku vytvořit, 
+stačí toto pole obsadit.
+
+Mohou však nastat také situace, kdy má soupeř více možností vytvoření vidličky. 
+V takovém případě nemusí být možné všechny tyto možnosti přímo zablokovat jediným tahem. 
+Hráč proto musí vytvořit vlastní bezprostřední hrozbu vítězství. 
+Soupeř je následně nucen tuto hrozbu zablokovat a nemůže svůj tah využít k vytvoření vidličky.
+
+Toto pořadí pravidel představuje praktický způsob optimálního hraní TicTacToe. 
+Pokud hráč tato pravidla správně dodržuje, soupeř si proti němu nemůže vynutit vítězství.
+
+Pokud se stejnou strategií řídí oba hráči, 
+žádný z nich nedokáže získat rozhodující výhodu a hra skončí remízou. 
+To odpovídá výsledku, který jsme získali pomocí algoritmu minimax:
+\[
+    v(P_0)=0.
+\]
+
+Doposud jsme se na TicTacToe dívali převážně z matematického hlediska.
+Nyní se můžeme podívat na to, jak předchozí výsledky využít přímo při hraní.
+
+Jak již víme, pokud oba hráči hrají optimálně, skončí hra remízou.
+Cílem optimální strategie tedy není nutně vždy zvítězit, 
+protože proti bezchybně hrajícímu soupeři to není možné.
+Cílem je hrát tak, abychom nikdy neprohráli 
+a zároveň dokázali využít chybu soupeře k vítězství.
+
+Nejprve se podíváme na strategii hráče $\mathrm{X}$, který provádí první tah.
+
+\subsection*{Hra za $\mathrm{X}$}
+
+Pro první tah hráče $\mathrm{X}$ máme po zohlednění symetrií tři možnosti:
+střed hrací plochy, roh a střed některé ze stran.
+Rozebereme proto všechny tři možnosti zvlášť.
+
+\subsubsection*{Začátek ve středu}
+
+Nejprve předpokládejme, že hráč $\mathrm{X}$ začne ve středu hrací plochy:
+\[
+    \mathrm{X}_1=p(2;2).
+\]
+
+Hráč $\mathrm{O}$ má nyní dva podstatně odlišné typy odpovědi.
+Může zahrát do některého z rohů, nebo doprostřed některé ze stran.
+
+Nejprve předpokládejme, že hráč $\mathrm{O}$ zahraje doprostřed strany.
+Bez újmy na obecnosti můžeme zvolit:
+\[
+    \mathrm{O}_1=p(1;2).
+\]
+
+Hráč $\mathrm{X}$ nyní zahraje do jednoho z rohů sousedících s tokenem hráče $\mathrm{O}$.
+Například:
+\[
+    \mathrm{X}_2=p(1;1).
+\]
+
+Dostáváme tedy pozici:
+
+\begin{figure}[h]
+    \begin{center}
+        \begin{tikzpicture}[scale=1.5]
+            \draw[thick] (1,0) -- (1,3);
+            \draw[thick] (2,0) -- (2,3);
+            \draw[thick] (0,1) -- (3,1);
+            \draw[thick] (0,2) -- (3,2);
+
+            \node at (0.5,2.5) {\Large $\mathrm{X}$};
+            \node at (1.5,2.5) {\Large $\mathrm{O}$};
+            \node at (1.5,1.5) {\Large $\mathrm{X}$};
+        \end{tikzpicture}
+    \end{center}
+
+    \caption{Pozice po tahu hráče $\mathrm{O}$ doprostřed strany}
+    \label{fig:TicTacToeStrategieXStredStrana}
+\end{figure}
+
+Hráč $\mathrm{X}$ nyní hrozí vytvořením vítězné diagonály:
+\[
+    p(1;1),\qquad p(2;2),\qquad p(3;3).
+\]
+Pokud hráč $\mathrm{O}$ pole $p(3;3)$ nezablokuje, 
+zahraje na něj hráč $\mathrm{X}$ v následujícím tahu a zvítězí.
+
+Hráč $\mathrm{O}$ je tedy nucen zahrát:
+\[
+    \mathrm{O}_2=p(3;3).
+\]
+Hráč $\mathrm{X}$ následně zahraje:
+\[
+    \mathrm{X}_3=p(2;1).
+\]
+Tím vzniknou dvě vítězné hrozby současně.
+Hráč $\mathrm{X}$ může dokončit druhý řádek pomocí pole:
+\[
+    p(2;3),
+\]
+nebo první sloupec pomocí pole:
+\[
+    p(3;1).
+\]
+Hráč $\mathrm{O}$ může zablokovat pouze jednu z těchto možností.
+Druhá zůstane volná a hráč $\mathrm{X}$ v následujícím tahu zvítězí.
+
+Pokud tedy hráč $\mathrm{X}$ začne ve středu
+a hráč $\mathrm{O}$ odpoví tahem doprostřed některé ze stran,
+ může hráč $\mathrm{X}$ vynutit vítězství.
+
+Nyní předpokládejme, že hráč $\mathrm{O}$ po prvním tahu hráče $\mathrm{X}$ zahraje do rohu.
+Bez újmy na obecnosti zvolme:
+\[
+    \mathrm{O}_1=p(1;1).
+\]
+Hráč $\mathrm{X}$ zahraje do protějšího rohu:
+\[
+    \mathrm{X}_2=p(3;3).
+\]
+Dostáváme pozici:
+\begin{figure}[h]
+    \begin{center}
+        \begin{tikzpicture}[scale=1.5]
+            \draw[thick] (1,0) -- (1,3);
+            \draw[thick] (2,0) -- (2,3);
+            \draw[thick] (0,1) -- (3,1);
+            \draw[thick] (0,2) -- (3,2);
+
+            \node at (0.5,2.5) {\Large $\mathrm{O}$};
+            \node at (1.5,1.5) {\Large $\mathrm{X}$};
+            \node at (2.5,0.5) {\Large $\mathrm{X}$};
+        \end{tikzpicture}
+    \end{center}
+
+    \caption{Pozice po tahu hráče $\mathrm{O}$ do rohu}
+    \label{fig:TicTacToeStrategieXStredRoh}
+\end{figure}
+V tomto případě může hráč $\mathrm{O}$ správnou hrou zabránit vítězství hráče $\mathrm{X}$.
+Aby si zachoval možnost remízy, musí nyní obsadit jeden ze dvou zbývajících rohů:
+\[
+    p(1;3)
+    \qquad\text{nebo}\qquad
+    p(3;1).
+\]
+Obě možnosti jsou vzhledem k symetrii stejné.
+Předpokládejme tedy:
+\[
+    \mathrm{O}_2=p(1;3).
+\]
+Hráč $\mathrm{O}$ tím zároveň vytvořil hrozbu dokončení prvního řádku, 
+a hráč $\mathrm{X}$ proto zahraje:
+\[
+    \mathrm{X}_3=p(1;2).
+\]
+Hráč $\mathrm{X}$ nyní hrozí dokončením druhého sloupce pomocí pole $p(3;2)$.
+Hráč $\mathrm{O}$ je tedy při správné hře nucen tuto hrozbu zablokovat:
+\[
+    \mathrm{O}_3=p(3;2).
+\]
+V této situaci již žádný z hráčů nemůže při správné hře vynutit vítězství 
+a hra může být dovedena k remíze.
+
+Pokud však hráč $\mathrm{O}$ po tahu:
+\[
+    \mathrm{X}_2=p(3;3)
+\]
+nezahraje do jednoho ze zbývajících rohů, 
+hráč $\mathrm{X}$ může jeho chybu využít a při správném pokračování si vynutit vítězství.
+
+Pro začátek hráče $\mathrm{X}$ ve středu tedy dostáváme jednoduchý výsledek.
+
+Pokud hráč $\mathrm{O}$ odpoví tahem doprostřed strany, 
+hráč $\mathrm{X}$ zahraje do sousedního rohu a může si vynutit vítězství.
+
+Pokud hráč $\mathrm{O}$ odpoví tahem do rohu,
+hráč $\mathrm{X}$ zahraje do protějšího rohu.
+Při správné další hře hráče $\mathrm{O}$ skončí hra remízou, 
+ale chyba hráče $\mathrm{O}$ může opět umožnit hráči $\mathrm{X}$ vynutit vítězství.
+
+
+\subsubsection*{Začátek v rohu}
+Nyní předpokládejme, že hráč $\mathrm{X}$ začne v jednom z rohů hrací plochy.
+Bez újmy na obecnosti můžeme zvolit:
+\[
+    \mathrm{X}_1=p(1;1).
+\]
+Hráč $\mathrm{O}$ může nyní odpovědět do středu, 
+na některou ze stran nebo do některého ze zbývajících rohů.
+
+Nejprve předpokládejme, že hráč $\mathrm{O}$ zahraje správně do středu:
+\[
+    \mathrm{O}_1=p(2;2).
+\]
+Hráč $\mathrm{X}$ následně zahraje do protějšího rohu:
+\[
+    \mathrm{X}_2=p(3;3).
+\]
+Dostáváme tedy pozici:
+\begin{figure}[h]
+    \begin{center}
+        \begin{tikzpicture}[scale=1.5]
+            \draw[thick] (1,0) -- (1,3);
+            \draw[thick] (2,0) -- (2,3);
+            \draw[thick] (0,1) -- (3,1);
+            \draw[thick] (0,2) -- (3,2);
+
+            \node at (0.5,2.5) {\Large $\mathrm{X}$};
+            \node at (1.5,1.5) {\Large $\mathrm{O}$};
+            \node at (2.5,0.5) {\Large $\mathrm{X}$};
+        \end{tikzpicture}
+    \end{center}
+
+    \caption{Pozice po správné odpovědi hráče $\mathrm{O}$ do středu}
+    \label{fig:TicTacToeStrategieXRohStred}
+\end{figure}
+
+Hráč $\mathrm{O}$ má nyní dvě podstatně odlišné možnosti.
+Může zahrát doprostřed některé ze stran, nebo do jednoho ze dvou zbývajících rohů.
+
+Pokud hráč $\mathrm{O}$ zahraje do jednoho ze zbývajících rohů, například:
+\[
+    \mathrm{O}_2=p(1;3),
+\]
+hráč $\mathrm{X}$ zahraje do posledního volného rohu:
+\[
+    \mathrm{X}_3=p(3;1).
+\]
+Tím vytvoří dvě vítězné hrozby současně.
+Může dokončit třetí řádek pomocí pole $p(3;2)$ nebo první sloupec pomocí pole $p(2;1)$.
+
+Hráč $\mathrm{O}$ může zablokovat pouze jednu z těchto možností 
+a hráč $\mathrm{X}$ tedy v následujícím tahu zvítězí.
+
+Pokud tedy hráč $\mathrm{O}$ po tazích:
+\[
+    \mathrm{X}_1=p(1;1),\qquad
+    \mathrm{O}_1=p(2;2),\qquad
+    \mathrm{X}_2=p(3;3)
+\]
+zahraje do některého ze zbývajících rohů, hráč $\mathrm{X}$ obsadí druhý volný roh 
+a vytvoří vidličku.
+
+Aby hráč $\mathrm{O}$ zabránil vítězství,
+musí tedy ve svém druhém tahu zahrát doprostřed některé ze stran.
+
+Předpokládejme například:
+\[
+    \mathrm{O}_2=p(1;2).
+\]
+Hráč $\mathrm{X}$ zahraje na protější stranu:
+\[
+    \mathrm{X}_3=p(3;2).
+\]
+Tím vytvoří hrozbu dokončení třetího řádku pomocí pole $p(3;1)$.
+Hráč $\mathrm{O}$ je tedy nucen zahrát:
+\[
+    \mathrm{O}_3=p(3;1).
+\]
+Hráč $\mathrm{X}$ následně zahraje:
+\[
+    \mathrm{X}_4=p(1;3).
+\]
+Hráč $\mathrm{O}$ musí zablokovat třetí sloupec:
+\[
+    \mathrm{O}_4=p(2;3).
+\]
+Poslední volné pole je:
+\[
+    p(2;1),
+\]
+které obsadí hráč $\mathrm{X}$ a hra skončí remízou.
+
+Dostáváme tedy úplnou posloupnost:
+\[
+\begin{aligned}
+    &\mathrm{X}:p(1;1)
+    \rightarrow
+    \mathrm{O}:p(2;2)
+    \rightarrow
+    \mathrm{X}:p(3;3)
+    \rightarrow\\
+    &\rightarrow
+    \mathrm{O}:p(1;2)
+    \rightarrow
+    \mathrm{X}:p(3;2)
+    \rightarrow
+    \mathrm{O}:p(3;1)
+    \rightarrow\\
+    &\rightarrow
+    \mathrm{X}:p(1;3)
+    \rightarrow
+    \mathrm{O}:p(2;3)
+    \rightarrow
+    \mathrm{X}:p(2;1).
+\end{aligned}
+\]
+
+Pokud hráč $\mathrm{O}$ všechny tyto tahy zahraje správně, skončí hra remízou.
+Pokud však v některém okamžiku nezablokuje vznikající vítěznou hrozbu, 
+může hráč $\mathrm{X}$ jeho chybu využít.
+
+Nyní se vraťme k prvnímu tahu hráče $\mathrm{O}$ a předpokládejme, 
+že místo středu zahraje doprostřed některé ze stran.
+
+Například:
+\[
+    \mathrm{O}_1=p(1;2).
+\]
+Hráč $\mathrm{X}$ v takovém případě obsadí střed:
+\[
+    \mathrm{X}_2=p(2;2).
+\]
+Hráč $\mathrm{X}$ nyní hrozí dokončením diagonály pomocí pole $p(3;3)$.
+Hráč $\mathrm{O}$ je proto nucen zahrát:
+\[
+    \mathrm{O}_2=p(3;3).
+\]
+Hráč $\mathrm{X}$ následně zahraje:
+\[
+    \mathrm{X}_3=p(2;1).
+\]
+Tím vytvoří vidličku, protože může zvítězit pomocí pole:
+\[
+    p(2;3)
+\]
+ve druhém řádku nebo pomocí pole:
+\[
+    p(3;1)
+\]
+v prvním sloupci.
+
+Hráč $\mathrm{O}$ již nemůže obě možnosti současně zablokovat 
+a hráč $\mathrm{X}$ si tedy vynutí vítězství.
+
+Stejný princip platí i pro ostatní tahy hráče $\mathrm{O}$ doprostřed strany.
+Hráč $\mathrm{X}$ nejprve obsadí střed hrací plochy a následně vytvoří dvě vítězné hrozby.
+
+Zbývají případy, kdy hráč $\mathrm{O}$ odpoví na první tah hráče $\mathrm{X}$ tahem do rohu.
+
+Pokud hráč $\mathrm{O}$ obsadí roh sousedící s prvním tokenem hráče $\mathrm{X}$, například:
+\[
+    \mathrm{O}_1=p(1;3),
+\]
+hráč $\mathrm{X}$ zahraje do rohu ležícího diagonálně proti tokenu hráče $\mathrm{O}$:
+\[
+    \mathrm{X}_2=p(3;1).
+\]
+Hráč $\mathrm{X}$ tím hrozí dokončením prvního sloupce pomocí pole $p(2;1)$.
+Hráč $\mathrm{O}$ je tedy nucen tuto hrozbu zablokovat:
+\[
+    \mathrm{O}_2=p(2;1).
+\]
+Hráč $\mathrm{X}$ následně zahraje:
+\[
+    \mathrm{X}_3=p(3;3).
+\]
+Tím opět vytvoří dvě vítězné hrozby.
+Může dokončit třetí řádek pomocí pole $p(3;2)$ nebo diagonálu pomocí pole $p(2;2)$.
+
+Hráč $\mathrm{O}$ může zablokovat pouze jednu z těchto možností, 
+a hráč $\mathrm{X}$ tedy zvítězí.
+
+Pokud hráč $\mathrm{O}$ zahraje do rohu ležícího přímo 
+proti prvnímu tokenu hráče $\mathrm{X}$:
+\[
+    \mathrm{O}_1=p(3;3),
+\]
+hráč $\mathrm{X}$ obsadí jeden ze zbývajících rohů, například:
+\[
+    \mathrm{X}_2=p(1;3).
+\]
+Hráč $\mathrm{X}$ nyní hrozí dokončením prvního řádku pomocí pole $p(1;2)$.
+Hráč $\mathrm{O}$ je tedy nucen zahrát:
+\[
+    \mathrm{O}_2=p(1;2).
+\]
+Hráč $\mathrm{X}$ následně zahraje do posledního volného rohu:
+\[
+    \mathrm{X}_3=p(3;1).
+\]
+Tím vytvoří dvě vítězné možnosti:
+\[
+    p(2;1)
+    \qquad\text{a}\qquad
+    p(2;2).
+\]
+Hráč $\mathrm{O}$ může zablokovat pouze jednu z nich 
+a hráč $\mathrm{X}$ si opět vynutí vítězství.
+
+Pokud tedy hráč $\mathrm{X}$ začne v rohu, 
+jedinou správnou první odpovědí hráče $\mathrm{O}$ je obsazení středu hrací plochy.
+
+Pokud hráč $\mathrm{O}$ střed neobsadí, 
+může hráč $\mathrm{X}$ při správném pokračování vždy vytvořit vidličku 
+a vynutit si vítězství.
+
+Pokud hráč $\mathrm{O}$ střed obsadí, zahraje hráč $\mathrm{X}$ do protějšího rohu.
+Pokud následně hráč $\mathrm{O}$ zahraje do dalšího rohu, 
+hráč $\mathrm{X}$ vytvoří vidličku obsazením posledního rohu.
+Pokud hráč $\mathrm{O}$ správně zahraje doprostřed strany, 
+může při bezchybné další hře dovést hru k remíze.
+
+\subsubsection*{Začátek uprostřed strany}
+
+Nakonec předpokládejme, že hráč $\mathrm{X}$ začne uprostřed některé ze stran hrací plochy.
+Bez újmy na obecnosti zvolme horní stranu:
+\[
+    \mathrm{X}_1=p(1;2).
+\]
+Hráč $\mathrm{O}$ má nyní 8 možných odpovědí. 
+Na rozdíl od předchozích případů však existuje několik různých tahů, 
+kterými může zabránit vynucenému vítězství hráče $\mathrm{X}$.
+
+První možností je obsazení středu hrací plochy:
+\[
+    \mathrm{O}_1=p(2;2).
+\]
+Hráč $\mathrm{X}$ následně zahraje do některého z horních rohů, například:
+\[
+    \mathrm{X}_2=p(1;1).
+\]
+Pokud oba hráči pokračují správně, nemůže si již hráč $\mathrm{X}$ vynutit vítězství, 
+ale stále si může zajistit alespoň remízu.
+
+Podobná situace nastane, pokud hráč $\mathrm{O}$ zahraje do 
+jednoho z rohů sousedících s prvním tokenem hráče $\mathrm{X}$:
+\[
+    \mathrm{O}_1=p(1;1)
+\]
+nebo
+\[
+    \mathrm{O}_1=p(1;3).
+\]
+V takovém případě je pro hráče $\mathrm{X}$ výhodné obsadit střed hrací plochy:
+\[
+    \mathrm{X}_2=p(2;2).
+\]
+Ani v tomto případě si hráč $\mathrm{X}$ proti správně hrajícímu 
+soupeři nemůže vynutit vítězství, ale může vždy dovést hru alespoň k remíze.
+
+Poslední správnou odpovědí hráče $\mathrm{O}$ je tah doprostřed protější strany:
+\[
+    \mathrm{O}_1=p(3;2).
+\]
+Také v tomto případě může hráč $\mathrm{X}$ obsadit střed:
+\[
+    \mathrm{X}_2=p(2;2),
+\]
+a při správném pokračování si zachovat možnost remízy.
+
+Hráč $\mathrm{O}$ tedy po prvním tahu:
+\[
+    \mathrm{X}_1=p(1;2)
+\]
+může zabránit vynucenému vítězství hráče $\mathrm{X}$ pomocí čtyř polí:
+\[
+    p(1;1),\qquad
+    p(1;3),\qquad
+    p(2;2),\qquad
+    p(3;2).
+\]
+Zbývající čtyři tahy hráče $\mathrm{O}$ jsou chybné:
+\[
+    p(2;1),\qquad
+    p(2;3),\qquad
+    p(3;1),\qquad
+    p(3;3).
+\]
+Pokud hráč $\mathrm{O}$ zahraje na některé z těchto polí, 
+může si hráč $\mathrm{X}$ při správném pokračování vynutit vítězství.
+
+Předpokládejme například, že hráč $\mathrm{O}$ zahraje:
+\[
+    \mathrm{O}_1=p(2;1).
+\]
+Hráč $\mathrm{X}$ v takovém případě zahraje do levého horního rohu:
+\[
+    \mathrm{X}_2=p(1;1).
+\]
+Hráč $\mathrm{X}$ tím vytvoří bezprostřední hrozbu dokončení prvního řádku pomocí pole:
+\[
+    p(1;3).
+\]
+Hráč $\mathrm{O}$ je tedy nucen tuto hrozbu zablokovat:
+\[
+    \mathrm{O}_2=p(1;3).
+\]
+Hráč $\mathrm{X}$ nyní obsadí střed hrací plochy:
+\[
+    \mathrm{X}_3=p(2;2).
+\]
+V tomto okamžiku vzniknou dvě vítězné hrozby současně. 
+Hráč $\mathrm{X}$ může dokončit druhý sloupec pomocí pole:
+\[
+    p(3;2),
+\]
+nebo diagonálu pomocí pole:
+\[
+    p(3;3).
+\]
+Hráč $\mathrm{O}$ může zablokovat pouze jedno z těchto polí 
+a hráč $\mathrm{X}$ tedy v následujícím tahu zvítězí.
+
+Stejný princip funguje také při tahu:
+\[
+    \mathrm{O}_1=p(3;1).
+\]
+Hráč $\mathrm{X}$ opět zahraje:
+\[
+    \mathrm{X}_2=p(1;1).
+\]
+Hráč $\mathrm{O}$ musí zablokovat první řádek:
+\[
+    \mathrm{O}_2=p(1;3),
+\]
+a hráč $\mathrm{X}$ následně obsadí střed:
+\[
+    \mathrm{X}_3=p(2;2).
+\]
+Opět tak vytvoří vidličku na polích:
+\[
+    p(3;2)
+    \qquad\text{a}\qquad
+    p(3;3).
+\]
+Případy, kdy hráč $\mathrm{O}$ zahraje na pravou stranu hrací plochy, tedy na:
+\[
+    p(2;3)
+    \qquad\text{nebo}\qquad
+    p(3;3),
+\]
+jsou vzhledem k osové souměrnosti stejné. 
+Hráč $\mathrm{X}$ v takovém případě zahraje do pravého horního rohu:
+\[
+    \mathrm{X}_2=p(1;3)
+\]
+a stejným postupem si vytvoří vidličku.
+
+Pokud tedy hráč $\mathrm{X}$ začne uprostřed strany,
+ může si vždy zajistit alespoň remízu.
+
+Pokud hráč $\mathrm{O}$ odpoví do středu, 
+do jednoho ze dvou sousedních rohů nebo doprostřed protější strany, 
+může při správné další hře rovněž zajistit remízu.
+
+Pokud však hráč $\mathrm{O}$ zahraje na některé ze zbývajících čtyř polí, 
+může hráč $\mathrm{X}$ jeho chybu využít, vytvořit vidličku a vynutit si vítězství.
+
+\subsection*{Hra za $\mathrm{O}$}
+
+Nyní se podíváme na strategii hráče $\mathrm{O}$.
+Ten je v jiné situaci než hráč $\mathrm{X}$, protože nezačíná 
+a jeho první tah je vždy reakcí na první tah soupeře.
+
+Hráč $\mathrm{O}$ si proti správně hrajícímu hráči $\mathrm{X}$ nemůže vynutit vítězství.
+Může však vždy hrát tak, aby neprohrál a dovedl hru alespoň k remíze.
+Pokud hráč $\mathrm{X}$ udělá chybu, 
+může ji hráč $\mathrm{O}$ stejně jako v předchozích případech využít k vítězství.
+
+\subsubsection*{Hráč $\mathrm{X}$ začne ve středu}
+
+Předpokládejme, že hráč $\mathrm{X}$ začne ve středu hrací plochy:
+\[
+    \mathrm{X}_1=p(2;2).
+\]
+Hráč $\mathrm{O}$ by měl odpovědět tahem do některého z rohů.
+Bez újmy na obecnosti zvolme:
+\[
+    \mathrm{O}_1=p(1;1).
+\]
+Další tah hráče $\mathrm{X}$ můžeme opět rozdělit podle toho, 
+zda zahraje doprostřed strany nebo do některého ze zbývajících rohů.
+
+Pokud hráč $\mathrm{X}$ zahraje doprostřed strany, například:
+\[
+    \mathrm{X}_2=p(1;2),
+\]
+musí hráč $\mathrm{O}$ zahrát na protější stranu:
+\[
+    \mathrm{O}_2=p(3;2).
+\]
+
+Obdobně pokud hráč $\mathrm{X}$ zahraje:
+\[
+    \mathrm{X}_2=p(2;1),
+\]
+odpoví hráč $\mathrm{O}$:
+\[
+    \mathrm{O}_2=p(2;3).
+\]
+Stejný princip platí i pro zbývající dvě strany.
+
+Pokud hráč $\mathrm{X}$ zahraje do rohu sousedícího 
+s prvním tokenem hráče $\mathrm{O}$, například:
+\[
+    \mathrm{X}_2=p(1;3),
+\]
+musí hráč $\mathrm{O}$ obsadit protější roh:
+\[
+    \mathrm{O}_2=p(3;1).
+\]
+Pokud naopak hráč $\mathrm{X}$ obsadí:
+\[
+    \mathrm{X}_2=p(3;1),
+\]
+zahraje hráč $\mathrm{O}$:
+\[
+    \mathrm{O}_2=p(1;3).
+\]
+Zvláštní případ nastane, pokud hráč $\mathrm{X}$ zahraje 
+do rohu protějšího prvnímu tokenu hráče $\mathrm{O}$:
+\[
+    \mathrm{X}_2=p(3;3).
+\]
+V takovém případě musí hráč $\mathrm{O}$ obsadit jeden ze zbývajících dvou rohů:
+\[
+    \mathrm{O}_2=p(1;3)
+\]
+nebo
+\[
+    \mathrm{O}_2=p(3;1).
+\]
+Obě možnosti jsou vzhledem k symetrii stejné.
+
+Pokud tedy hráč $\mathrm{X}$ začne ve středu, hráč $\mathrm{O}$ zahraje nejprve do rohu.
+Při dalším tahu reaguje podle polohy druhého tokenu hráče $\mathrm{X}$ tak, 
+aby zabránil vytvoření vidličky.
+Při správném pokračování si tímto způsobem vždy zachová možnost remízy.
+
+\subsubsection*{Hráč $\mathrm{X}$ začne v rohu}
+Nyní předpokládejme, že hráč $\mathrm{X}$ začne v rohu hrací plochy.
+Bez újmy na obecnosti zvolme:
+\[
+    \mathrm{X}_1=p(1;1).
+\]
+V tomto případě je správná první odpověď hráče $\mathrm{O}$ jednoznačná.
+Musí obsadit střed hrací plochy:
+\[
+    \mathrm{O}_1=p(2;2).
+\]
+Pokud by hráč $\mathrm{O}$ zahrál kamkoliv jinam, 
+může hráč $\mathrm{X}$ při správném pokračování vytvořit vidličku a vynutit si vítězství.
+
+Nyní záleží na druhém tahu hráče $\mathrm{X}$.
+
+Pokud hráč $\mathrm{X}$ zahraje doprostřed horní strany:
+\[
+    \mathrm{X}_2=p(1;2),
+\]
+hrozí dokončením prvního řádku.
+Hráč $\mathrm{O}$ proto musí zahrát:
+\[
+    \mathrm{O}_2=p(1;3).
+\]
+Obdobně pokud hráč $\mathrm{X}$ zahraje:
+\[
+    \mathrm{X}_2=p(2;1),
+\]
+musí hráč $\mathrm{O}$ odpovědět:
+\[
+    \mathrm{O}_2=p(3;1).
+\]
+Pokud hráč $\mathrm{X}$ zahraje do sousedního rohu:
+\[
+    \mathrm{X}_2=p(1;3),
+\]
+musí hráč $\mathrm{O}$ zablokovat první řádek:
+\[
+    \mathrm{O}_2=p(1;2).
+\]
+Stejně tak při tahu:
+\[
+    \mathrm{X}_2=p(3;1)
+\]
+odpoví:
+\[
+    \mathrm{O}_2=p(2;1).
+\]
+Důležitý případ nastane, pokud hráč $\mathrm{X}$ obsadí protější roh:
+\[
+    \mathrm{X}_2=p(3;3).
+\]
+Hráč $\mathrm{O}$ v takovém případě nesmí zahrát do dalšího rohu.
+Musí obsadit některé pole uprostřed strany, například:
+\[
+    \mathrm{O}_2=p(1;2).
+\]
+Stejně správné by bylo také:
+\[
+    p(2;1),\qquad p(2;3),\qquad p(3;2).
+\]
+Tím hráč $\mathrm{O}$ zabrání tomu, 
+aby hráč $\mathrm{X}$ vytvořil vidličku obsazením některého ze zbývajících rohů.
+
+Pokud hráč $\mathrm{X}$ ve svém druhém tahu zahraje doprostřed strany, 
+která neleží vedle jeho prvního tokenu, například:
+\[
+    \mathrm{X}_2=p(2;3),
+\]
+může hráč $\mathrm{O}$ bezpečně zahrát například:
+\[
+    \mathrm{O}_2=p(1;3).
+\]
+Obdobně při tahu:
+\[
+    \mathrm{X}_2=p(3;2)
+\]
+může hráč $\mathrm{O}$ zahrát:
+\[
+    \mathrm{O}_2=p(3;1).
+\]
+Pokud tedy hráč $\mathrm{X}$ začne v rohu, 
+musí hráč $\mathrm{O}$ jako první obsadit střed.
+V dalších tazích pak blokuje vznikající vítězné možnosti 
+a především zabrání vytvoření vidličky v případě, 
+kdy hráč $\mathrm{X}$ obsadí dva protější rohy.
+
+Při správném pokračování může hráč $\mathrm{O}$ vždy dovést hru alespoň k remíze.
+
+\subsubsection*{Hráč $\mathrm{X}$ začne uprostřed strany}
+Nakonec předpokládejme, že hráč $\mathrm{X}$ začne uprostřed některé ze stran.
+Bez újmy na obecnosti zvolme:
+\[
+    \mathrm{X}_1=p(1;2).
+\]
+Hráč $\mathrm{O}$ má v tomto případě několik správných možností prvního tahu.
+Pro praktickou hru je však nejjednodušší obsadit střed:
+\[
+    \mathrm{O}_1=p(2;2).
+\]
+Tím si hráč $\mathrm{O}$ zachová možnost remízy bez ohledu 
+na další správné tahy hráče $\mathrm{X}$.
+
+Pokud hráč $\mathrm{X}$ ve druhém tahu obsadí jeden z horních rohů, například:
+\[
+    \mathrm{X}_2=p(1;1),
+\]
+musí hráč $\mathrm{O}$ zablokovat první řádek:
+\[
+    \mathrm{O}_2=p(1;3).
+\]
+Obdobně při tahu:
+\[
+    \mathrm{X}_2=p(1;3)
+\]
+zahraje hráč $\mathrm{O}$:
+\[
+    \mathrm{O}_2=p(1;1).
+\]
+Pokud hráč $\mathrm{X}$ zahraje na levou stranu:
+\[
+    \mathrm{X}_2=p(2;1),
+\]
+může hráč $\mathrm{O}$ zahrát:
+\[
+    \mathrm{O}_2=p(1;1).
+\]
+Pokud hráč $\mathrm{X}$ zahraje na pravou stranu:
+\[
+    \mathrm{X}_2=p(2;3),
+\]
+může hráč $\mathrm{O}$ odpovědět:
+\[
+    \mathrm{O}_2=p(1;3).
+\]
+Pokud hráč $\mathrm{X}$ obsadí některý z dolních rohů, můžeme postupovat obdobně.
+Například po tahu:
+\[
+    \mathrm{X}_2=p(3;1)
+\]
+může hráč $\mathrm{O}$ zahrát:
+\[
+    \mathrm{O}_2=p(1;1).
+\]
+Při tahu:
+\[
+    \mathrm{X}_2=p(3;3)
+\]
+může hráč $\mathrm{O}$ odpovědět:
+\[
+    \mathrm{O}_2=p(1;3).
+\]
+Zajímavý případ nastane, pokud hráč $\mathrm{X}$ obsadí střed protější strany:
+\[
+    \mathrm{X}_2=p(3;2).
+\]
+Tento tah je pro hráče $\mathrm{X}$ chybou.
+Hráč $\mathrm{O}$ může nyní zahrát do některého z rohů, například:
+\[
+    \mathrm{O}_2=p(1;1),
+\]
+a při správném dalším pokračování si již může vynutit vítězství.
+
+Pokud tedy hráč $\mathrm{X}$ začne uprostřed strany, 
+je pro hráče $\mathrm{O}$ nejjednodušší odpovědí obsazení středu hrací plochy.
+Při správném pokračování tím vždy zabrání vynucenému vítězství 
+hráče $\mathrm{X}$ a zajistí si alespoň remízu.
+
+Pokud navíc hráč $\mathrm{X}$ v některém z následujících tahů udělá chybu, 
+může hráč $\mathrm{O}$ přejít z obranné strategie k vítězné.
+
+\subsection*{Praktické shrnutí}
+Předchozí strategie můžeme na závěr shrnout do několika základních situací.
+Pokud hrajeme za $\mathrm{X}$, je z praktického hlediska výhodné začít v rohu.
+Bez újmy na obecnosti tedy předpokládejme:
+\[
+    \mathrm{X}_1=p(1;1).
+\]
+Podle první odpovědi hráče $\mathrm{O}$ potom pokračujeme následovně.
+\begin{figure}[h]
+    \begin{center}
+        \begin{tikzpicture}[scale=0.75]
+
+            % O zahraje do středu
+            \begin{scope}
+                \draw[thick] (1,0) -- (1,3);
+                \draw[thick] (2,0) -- (2,3);
+                \draw[thick] (0,1) -- (3,1);
+                \draw[thick] (0,2) -- (3,2);
+
+                \node at (0.5,2.5) {\Large $\mathrm{X}_1$};
+                \node at (1.5,1.5) {\Large $\mathrm{O}_1$};
+                \node at (2.5,0.5) {\Large $\mathrm{X}_2$};
+
+                \node[align=center] at (1.5,-0.75)
+                    {\small $\mathrm{O}$ hraje střed\\ \small $\mathrm{X}$ hraje protější roh};
+            \end{scope}
+
+            % O zahraje na stranu
+            \begin{scope}[xshift=4.5cm]
+                \draw[thick] (1,0) -- (1,3);
+                \draw[thick] (2,0) -- (2,3);
+                \draw[thick] (0,1) -- (3,1);
+                \draw[thick] (0,2) -- (3,2);
+
+                \node at (0.5,2.5) {\Large $\mathrm{X}_1$};
+                \node at (1.5,2.5) {\Large $\mathrm{O}_1$};
+                \node at (1.5,1.5) {\Large $\mathrm{X}_2$};
+
+                \node[align=center] at (1.5,-0.75)
+                    {\small $\mathrm{O}$ hraje na stranu\\ \small $\mathrm{X}$ hraje střed};
+            \end{scope}
+
+            % O zahraje do sousedního rohu
+            \begin{scope}[xshift=9cm]
+                \draw[thick] (1,0) -- (1,3);
+                \draw[thick] (2,0) -- (2,3);
+                \draw[thick] (0,1) -- (3,1);
+                \draw[thick] (0,2) -- (3,2);
+
+                \node at (0.5,2.5) {\Large $\mathrm{X}_1$};
+                \node at (2.5,2.5) {\Large $\mathrm{O}_1$};
+                \node at (0.5,0.5) {\Large $\mathrm{X}_2$};
+
+                \node[align=center] at (1.5,-0.75)
+                    {\small $\mathrm{O}$ hraje vedlejší roh\\ \small $\mathrm{X}$ hraje protější roh};
+            \end{scope}
+
+            % O zahraje do protějšího rohu
+            \begin{scope}[xshift=13.5cm]
+                \draw[thick] (1,0) -- (1,3);
+                \draw[thick] (2,0) -- (2,3);
+                \draw[thick] (0,1) -- (3,1);
+                \draw[thick] (0,2) -- (3,2);
+
+                \node at (0.5,2.5) {\Large $\mathrm{X}_1$};
+                \node at (2.5,0.5) {\Large $\mathrm{O}_1$};
+                \node at (2.5,2.5) {\Large $\mathrm{X}_2$};
+
+                \node[align=center] at (1.5,-0.75)
+                    {\small $\mathrm{O}$ hraje protější roh\\ \small $\mathrm{X}$ hraje volný roh};
+            \end{scope}
+
+        \end{tikzpicture}
+    \end{center}
+
+    \caption{Základní odpovědi hráče $\mathrm{X}$ po zahájení v rohu}
+    \label{fig:TicTacToeShrnutiX}
+\end{figure}
+
+Pokud hráč $\mathrm{O}$ obsadí střed, může při bezchybné další hře dovést hru k remíze.
+Hráč $\mathrm{X}$ proto zahraje do protějšího rohu a čeká na případnou další chybu soupeře.
+
+Pokud hráč $\mathrm{O}$ zahraje na některou ze stran, hráč $\mathrm{X}$ obsadí střed.
+Při správném pokračování si potom může vynutit vítězství.
+
+Pokud hráč $\mathrm{O}$ zahraje do některého z ostatních rohů, 
+hráč $\mathrm{X}$ pokračuje v jiném rohu tak, aby si připravil vznik vidličky.
+Také v tomto případě může při správném pokračování využít chybu 
+hráče $\mathrm{O}$ k vynucenému vítězství.
+
+Pro hráče $\mathrm{O}$ je praktická strategie ještě jednodušší.
+Jeho první tah závisí pouze na tom, kde zahájil hráč $\mathrm{X}$.
+
+\begin{figure}[h]
+    \begin{center}
+        \begin{tikzpicture}[scale=1]
+
+            % X začne ve středu
+            \begin{scope}
+                \draw[thick] (1,0) -- (1,3);
+                \draw[thick] (2,0) -- (2,3);
+                \draw[thick] (0,1) -- (3,1);
+                \draw[thick] (0,2) -- (3,2);
+
+                \node at (1.5,1.5) {\Large $\mathrm{X}_1$};
+                \node at (0.5,2.5) {\Large $\mathrm{O}_1$};
+
+                \node[align=center] at (1.5,-0.5)
+                    {$\mathrm{X}$ začne ve středu\\$\mathrm{O}$ hraje do rohu};
+            \end{scope}
+
+            % X začne v rohu
+            \begin{scope}[xshift=5cm]
+                \draw[thick] (1,0) -- (1,3);
+                \draw[thick] (2,0) -- (2,3);
+                \draw[thick] (0,1) -- (3,1);
+                \draw[thick] (0,2) -- (3,2);
+
+                \node at (0.5,2.5) {\Large $\mathrm{X}_1$};
+                \node at (1.5,1.5) {\Large $\mathrm{O}_1$};
+
+                \node[align=center] at (1.5,-0.5)
+                    {$\mathrm{X}$ začne v rohu\\$\mathrm{O}$ hraje do středu};
+            \end{scope}
+
+            % X začne na straně
+            \begin{scope}[xshift=10cm]
+                \draw[thick] (1,0) -- (1,3);
+                \draw[thick] (2,0) -- (2,3);
+                \draw[thick] (0,1) -- (3,1);
+                \draw[thick] (0,2) -- (3,2);
+
+                \node at (1.5,2.5) {\Large $\mathrm{X}_1$};
+                \node at (1.5,1.5) {\Large $\mathrm{O}_1$};
+
+                \node[align=center] at (1.5,-0.5)
+                    {$\mathrm{X}$ začne na straně\\$\mathrm{O}$ hraje do středu};
+            \end{scope}
+
+        \end{tikzpicture}
+    \end{center}
+
+    \caption{Doporučené první odpovědi hráče $\mathrm{O}$}
+    \label{fig:TicTacToeShrnutiO}
+\end{figure}
+
+Pokud hráč $\mathrm{X}$ začne ve středu, zahraje hráč $\mathrm{O}$ do některého z rohů.
+
+Pokud hráč $\mathrm{X}$ začne v rohu, zahraje hráč $\mathrm{O}$ do středu.
+
+Pokud hráč $\mathrm{X}$ začne uprostřed strany, 
+je pro hráče $\mathrm{O}$ opět nejjednodušší bezpečnou odpovědí obsazení středu.
+
+Při dodržování těchto zahajovacích principů 
+a správné reakci na další hrozby si může každý 
+z hráčů proti optimálně hrajícímu soupeři zajistit alespoň remízu.
+Hráč, který jako první udělá chybu umožňující vznik vidličky 
+nebo nezablokuje vítěznou hrozbu, 
+však může soupeři umožnit přejít z remízy k vynucenému vítězství.
+
+\section*{Závěr}
+
+Na první pohled je TicTacToe velmi jednoduchá hra s pouze devíti poli a několika málo pravidly.
+Při podrobnějším pohledu však zjistíme, že i takto jednoduchá hra nabízí poměrně zajímavý kombinatorický problém.
+
+Nejprve jsme zjistili počet všech možných posloupností tahů a následně jsme pomocí symetrií hrací plochy odstranili hry, které se od sebe liší pouze otočením nebo osovou souměrností.
+Po zohlednění toho, že hra může skončit již od pátého tahu, jsme získali celkem:
+\[
+    31\,896
+\]
+různých průběhů hry, pokud hry lišící se pouze symetrií považujeme za stejné.
+
+Dále jsme se nezabývali pouze pořadím jednotlivých tahů, ale také pozicemi, které mohou během hry vzniknout.
+Bez zohlednění symetrií může během hry nastat:
+\[
+    5\,478
+\]
+legálních pozic včetně prázdné hrací plochy.
+
+Po zohlednění otočení a osových souměrností se tento počet sníží na:
+\[
+    765
+\]
+navzájem různých pozic.
+
+Pomocí herního stromu a algoritmu minimax jsme dále zjistili, že při optimální hře obou hráčů nemůže ani jeden z nich vynutit vítězství.
+Výsledkem optimální hry je tedy vždy:
+\[
+    \mathrm{X}\;-\;\mathrm{O}=\text{remíza}.
+\]
+
+To však neznamená, že jsou všechny tahy stejně dobré.
+Pokud některý z hráčů udělá chybu, může soupeř v některých případech vytvořit vidličku a přejít z pozice vedoucí k remíze k vynucenému vítězství.
+
+Na závěr jsme proto sestavili praktickou strategii pro oba hráče.
+Pokud se jí hráč správně řídí, nemůže proti němu soupeř vynutit vítězství.
+V nejhorším případě tedy hra skončí remízou, zatímco chybu soupeře lze využít k vítězství.
+
+TicTacToe je tak příkladem hry, která je pravidly velmi jednoduchá, ale přesto na ní lze ukázat kombinatoriku, symetrie, herní stromy, algoritmus minimax i základní principy optimální strategie.
+
+\end{document}
